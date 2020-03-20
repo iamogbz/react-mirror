@@ -4,6 +4,7 @@
         "moduleResolution": "node",
         "outDir": "./built",
         "target": "es6",
+        "jsx": "react",
         "allowSyntheticDefaultImports": true,
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
