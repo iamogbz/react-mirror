@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "moduleResolution": "node",
+        "outDir": "./built",
+        "target": "es6",
+        "allowSyntheticDefaultImports": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true
+    },
+    "exclude": ["node_modules"]
+}

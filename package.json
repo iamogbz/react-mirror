@@ -1,0 +1,132 @@
+{
+    "name": "boilerplate",
+    "version": "0.0.1",
+    "description": "NodeJS Boilerplate with precommit test and linting configured",
+    "author": "iamogbz",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/iamogbz/node-js-boilerplate"
+    },
+    "bugs": {
+        "url": "https://github.com/iamogbz/node-js-boilerplate/issues"
+    },
+    "homepage": "https://github.com/iamogbz/node-js-boilerplate#readme",
+    "license": "GPL-3.0",
+    "keywords": [
+        "node",
+        "nodejs",
+        "typescript",
+        "boilerplate",
+        "testing",
+        "linting",
+        "ci",
+        "package",
+        "npm"
+    ],
+    "engines": {
+        "node": ">=8",
+        "npm": ">=6"
+    },
+    "main": "lib/main.js",
+    "types": "lib/main.d.ts",
+    "scripts": {
+        "lint": "eslint . --ext .js,.ts",
+        "build": "webpack --mode=production",
+        "build-watch": "webpack --mode=development --watch",
+        "build-types": "tsc --declaration --emitDeclarationOnly",
+        "test": "jest",
+        "coveralls": "cat ./artifacts/coverage/lcov.info | coveralls",
+        "typecheck": "tsc --noEmit",
+        "commit": "git-cz",
+        "release": "semantic-release"
+    },
+    "release": {
+        "dryRun": true,
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            "@semantic-release/npm",
+            "@semantic-release/github"
+        ]
+    },
+    "jest": {
+        "preset": "ts-jest",
+        "moduleDirectories": [
+            "./src",
+            "./tests",
+            "./node_modules"
+        ],
+        "testPathIgnorePatterns": [
+            "./artifacts/",
+            "./node_modules/"
+        ],
+        "coverageDirectory": "./artifacts/coverage"
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    },
+    "lint-staged": {
+        "*.{js,ts}": [
+            "npm run lint",
+            "npm test -- --bail --findRelatedTests"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "lint-staged"
+        }
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.8.7",
+        "@babel/preset-typescript": "^7.8.3",
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "@commitlint/travis-cli": "^8.3.5",
+        "@types/copy-webpack-plugin": "^5.0.0",
+        "@types/jest": "^25.1.4",
+        "@types/node": "^13.9.2",
+        "@types/webpack": "^4.41.7",
+        "@typescript-eslint/eslint-plugin": "^2.24.0",
+        "@typescript-eslint/parser": "^2.24.0",
+        "acorn": "^7.1.1",
+        "babel-eslint": "^10.1.0",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "commitizen": "^4.0.3",
+        "copy-webpack-plugin": "^5.1.1",
+        "coveralls": "^3.0.9",
+        "cz-conventional-changelog": "^3.1.0",
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb": "^18.1.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.19.0",
+        "husky": "^4.2.3",
+        "jest": "^25.1.0",
+        "lint-staged": "^10.0.8",
+        "prettier": "^1.19.1",
+        "prettier-eslint": "^9.0.1",
+        "rxjs": "^6.5.4",
+        "semantic-release": "^17.0.4",
+        "stylelint": "^13.2.1",
+        "stylelint-config-standard": "^20.0.0",
+        "stylelint-config-styled-components": "^0.1.1",
+        "stylelint-processor-styled-components": "^1.10.0",
+        "ts-jest": "^25.2.1",
+        "ts-node": "^8.7.0",
+        "typescript": "^3.8.3",
+        "webpack": "^4.42.0",
+        "webpack-cli": "^3.3.11"
+    }
+}
