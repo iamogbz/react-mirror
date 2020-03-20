@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useMirror } from "react-mirror";
-import { Clock } from "./clock";
+import { Clock } from "./Clock";
 import "./styles.css";
 
 export default function App(): JSX.Element {
