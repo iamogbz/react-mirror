@@ -9,13 +9,13 @@ export function Window({
     children: React.ReactNode;
 }): JSX.Element | null {
     const portalWindow = React.useMemo(() => {
-        const w = window.open(
+        const _window = window.open(
             "",
             "React Mirror Portal Test",
             "width=400,height=400",
         );
-        w.onbeforeunload = onClose;
-        return w;
+        _window.onbeforeunload = onClose;
+        return _window;
     }, [onClose]);
     const portal = React.useMemo(() => {
         if (!portalWindow?.document?.body) return null;
