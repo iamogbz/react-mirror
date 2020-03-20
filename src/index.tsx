@@ -40,6 +40,8 @@ export function Mirror({
             subtree: true,
             characterData: true,
         });
+        // also listen for input changes since those are not observable
+        real.addEventListener("input", update);
         return (): void => observer.disconnect();
     }, [real, observer]);
     // return frame element
