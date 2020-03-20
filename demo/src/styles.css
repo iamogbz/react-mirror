@@ -17,6 +17,12 @@
   display: block;
 }
 
+.Demo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .Clock.Face {
   margin: 10px auto;
   position: relative;

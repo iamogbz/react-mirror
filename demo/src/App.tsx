@@ -10,11 +10,6 @@ export default function App(): JSX.Element {
     return (
         <div className="App">
             <h1>React Mirror Demo</h1>
-            <div ref={ref}>
-                <input className="Input" placeholder="type something..." />
-                <Clock />
-            </div>
-
             <button
                 className="Button"
                 disabled={usingPortal}
@@ -23,13 +18,21 @@ export default function App(): JSX.Element {
                 Start thinking with portals!
             </button>
 
-            {usingPortal ? (
-                <Window onClose={(): void => setUsingPortal(false)}>
-                    {reflection}
-                </Window>
-            ) : (
-                reflection
-            )}
+            <div className="Demo">
+                <div ref={ref}>
+                    <input className="Input" placeholder="type something..." />
+                    <div style={{ padding: 10 }}>Mirror mirror in my dom</div>
+                    <Clock />
+                </div>
+
+                {usingPortal ? (
+                    <Window onClose={(): void => setUsingPortal(false)}>
+                        {reflection}
+                    </Window>
+                ) : (
+                    reflection
+                )}
+            </div>
         </div>
     );
 }
