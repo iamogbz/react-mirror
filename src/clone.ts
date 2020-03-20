@@ -57,7 +57,7 @@ function cloneNodeWithStyles(node: Node, xStyles: React.CSSProperties): Node {
     const clone = node.cloneNode(false);
     // check that node is html element before cloning styles
     const cloneElt = clone as HTMLElement;
-    const nodeElt = clone as HTMLElement;
+    const nodeElt = node as HTMLElement;
     if (nodeElt.style && cloneElt.style) {
         copyStyles(nodeElt, cloneElt);
         for (const [prop, value] of Object.entries(xStyles)) {
