@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useMirror } from "react-mirror";
+import { Window } from "./Window";
 import { Clock } from "./Clock";
 import "./styles.css";
 
@@ -12,7 +13,7 @@ export default function App(): JSX.Element {
                 <input className="Input" placeholder="type something..." />
                 <Clock />
             </div>
-            {reflection}
+            <Window>{reflection}</Window>
         </>
     );
 }
