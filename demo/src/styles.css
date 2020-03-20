@@ -3,11 +3,18 @@
   text-align: center;
 }
 
-.Input {
+.Input, .Button {
   padding: 10px 15px;
+  margin: 10px;
   font-size: 1.2em;
   border: solid 1px grey;
   border-radius: 4px;
+}
+
+.Button {
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
 }
 
 .Clock.Face {
