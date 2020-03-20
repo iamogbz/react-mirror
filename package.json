@@ -1,27 +1,24 @@
 {
-    "name": "boilerplate",
+    "name": "react-mirror",
     "version": "0.0.1",
-    "description": "NodeJS Boilerplate with precommit test and linting configured",
+    "description": "Create synchronized replicas of a React DOM element",
     "author": "iamogbz",
     "repository": {
         "type": "git",
-        "url": "https://github.com/iamogbz/node-js-boilerplate"
+        "url": "https://github.com/iamogbz/react-mirror"
     },
     "bugs": {
-        "url": "https://github.com/iamogbz/node-js-boilerplate/issues"
+        "url": "https://github.com/iamogbz/react-mirror/issues"
     },
-    "homepage": "https://github.com/iamogbz/node-js-boilerplate#readme",
+    "homepage": "https://github.com/iamogbz/react-mirror#readme",
     "license": "GPL-3.0",
     "keywords": [
-        "node",
-        "nodejs",
-        "typescript",
-        "boilerplate",
-        "testing",
-        "linting",
-        "ci",
-        "package",
-        "npm"
+        "mirror",
+        "react-mirror",
+        "react",
+        "react-dom",
+        "react-portal",
+        "portal"
     ],
     "engines": {
         "node": ">=8",
@@ -91,9 +88,13 @@
         "@commitlint/cli": "^8.3.5",
         "@commitlint/config-conventional": "^8.3.4",
         "@commitlint/travis-cli": "^8.3.5",
+        "@testing-library/react-hooks": "^3.2.1",
         "@types/copy-webpack-plugin": "^5.0.0",
         "@types/jest": "^25.1.4",
         "@types/node": "^13.9.2",
+        "@types/react": "^16.9.23",
+        "@types/react-dom": "^16.9.5",
+        "@types/react-test-renderer": "^16.9.2",
         "@types/webpack": "^4.41.7",
         "@typescript-eslint/eslint-plugin": "^2.24.0",
         "@typescript-eslint/parser": "^2.24.0",
@@ -117,6 +118,9 @@
         "lint-staged": "^10.0.8",
         "prettier": "^1.19.1",
         "prettier-eslint": "^9.0.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-test-renderer": "^16.13.1",
         "rxjs": "^6.5.4",
         "semantic-release": "^17.0.4",
         "stylelint": "^13.2.1",
@@ -124,6 +128,7 @@
         "stylelint-config-styled-components": "^0.1.1",
         "stylelint-processor-styled-components": "^1.10.0",
         "ts-jest": "^25.2.1",
+        "ts-loader": "^6.2.1",
         "ts-node": "^8.7.0",
         "typescript": "^3.8.3",
         "webpack": "^4.42.0",

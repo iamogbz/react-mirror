@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component frames an empty reflection 1`] = `
+<Mirror
+  reflect={null}
+/>
+`;
+
+exports[`Hook returns an empty reflection 1`] = `
+<Mirror
+  reflect={null}
+/>
+`;

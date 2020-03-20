@@ -1,22 +1,43 @@
-# NodeJS Boilerplate
+# React Mirror
 
-[![Dependabot badge](https://badgen.net/dependabot/iamogbz/node-js-boilerplate/?icon=dependabot)](https://app.dependabot.com)
-[![Dependencies](https://david-dm.org/iamogbz/node-js-boilerplate.svg)](https://github.com/iamogbz/node-js-boilerplate)
-[![Build Status](https://github.com/iamogbz/node-js-boilerplate/workflows/Build/badge.svg)](https://github.com/iamogbz/node-js-boilerplate/actions)
-[![Coverage Status](https://coveralls.io/repos/github/iamogbz/node-js-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/iamogbz/node-js-boilerplate?branch=master)
+[![Dependabot badge](https://badgen.net/dependabot/iamogbz/react-mirror/?icon=dependabot)](https://app.dependabot.com)
+[![Dependencies](https://david-dm.org/iamogbz/react-mirror.svg)](https://github.com/iamogbz/react-mirror)
+[![Build Status](https://github.com/iamogbz/react-mirror/workflows/Build/badge.svg)](https://github.com/iamogbz/react-mirror/actions)
+[![Coverage Status](https://coveralls.io/repos/github/iamogbz/react-mirror/badge.svg?branch=master)](https://coveralls.io/github/iamogbz/react-mirror?branch=master)
 
-Simple node js package with linting, testing and building preconfigured
+Create synchronized replicas of a React DOM element
 
-## Shell Commands
+## Usage
 
-```sh
-npm run test      # run jest tests
+### `useMirror` hook
+
+```jsx
+import { useMirror } from 'react-mirror';
+
+function App() {
+  const [ref, reflection] = useMirror();
+  return (
+    <>
+      <div ref={ref} />
+      {reflection}
+    <>
+  );
+};
 ```
 
-```sh
-npm run commit    # run commitizen
-```
+### `<Mirror />` component
 
-```sh
-npm run build     # webpack build
+```jsx
+import React from 'react';
+import { Mirror } from 'react-mirror';
+
+function App() {
+  const [reflect, setReflect] = React.useState(null);
+  return (
+    <>
+      <div ref={setReflect} />
+      <Mirror reflect={reflect}/>
+    <>
+  );
+};
 ```

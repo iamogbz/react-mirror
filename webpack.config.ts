@@ -11,12 +11,15 @@ const configuration: Configuration = {
             {
                 exclude: /(node_modules|bower_components)/,
                 test: /\.tsx?$/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-typescript"],
+                use: [
+                    {
+                        loader: "babel-loader",
+                        options: {
+                            presets: ["@babel/preset-typescript"],
+                        },
                     },
-                },
+                    { loader: "ts-loader" },
+                ],
             },
         ],
     },
@@ -30,7 +33,7 @@ const configuration: Configuration = {
         new CopyPlugin(["package.json", "README.md"]),
     ],
     resolve: {
-        extensions: [".js", ".ts"],
+        extensions: [".js", ".ts", ".jsx", ".tsx"],
         modules: [path.resolve("./src"), path.resolve("./node_modules")],
     },
 };
