@@ -2,11 +2,20 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 function deepCloneWithStyles(node: Element): Element {
-    const style = window.getComputedStyle(node, null);
+    const style = window.getComputedStyle(node);
     const clone = node.cloneNode(false) as HTMLElement;
     if (clone.style && style.cssText) {
         clone.style.cssText = style.cssText;
         clone.style.pointerEvents = "none";
+    }
+    for (const pseudo of ["after", "before"]) {
+        const pseudoStyle = window.getComputedStyle(node, `::${pseudo}`);
+        const pseudoElt = document.createElement("span");
+        if (pseudoElt.style && pseudoStyle.cssText) {
+            pseudoElt.style.cssText = pseudoStyle.cssText;
+            pseudoElt.style.pointerEvents = "none";
+        }
+        clone.appendChild(pseudoElt);
     }
     for (const child of node.childNodes) {
         clone.appendChild(deepCloneWithStyles(child as Element));
