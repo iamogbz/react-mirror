@@ -35,7 +35,6 @@ jobs:
         npm run coveralls
     - name: Build
       run: |
-        npm run build-types
         npm run build
     - name: Deploy
       if: matrix.node-version == '12.x' && github.ref == 'refs/heads/master'
