@@ -7,6 +7,7 @@ function deepCloneWithStyles(node: Element): Element {
     if (clone.style && style.cssText) clone.style.cssText = style.cssText;
     for (const child of node.childNodes)
         clone.appendChild(deepCloneWithStyles(child as Element));
+    clone.style.pointerEvents = "none";
     return clone;
 }
 
@@ -23,8 +24,12 @@ export function Mirror({
     // update the reflection to match the real node
     const update = React.useCallback(() => {
         if (!frame || !real) return;
-        frame.innerHTML = "";
-        frame.appendChild(deepCloneWithStyles(real as Element));
+        const reflection = deepCloneWithStyles(real as Element);
+        if (frame.firstChild) {
+            frame.replaceChild(reflection, frame.firstChild);
+        } else {
+            frame.appendChild(reflection);
+        }
     }, [frame, real]);
     // start of the reflection
     React.useEffect(update, [update]);
