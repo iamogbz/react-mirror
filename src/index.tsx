@@ -1,6 +1,15 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
+function deepCloneWithStyles(node: Element): Element {
+    const style = window.getComputedStyle(node, null);
+    const clone = node.cloneNode(false) as HTMLElement;
+    if (clone.style && style.cssText) clone.style.cssText = style.cssText;
+    for (const child of node.childNodes)
+        clone.appendChild(deepCloneWithStyles(child as Element));
+    return clone;
+}
+
 export function Mirror({
     reflect,
 }: {
@@ -15,7 +24,7 @@ export function Mirror({
     const update = React.useCallback(() => {
         if (!frame || !real) return;
         frame.innerHTML = "";
-        frame.appendChild(real.cloneNode(true));
+        frame.appendChild(deepCloneWithStyles(real as Element));
     }, [frame, real]);
     // start of the reflection
     React.useEffect(update, [update]);
