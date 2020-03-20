@@ -1,6 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
+import { deepCloneWithStyles } from "./clone";
+
 export function Mirror({
     reflect,
 }: {
@@ -14,8 +16,14 @@ export function Mirror({
     // update the reflection to match the real node
     const update = React.useCallback(() => {
         if (!frame || !real) return;
-        frame.innerHTML = "";
-        frame.appendChild(real.cloneNode(true));
+        const reflection = deepCloneWithStyles(real as Element, {
+            pointerEvents: "none",
+        });
+        if (frame.firstChild) {
+            frame.replaceChild(reflection, frame.firstChild);
+        } else {
+            frame.appendChild(reflection);
+        }
     }, [frame, real]);
     // start of the reflection
     React.useEffect(update, [update]);
@@ -35,7 +43,7 @@ export function Mirror({
         return (): void => observer.disconnect();
     }, [real, observer]);
     // return frame element
-    return <div ref={ref} style={{ pointerEvents: "none" }} />;
+    return <div ref={ref} />;
 }
 
 export function useMirror(): [
