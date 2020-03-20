@@ -36,35 +36,44 @@ function copyStyles(sourceElt: HTMLElement, targetElt: HTMLElement): void {
         // store pseudo styles in style element
         if (pseudos?.length) {
             for (const p of new Set(pseudos)) {
-                styleElt.innerHTML += `.${targetElt.className}${p} { ${styleDecl.cssText} }`;
+                styleElt.innerHTML += `.${targetElt.className}${p} { ${styleDecl.cssText} }\n`;
             }
-            continue;
-        }
-        for (let i = 0; i < styleDecl.length; i++) {
-            const propName = styleDecl[i];
-            const propValue = styleDecl.getPropertyValue(propName);
-            targetElt.style.setProperty(propName, propValue);
+        } else {
+            for (let i = 0; i < styleDecl.length; i++) {
+                const propName = styleDecl[i];
+                const propValue = styleDecl.getPropertyValue(propName);
+                targetElt.style.setProperty(propName, propValue);
+            }
         }
     }
     targetElt.appendChild(styleElt);
 }
 
-function cloneNodeWithStyles(node: Node): Node {
+function toSpinalCase(camelCase: string): string {
+    return camelCase.replace(/([A-Z])/g, "-$1").toLocaleLowerCase();
+}
+
+function cloneNodeWithStyles(node: Node, xStyles: React.CSSProperties): Node {
     const clone = node.cloneNode(false);
     // check that node is html element before cloning styles
     const cloneElt = clone as HTMLElement;
     const nodeElt = clone as HTMLElement;
     if (nodeElt.style && cloneElt.style) {
         copyStyles(nodeElt, cloneElt);
-        cloneElt.style.pointerEvents = "none";
+        for (const [prop, value] of Object.entries(xStyles)) {
+            cloneElt.style.setProperty(toSpinalCase(prop), value);
+        }
     }
     return clone;
 }
 
-export function deepCloneWithStyles(node: Node): Node {
-    const clone = cloneNodeWithStyles(node);
+export function deepCloneWithStyles(
+    node: Node,
+    xStyles: React.CSSProperties,
+): Node {
+    const clone = cloneNodeWithStyles(node, xStyles);
     for (const child of node.childNodes) {
-        clone.appendChild(deepCloneWithStyles(child));
+        clone.appendChild(deepCloneWithStyles(child, xStyles));
     }
     return clone;
 }

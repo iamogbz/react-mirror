@@ -16,7 +16,9 @@ export function Mirror({
     // update the reflection to match the real node
     const update = React.useCallback(() => {
         if (!frame || !real) return;
-        const reflection = deepCloneWithStyles(real as Element);
+        const reflection = deepCloneWithStyles(real as Element, {
+            pointerEvents: "none",
+        });
         if (frame.firstChild) {
             frame.replaceChild(reflection, frame.firstChild);
         } else {
