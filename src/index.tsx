@@ -4,10 +4,13 @@ import * as ReactDOM from "react-dom";
 function deepCloneWithStyles(node: Element): Element {
     const style = window.getComputedStyle(node, null);
     const clone = node.cloneNode(false) as HTMLElement;
-    if (clone.style && style.cssText) clone.style.cssText = style.cssText;
-    for (const child of node.childNodes)
+    if (clone.style && style.cssText) {
+        clone.style.cssText = style.cssText;
+        clone.style.pointerEvents = "none";
+    }
+    for (const child of node.childNodes) {
         clone.appendChild(deepCloneWithStyles(child as Element));
-    clone.style.pointerEvents = "none";
+    }
     return clone;
 }
 
