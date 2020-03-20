@@ -1,13 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-export const Mirror = ({
+export function Mirror({
     reflect,
 }: {
     reflect: React.ReactInstance;
-}): JSX.Element => {
+}): JSX.Element {
     // ref to element in which reflection will be framed
-    const [frame, ref] = React.useState<HTMLDivElement | null>();
+    const [frame, ref] = React.useState<HTMLDivElement | null>(null);
     // real dom node of react element being reflected
     // eslint-disable-next-line react/no-find-dom-node
     const real = React.useMemo(() => ReactDOM.findDOMNode(reflect), [reflect]);
@@ -36,12 +36,12 @@ export const Mirror = ({
     }, [real, observer]);
     // return frame element
     return <div ref={ref} style={{ pointerEvents: "none" }} />;
-};
+}
 
-export const useMirror = (): [
+export function useMirror(): [
     React.Dispatch<unknown>,
     JSX.Element | undefined,
-] => {
-    const [node, ref] = React.useState();
+] {
+    const [node, ref] = React.useState(null);
     return [ref, <Mirror key="mirror" reflect={node} />];
-};
+}
