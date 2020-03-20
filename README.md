@@ -1,5 +1,7 @@
 # React Mirror
 
+<span><img alt="⚛️" align="right" width="144" height="144" src="./assets/logo.png"/></span>
+
 [![NPM badge](https://img.shields.io/npm/v/react-mirror)](https://www.npmjs.com/package/react-mirror)
 [![Dependabot badge](https://badgen.net/dependabot/iamogbz/react-mirror/?icon=dependabot)](https://app.dependabot.com)
 [![Dependencies](https://david-dm.org/iamogbz/react-mirror.svg)](https://github.com/iamogbz/react-mirror)
