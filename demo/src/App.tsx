@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Mirror } from "react-mirror";
+import { useMirror } from "react-mirror";
 import "./styles.css";
 
 function Clock(): JSX.Element {
@@ -12,7 +12,7 @@ function Clock(): JSX.Element {
 }
 
 export default function App(): JSX.Element {
-    const [reflect, ref] = React.useState<HTMLDivElement | null>(null);
+    const [ref, reflection] = useMirror();
     return (
         <>
             <div className="App" ref={ref}>
@@ -21,7 +21,7 @@ export default function App(): JSX.Element {
                 <input />
                 <Clock />
             </div>
-            <Mirror reflect={reflect} />
+            {reflection}
         </>
     );
 }

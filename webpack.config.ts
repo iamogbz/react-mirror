@@ -1,6 +1,7 @@
 import * as path from "path";
 import { execSync } from "child_process";
 import { Configuration } from "webpack";
+import * as nodeExternals from "webpack-node-externals";
 import { WebpackCompilerPlugin } from "webpack-compiler-plugin";
 import * as CopyPlugin from "copy-webpack-plugin";
 
@@ -47,6 +48,7 @@ const configuration: Configuration = {
     watchOptions: {
         ignored: /node_modules|built/,
     },
+    externals: [nodeExternals()],
 };
 
 export default configuration;
