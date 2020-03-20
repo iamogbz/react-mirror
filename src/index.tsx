@@ -4,7 +4,7 @@ import * as ReactDOM from "react-dom";
 export function Mirror({
     reflect,
 }: {
-    reflect: React.ReactInstance;
+    reflect: React.ReactInstance | null;
 }): JSX.Element {
     // ref to element in which reflection will be framed
     const [frame, ref] = React.useState<HTMLDivElement | null>(null);

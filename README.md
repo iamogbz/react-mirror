@@ -22,7 +22,7 @@ function App() {
       {reflection}
     <>
   );
-};
+}
 ```
 
 ### `<Mirror />` component
@@ -39,5 +39,5 @@ function App() {
       <Mirror reflect={reflect}/>
     <>
   );
-};
+}
 ```

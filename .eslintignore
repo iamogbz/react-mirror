@@ -5,3 +5,4 @@ server/
 docs/
 node_modules/
 lib/
+built/

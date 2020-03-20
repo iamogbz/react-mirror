@@ -1,5 +1,7 @@
 import * as path from "path";
+import { execSync } from "child_process";
 import { Configuration } from "webpack";
+import { WebpackCompilerPlugin } from "webpack-compiler-plugin";
 import * as CopyPlugin from "copy-webpack-plugin";
 
 const configuration: Configuration = {
@@ -29,12 +31,21 @@ const configuration: Configuration = {
         path: path.resolve(__dirname, "lib"),
     },
     plugins: [
-        new CopyPlugin([{ from: "built/src/index.d.ts", to: "main.d.ts" }]),
+        new WebpackCompilerPlugin({
+            name: "script-build-types",
+            listeners: {
+                compileStart: (): void => void execSync("npm run build-types"),
+            },
+        }),
+        new CopyPlugin([{ from: "built/index.d.ts", to: "main.d.ts" }]),
         new CopyPlugin(["package.json", "README.md"]),
     ],
     resolve: {
         extensions: [".js", ".ts", ".jsx", ".tsx"],
         modules: [path.resolve("./src"), path.resolve("./node_modules")],
+    },
+    watchOptions: {
+        ignored: /node_modules|built/,
     },
 };
 
