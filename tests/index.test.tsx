@@ -1,7 +1,8 @@
 import * as React from "react";
-import { act } from "react-test-renderer";
-import { render } from "@testing-library/react";
-import { renderHook } from "@testing-library/react-hooks";
+// import { act } from "react-test-renderer";
+import { prettyDOM } from "@testing-library/dom";
+import { render, cleanup } from "@testing-library/react";
+import { renderHook, act } from "@testing-library/react-hooks";
 import { Mirror, useMirror } from "../src";
 
 describe("Hook", (): void => {
@@ -24,14 +25,20 @@ describe("Component", (): void => {
     beforeAll(() => {
         jest.spyOn(Math, "random").mockReturnValue(0.123456789);
     });
+    afterEach(cleanup);
     afterAll(jest.restoreAllMocks);
 
     it("frames an empty reflection", (): void => {
-        expect(render(<Mirror reflect={null} />).baseElement).toMatchSnapshot();
+        const result = render(
+            <Mirror className="test-mirror-frame" reflect={null} />,
+        );
+        expect(result.baseElement).toMatchSnapshot();
     });
 
-    it.only("renders reflection with styles", () => {
+    it("renders reflection with styles", () => {
+        /** add document style */
         const domStyle = document.createElement("style");
+        document.head.appendChild(domStyle);
         domStyle.innerHTML = `
             body {
                 font-family: "san-serif";
@@ -56,29 +63,24 @@ describe("Component", (): void => {
                 width: 20px;
             }
         `;
-        document.head.appendChild(domStyle);
-
+        /** add nodes that will be mirrored mirror */
         const domNode = document.createElement("div");
+        document.body.appendChild(domNode);
         const node1 = document.createElement("div");
+        domNode.appendChild(node1);
         node1.className = "classOne";
         const node2 = document.createElement("span");
-        node2.className = "classTwo";
         node1.appendChild(node2);
-        domNode.appendChild(node1);
-        document.body.appendChild(domNode);
-
-        const results = render(
-            <Mirror className="test-mirror-frame" reflect={domNode} />,
-        );
-        expect(results.baseElement).toMatchSnapshot();
-
+        node2.className = "classTwo";
         const node3 = document.createElement("p");
+        domNode.appendChild(node3);
         node3.innerHTML = "Mock text node";
         node3.className = "classThree";
-        domNode.appendChild(node3);
-        wrapper.update();
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
-        expect(document.body).toMatchDiffSnapshot(documentBody);
+        /** mirror nodes and check results */
+        const result = render(<Mirror reflect={domNode} />);
+        expect(result.baseElement).toMatchSnapshot();
+        /** clean up */
+        domStyle.remove();
+        domNode.remove();
     });
 });
