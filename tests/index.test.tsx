@@ -1,6 +1,4 @@
 import * as React from "react";
-// import { act } from "react-test-renderer";
-import { prettyDOM } from "@testing-library/dom";
 import { render, cleanup } from "@testing-library/react";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { Mirror, useMirror } from "../src";

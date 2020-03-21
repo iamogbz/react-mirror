@@ -142,7 +142,6 @@
         "react-test-renderer": "^16.13.1",
         "rxjs": "^6.5.4",
         "semantic-release": "^17.0.4",
-        "snapshot-diff": "^0.7.0",
         "stylelint": "^13.2.1",
         "stylelint-config-standard": "^20.0.0",
         "stylelint-config-styled-components": "^0.1.1",
