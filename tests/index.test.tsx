@@ -1,4 +1,5 @@
 import * as React from "react";
+import { wait } from "@testing-library/dom";
 import { render, cleanup } from "@testing-library/react";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { Mirror, useMirror } from "../src";
@@ -33,7 +34,7 @@ describe("Component", (): void => {
         expect(result.baseElement).toMatchSnapshot();
     });
 
-    it("renders reflection with styles", () => {
+    it("renders reflection with styles", async () => {
         /** add document style */
         const domStyle = document.createElement("style");
         document.head.appendChild(domStyle);
@@ -70,10 +71,18 @@ describe("Component", (): void => {
         const node2 = document.createElement("span");
         node1.appendChild(node2);
         node2.className = "classTwo";
+        /** render mirror into detached node */
+        const spyReplace = jest.spyOn(HTMLElement.prototype, "replaceChild");
+        const baseElement = document.createElement("div");
+        render(<Mirror reflect={domNode} />, { baseElement });
+        /** add more nodes and check that they are inserted */
+        expect(spyReplace).toHaveBeenCalledTimes(0);
         const node3 = document.createElement("p");
         domNode.appendChild(node3);
         node3.innerHTML = "Mock text node";
         node3.className = "classThree";
+        await new Promise(resolve => setTimeout(resolve));
+        expect(spyReplace).toHaveBeenCalledTimes(1);
         /** mirror nodes and check results */
         const result = render(<Mirror reflect={domNode} />);
         expect(result.baseElement).toMatchSnapshot();
