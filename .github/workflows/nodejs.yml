@@ -29,6 +29,7 @@ jobs:
     - name: Test
       env:
         CI: true
+        COVERALLS_GIT_BRANCH: ${{ github.ref }}
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       run: |
         npm test -- --ci --coverage
