@@ -17,7 +17,7 @@ function copyStyles(sourceElt: HTMLElement, targetElt: HTMLElement): void {
         const styleSheet = document.styleSheets[i] as CSSStyleSheet;
         const rules = styleSheet.rules || styleSheet.cssRules;
         for (let j = 0; j < rules.length; j++) {
-            const rule = rules.item(j) as CSSStyleRule;
+            const rule = rules[j] as CSSStyleRule;
             // also match pseudo selectors
             const selector = rule.selectorText?.replace(pseudoRegex, "");
             if (sourceElt?.matches(selector)) {
@@ -46,7 +46,8 @@ function copyStyles(sourceElt: HTMLElement, targetElt: HTMLElement): void {
             }
         }
     }
-    targetElt.appendChild(styleElt);
+    // append style element used for transfering pseudo styles
+    styleElt.innerHTML && targetElt.appendChild(styleElt);
 }
 
 function toSpinalCase(camelCase: string): string {

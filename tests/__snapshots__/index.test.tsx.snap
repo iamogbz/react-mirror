@@ -1,13 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component frames an empty reflection 1`] = `
-<Mirror
-  reflect={null}
-/>
+<body>
+  <div>
+    <div
+      class="test-mirror-frame"
+    />
+  </div>
+</body>
+`;
+
+exports[`Component renders reflection with styles 1`] = `
+<body>
+  <div>
+    <div
+      class="classOne"
+    >
+      <span
+        class="classTwo"
+      />
+    </div>
+    <p
+      class="classThree"
+    >
+      Mock text node
+    </p>
+  </div>
+  <div>
+    <div>
+      <div
+        class="_4fzzzxj"
+        style="pointer-events: none;"
+      >
+        <div
+          class="_4fzzzxj"
+          style="height: 10px; pointer-events: none;"
+        >
+          <span
+            class="_4fzzzxj"
+            style="font-size: 1.3em; display: block; width: 20px; margin: 0px auto; pointer-events: none;"
+          />
+        </div>
+        <p
+          class="_4fzzzxj"
+          style="pointer-events: none;"
+        >
+          <style
+            type="text/css"
+          >
+            ._4fzzzxj::after { content: ''; background: red; width: 5px; height: 5px; }
+
+          </style>
+          Mock text node
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
 `;
 
 exports[`Hook returns an empty reflection 1`] = `
 <Mirror
   reflect={null}
+/>
+`;
+
+exports[`Hook starts reflecting node 1`] = `
+<Mirror
+  reflect={<div />}
 />
 `;

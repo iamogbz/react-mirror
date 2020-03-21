@@ -4,8 +4,10 @@ import * as ReactDOM from "react-dom";
 import { deepCloneWithStyles } from "./clone";
 
 export function Mirror({
+    className,
     reflect,
 }: {
+    className?: string;
     reflect: React.ReactInstance | null;
 }): JSX.Element {
     // ref to element in which reflection will be framed
@@ -45,7 +47,7 @@ export function Mirror({
         return (): void => observer.disconnect();
     }, [real, observer]);
     // return frame element
-    return <div ref={ref} />;
+    return <div className={className} ref={ref} />;
 }
 
 export function useMirror(): [
