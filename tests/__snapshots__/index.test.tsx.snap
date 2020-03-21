@@ -12,11 +12,6 @@ exports[`Component renders reflection with styles 1`] = `
         class="classTwo"
       />
     </div>
-    <p
-      class="classThree"
-    >
-      Mock text node
-    </p>
   </div>
   <div
     id="test-node-mirror"
@@ -26,29 +21,24 @@ exports[`Component renders reflection with styles 1`] = `
         class="_4fzzzxj"
         style="pointer-events: none;"
       >
-        <style
-          type="text/css"
-        />
         <div
           class="_4fzzzxj"
           style="height: 10px; pointer-events: none;"
         >
-          <style
-            type="text/css"
-          />
           <span
             class="_4fzzzxj"
             style="font-size: 1.3em; display: block; width: 20px; margin: 0px auto; pointer-events: none;"
-          >
-            <style
-              type="text/css"
-            />
-          </span>
+          />
         </div>
       </div>
     </div>
   </div>
 </body>
+`;
+
+exports[`Component renders reflection with styles 2`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
 `;
 
 exports[`Hook returns an empty reflection 1`] = `

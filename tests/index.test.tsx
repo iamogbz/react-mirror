@@ -1,7 +1,7 @@
 import * as React from "react";
 import { act } from "react-test-renderer";
+import { render } from "@testing-library/react";
 import { renderHook } from "@testing-library/react-hooks";
-import { shallow, mount } from "enzyme";
 import { Mirror, useMirror } from "../src";
 
 describe("Hook", (): void => {
@@ -27,7 +27,7 @@ describe("Component", (): void => {
     afterAll(jest.restoreAllMocks);
 
     it("frames an empty reflection", (): void => {
-        expect(shallow(<Mirror reflect={null} />)).toMatchSnapshot();
+        expect(render(<Mirror reflect={null} />).baseElement).toMatchSnapshot();
     });
 
     it.only("renders reflection with styles", () => {
@@ -67,16 +67,18 @@ describe("Component", (): void => {
         domNode.appendChild(node1);
         document.body.appendChild(domNode);
 
-        const attachTo = document.createElement("div");
-        attachTo.id = "test-node-mirror";
-        document.body.appendChild(attachTo);
-        const wrapper = mount(<Mirror reflect={domNode} />, { attachTo });
-
-        expect(document.body).toMatchSnapshot();
+        const results = render(
+            <Mirror className="test-mirror-frame" reflect={domNode} />,
+        );
+        expect(results.baseElement).toMatchSnapshot();
 
         const node3 = document.createElement("p");
         node3.innerHTML = "Mock text node";
         node3.className = "classThree";
         domNode.appendChild(node3);
+        wrapper.update();
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
+        expect(document.body).toMatchDiffSnapshot(documentBody);
     });
 });

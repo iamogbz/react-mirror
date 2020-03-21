@@ -46,6 +46,7 @@ function copyStyles(sourceElt: HTMLElement, targetElt: HTMLElement): void {
             }
         }
     }
+    // append style element used for transfering pseudo styles
     styleElt.innerHTML && targetElt.appendChild(styleElt);
 }
 
