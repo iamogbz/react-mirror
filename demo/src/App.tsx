@@ -6,7 +6,7 @@ import "./styles.css";
 
 export default function App(): JSX.Element {
     const [usingPortal, setUsingPortal] = React.useState(false);
-    const [ref, reflection] = useMirror();
+    const [ref, reflection] = useMirror({ className: "Frame" });
     return (
         <div className="App">
             <h1>React Mirror Demo</h1>

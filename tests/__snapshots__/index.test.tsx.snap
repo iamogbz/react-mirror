@@ -14,46 +14,55 @@ exports[`Component renders reflection with styles 1`] = `
 <body>
   <div>
     <div
-      class="classOne"
+      class="class1 one"
     >
       <span
-        class="classTwo"
+        class="class2 two"
       />
     </div>
     <p
-      class="classThree"
+      class="class3 three"
     >
       Mock text node
     </p>
   </div>
   <div>
-    <div>
+    <div
+      class="mirrorFrame_4fzzzxj"
+      style="font-family: \\"san-serif\\"; font-size: 1.2em;"
+    >
       <div
         class="_4fzzzxj"
         style="pointer-events: none;"
       >
         <div
-          class="_4fzzzxj"
+          class="class1-one_4fzzzxj"
           style="height: 10px; pointer-events: none;"
         >
           <span
-            class="_4fzzzxj"
+            class="class2-two_4fzzzxj"
             style="font-size: 1.3em; display: block; width: 20px; margin: 0px auto; pointer-events: none;"
           />
         </div>
         <p
-          class="_4fzzzxj"
+          class="class3-three_4fzzzxj"
           style="pointer-events: none;"
         >
           <style
             type="text/css"
           >
-            ._4fzzzxj::after { content: ''; background: red; width: 5px; height: 5px; }
+            .class3-three_4fzzzxj::after { content: ''; background: red; width: 5px; height: 5px; }
 
           </style>
           Mock text node
         </p>
       </div>
+      <style
+        type="text/css"
+      >
+        .mirrorFrame_4fzzzxj::before { content: 'mock text'; position: absolute; }
+
+      </style>
     </div>
   </div>
 </body>

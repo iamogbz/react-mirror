@@ -10,7 +10,10 @@ function randomString(length: number): string {
     return str;
 }
 
-function copyStyles(sourceElt: HTMLElement, targetElt: HTMLElement): void {
+export function copyStyles(
+    sourceElt: HTMLElement,
+    targetElt: HTMLElement,
+): void {
     const styleDecls: { [key: string]: CSSStyleDeclaration } = {};
     const pseudoRegex = /:(:?)[a-z-]+/g;
     for (let i = 0; i < document.styleSheets.length; i++) {
@@ -18,15 +21,24 @@ function copyStyles(sourceElt: HTMLElement, targetElt: HTMLElement): void {
         const rules = styleSheet.rules || styleSheet.cssRules;
         for (let j = 0; j < rules.length; j++) {
             const rule = rules[j] as CSSStyleRule;
-            // also match pseudo selectors
-            const selector = rule.selectorText?.replace(pseudoRegex, "");
-            if (sourceElt?.matches(selector)) {
-                styleDecls[rule.selectorText] = rule.style;
+            // test each selector in a group separately
+            // accounts for bug with specificity library where
+            // `.classA, .classB` fails when compared with `.classB`
+            // https://github.com/keeganstreet/specificity/issues/4
+            for (const selectorText of rule.selectorText
+                .split(",")
+                .map(s => s.trim())) {
+                // also match pseudo selectors
+                const selector = selectorText?.replace(pseudoRegex, "");
+                if (sourceElt?.matches(selector)) {
+                    styleDecls[selectorText] = rule.style;
+                }
             }
         }
     }
     // ensures only the cloned styles are applied to element
-    targetElt.className = `_${randomString(7)}`;
+    const singleClassName = targetElt.className.replace(" ", "-");
+    targetElt.className = `${singleClassName}_${randomString(7)}`;
     // style element used for transfering pseudo styles
     const styleElt = document.createElement("style");
     styleElt.type = "text/css";

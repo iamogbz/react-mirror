@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { deepCloneWithStyles } from "./clone";
+import { deepCloneWithStyles, copyStyles } from "./clone";
 
 type MirrorPropsType = {
     className?: string;
@@ -25,6 +25,10 @@ export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
         } else {
             frame.appendChild(reflection);
         }
+        while (frame.firstChild !== frame.lastChild) {
+            frame.removeChild(frame.lastChild);
+        }
+        copyStyles(frame, frame);
     }, [frame, real]);
     // start of the reflection
     React.useEffect(update, [update]);
