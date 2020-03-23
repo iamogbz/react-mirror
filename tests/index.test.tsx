@@ -44,6 +44,10 @@ describe("Component", (): void => {
                 font-family: "san-serif";
                 font-size: 1.2em;
             }
+            .mirrorFrame::before {
+                content: 'mock text';
+                position: absolute;
+            }
             .classOne {
                 height: 10px;
             }

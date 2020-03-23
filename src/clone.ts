@@ -21,10 +21,18 @@ export function copyStyles(
         const rules = styleSheet.rules || styleSheet.cssRules;
         for (let j = 0; j < rules.length; j++) {
             const rule = rules[j] as CSSStyleRule;
-            // also match pseudo selectors
-            const selector = rule.selectorText?.replace(pseudoRegex, "");
-            if (sourceElt?.matches(selector)) {
-                styleDecls[rule.selectorText] = rule.style;
+            // test each selector in a group separately
+            // accounts for bug with specificity library where
+            // `.classA, .classB` fails when compared with `.classB`
+            // https://github.com/keeganstreet/specificity/issues/4
+            for (const selectorText of rule.selectorText
+                .split(",")
+                .map(s => s.trim())) {
+                // also match pseudo selectors
+                const selector = selectorText?.replace(pseudoRegex, "");
+                if (sourceElt?.matches(selector)) {
+                    styleDecls[selectorText] = rule.style;
+                }
             }
         }
     }

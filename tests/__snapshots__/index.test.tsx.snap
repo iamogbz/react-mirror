@@ -57,6 +57,12 @@ exports[`Component renders reflection with styles 1`] = `
           Mock text node
         </p>
       </div>
+      <style
+        type="text/css"
+      >
+        .mirrorFrame_4fzzzxj::before { content: 'mock text'; position: absolute; }
+
+      </style>
     </div>
   </div>
 </body>
