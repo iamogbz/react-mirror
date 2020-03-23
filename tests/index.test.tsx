@@ -40,7 +40,7 @@ describe("Component", (): void => {
         const domStyle = document.createElement("style");
         document.head.appendChild(domStyle);
         domStyle.innerHTML = `
-            body {
+            body, .mirrorFrame {
                 font-family: "san-serif";
                 font-size: 1.2em;
             }
@@ -75,7 +75,8 @@ describe("Component", (): void => {
         /** render mirror into detached node */
         const spyReplace = jest.spyOn(HTMLElement.prototype, "replaceChild");
         const baseElement = document.createElement("div");
-        render(<Mirror reflect={domNode} />, { baseElement });
+        const renderProps = { className: "mirrorFrame", reflect: domNode };
+        render(<Mirror {...renderProps} />, { baseElement });
         /** add more nodes and check that they are inserted */
         expect(spyReplace).toHaveBeenCalledTimes(0);
         const node3 = document.createElement("p");
@@ -85,7 +86,7 @@ describe("Component", (): void => {
         await new Promise(resolve => setTimeout(resolve));
         expect(spyReplace).toHaveBeenCalledTimes(1);
         /** mirror nodes and check results */
-        const result = render(<Mirror reflect={domNode} />);
+        const result = render(<Mirror {...renderProps} />);
         expect(result.baseElement).toMatchSnapshot();
         /** clean up */
         domStyle.remove();
