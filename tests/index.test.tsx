@@ -22,10 +22,14 @@ describe("Hook", (): void => {
 });
 
 describe("Component", (): void => {
-    beforeAll(() => {
-        jest.spyOn(Math, "random").mockReturnValue(0.123456789);
+    const spyMathRandom = jest.spyOn(Math, "random");
+    beforeEach(() => {
+        spyMathRandom.mockReturnValueOnce(0.123456789);
     });
-    afterEach(cleanup);
+    afterEach(() => {
+        jest.clearAllMocks();
+        cleanup();
+    });
     afterAll(jest.restoreAllMocks);
 
     it("frames an empty reflection", (): void => {
@@ -36,6 +40,7 @@ describe("Component", (): void => {
     });
 
     it("renders reflection with styles", async () => {
+        spyMathRandom.mockReturnValueOnce(0.123456789);
         /** add document style */
         const domStyle = document.createElement("style");
         document.head.appendChild(domStyle);
@@ -81,6 +86,7 @@ describe("Component", (): void => {
         const baseElement = document.createElement("div");
         const renderProps = { className: "mirrorFrame", reflect: domNode };
         render(<Mirror {...renderProps} />, { baseElement });
+        expect(spyMathRandom).toHaveBeenCalledTimes(1);
         /** add more nodes and check that they are inserted */
         expect(spyReplace).toHaveBeenCalledTimes(0);
         const node3 = document.createElement("p");
@@ -91,6 +97,7 @@ describe("Component", (): void => {
         expect(spyReplace).toHaveBeenCalledTimes(1);
         /** mirror nodes and check results */
         const result = render(<Mirror {...renderProps} />);
+        expect(spyMathRandom).toHaveBeenCalledTimes(2);
         expect(result.baseElement).toMatchSnapshot();
         /** clean up */
         domStyle.remove();
