@@ -3,13 +3,12 @@ import * as ReactDOM from "react-dom";
 
 import { deepCloneWithStyles } from "./clone";
 
-export function Mirror({
-    className,
-    reflect,
-}: {
+type MirrorPropsType = {
     className?: string;
-    reflect: React.ReactInstance | null;
-}): JSX.Element {
+    reflect?: React.ReactInstance | null;
+};
+
+export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
     // ref to element in which reflection will be framed
     const [frame, ref] = React.useState<HTMLDivElement | null>(null);
     // real dom node of react element being reflected
@@ -50,10 +49,9 @@ export function Mirror({
     return <div className={className} ref={ref} />;
 }
 
-export function useMirror(): [
-    React.Dispatch<unknown>,
-    JSX.Element | undefined,
-] {
+export function useMirror(
+    props?: MirrorPropsType,
+): [React.Dispatch<unknown>, JSX.Element | undefined] {
     const [node, ref] = React.useState(null);
-    return [ref, <Mirror key="mirror" reflect={node} />];
+    return [ref, <Mirror key="mirror" {...props} reflect={node} />];
 }
