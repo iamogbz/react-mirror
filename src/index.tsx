@@ -53,5 +53,5 @@ export function useMirror(
     props?: MirrorPropsType,
 ): [React.Dispatch<unknown>, JSX.Element | undefined] {
     const [node, ref] = React.useState(null);
-    return [ref, <Mirror {...props} key="mirror" reflect={node} />];
+    return [ref, <Mirror key="mirror" {...props} reflect={node} />];
 }
