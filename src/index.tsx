@@ -50,7 +50,7 @@ export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
 }
 
 export function useMirror(
-    props: MirrorPropsType,
+    props?: MirrorPropsType,
 ): [React.Dispatch<unknown>, JSX.Element | undefined] {
     const [node, ref] = React.useState(null);
     return [ref, <Mirror {...props} key="mirror" reflect={node} />];
