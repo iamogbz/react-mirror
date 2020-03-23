@@ -12,13 +12,15 @@ Create synchronized replicas of a React DOM element
 
 ## Usage
 
+See equivalent uses of the hook and component below.
+
 ### `useMirror` hook
 
 ```jsx
 import { useMirror } from 'react-mirror';
 
 function App() {
-  const [ref, reflection] = useMirror();
+  const [ref, reflection] = useMirror({ className: 'mirror-frame' });
   return (
     <>
       <div ref={ref} />
@@ -39,7 +41,7 @@ function App() {
   return (
     <>
       <div ref={setReflect} />
-      <Mirror reflect={reflect}/>
+      <Mirror reflect={reflect} className='mirror-frame'/>
     <>
   );
 }
@@ -47,4 +49,6 @@ function App() {
 
 ## Demos
 
-### [Using Portals](https://uwh7f.codesandbox.io/)
+### Using Portals
+
+- [Live Preview](https://uwh7f.codesandbox.io/) ([codesandbox](https://codesandbox.io/s/react-mirror-uwh7f))([source](demo))

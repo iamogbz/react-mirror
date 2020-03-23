@@ -1,5 +1,4 @@
 import * as React from "react";
-import { wait } from "@testing-library/dom";
 import { render, cleanup } from "@testing-library/react";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { Mirror, useMirror } from "../src";
@@ -12,7 +11,9 @@ describe("Hook", (): void => {
     });
 
     it("starts reflecting node", (): void => {
-        const { result } = renderHook(() => useMirror());
+        const { result } = renderHook(() =>
+            useMirror({ className: "test-mirror", reflect: null }),
+        );
         const [ref] = result.current;
         act(() => void ref(document.createElement("div")));
         const [, reflection] = result.current;
