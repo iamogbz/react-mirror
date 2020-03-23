@@ -14,14 +14,14 @@ exports[`Component renders reflection with styles 1`] = `
 <body>
   <div>
     <div
-      class="classOne"
+      class="class1 one"
     >
       <span
-        class="classTwo"
+        class="class2 two"
       />
     </div>
     <p
-      class="classThree"
+      class="class3 three"
     >
       Mock text node
     </p>
@@ -36,22 +36,22 @@ exports[`Component renders reflection with styles 1`] = `
         style="pointer-events: none;"
       >
         <div
-          class="classOne_4fzzzxj"
+          class="class1-one_4fzzzxj"
           style="height: 10px; pointer-events: none;"
         >
           <span
-            class="classTwo_4fzzzxj"
+            class="class2-two_4fzzzxj"
             style="font-size: 1.3em; display: block; width: 20px; margin: 0px auto; pointer-events: none;"
           />
         </div>
         <p
-          class="classThree_4fzzzxj"
+          class="class3-three_4fzzzxj"
           style="pointer-events: none;"
         >
           <style
             type="text/css"
           >
-            .classThree_4fzzzxj::after { content: ''; background: red; width: 5px; height: 5px; }
+            .class3-three_4fzzzxj::after { content: ''; background: red; width: 5px; height: 5px; }
 
           </style>
           Mock text node

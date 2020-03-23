@@ -48,22 +48,22 @@ describe("Component", (): void => {
                 content: 'mock text';
                 position: absolute;
             }
-            .classOne {
+            .class1.one, .class2.two {
                 height: 10px;
             }
-            .classTwo {
+            .class2.two {
                 font-size: 1.3em;
                 display: block;
                 width: 40px;
                 margin: 0 auto;
             }
-            .classThree::after {
+            .class3.three::after {
                 content: '';
                 background: red;
                 width: 5px;
                 height: 5px;
             }
-            .classOne .classTwo {
+            .class1.one .class2.two {
                 width: 20px;
             }
         `;
@@ -72,10 +72,10 @@ describe("Component", (): void => {
         document.body.appendChild(domNode);
         const node1 = document.createElement("div");
         domNode.appendChild(node1);
-        node1.className = "classOne";
+        node1.className = "class1 one";
         const node2 = document.createElement("span");
         node1.appendChild(node2);
-        node2.className = "classTwo";
+        node2.className = "class2 two";
         /** render mirror into detached node */
         const spyReplace = jest.spyOn(HTMLElement.prototype, "replaceChild");
         const baseElement = document.createElement("div");
@@ -86,7 +86,7 @@ describe("Component", (): void => {
         const node3 = document.createElement("p");
         domNode.appendChild(node3);
         node3.innerHTML = "Mock text node";
-        node3.className = "classThree";
+        node3.className = "class3 three";
         await new Promise(resolve => setTimeout(resolve));
         expect(spyReplace).toHaveBeenCalledTimes(1);
         /** mirror nodes and check results */
