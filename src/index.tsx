@@ -21,7 +21,7 @@ export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
     const update = React.useCallback(() => {
         if (!frame || !real) return;
         const cloneOptions: CloneOptions = {
-            class: instanceId,
+            class: `_${instanceId}`,
             styles: { pointerEvents: "none" },
         };
         const reflection = deepCloneWithStyles(real as Element, cloneOptions);

@@ -35,9 +35,7 @@ export function copyStyles(
     }
     // ensures only the cloned styles are applied to element
     const singleClassName = targetElt.className.replace(" ", "-");
-    targetElt.className = `${singleClassName}${
-        options?.class ? `_${options.class}` : ""
-    }`;
+    targetElt.className = `${singleClassName}${options?.class || ""}`;
     // style element used for transfering pseudo styles
     const styleElt = document.createElement("style");
     styleElt.type = "text/css";
