@@ -10,7 +10,10 @@ function randomString(length: number): string {
     return str;
 }
 
-function copyStyles(sourceElt: HTMLElement, targetElt: HTMLElement): void {
+export function copyStyles(
+    sourceElt: HTMLElement,
+    targetElt: HTMLElement,
+): void {
     const styleDecls: { [key: string]: CSSStyleDeclaration } = {};
     const pseudoRegex = /:(:?)[a-z-]+/g;
     for (let i = 0; i < document.styleSheets.length; i++) {
@@ -26,7 +29,8 @@ function copyStyles(sourceElt: HTMLElement, targetElt: HTMLElement): void {
         }
     }
     // ensures only the cloned styles are applied to element
-    targetElt.className = `_${randomString(7)}`;
+    const singleClassName = targetElt.className.replace(" ", "-");
+    targetElt.className = `${singleClassName}_${randomString(7)}`;
     // style element used for transfering pseudo styles
     const styleElt = document.createElement("style");
     styleElt.type = "text/css";
