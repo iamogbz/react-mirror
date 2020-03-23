@@ -1,18 +1,15 @@
 import { compare } from "specificity";
+import { camelToSpinalCase } from "./utils";
 
-function randomString(length: number): string {
-    let str = "";
-    while (str.length < length) {
-        str += Math.random()
-            .toString(36)
-            .substr(2, length - str.length);
-    }
-    return str;
-}
+export type CloneOptions = {
+    styles?: React.CSSProperties;
+    class?: string;
+};
 
 export function copyStyles(
     sourceElt: HTMLElement,
     targetElt: HTMLElement,
+    options?: CloneOptions,
 ): void {
     const styleDecls: { [key: string]: CSSStyleDeclaration } = {};
     const pseudoRegex = /:(:?)[a-z-]+/g;
@@ -38,7 +35,9 @@ export function copyStyles(
     }
     // ensures only the cloned styles are applied to element
     const singleClassName = targetElt.className.replace(" ", "-");
-    targetElt.className = `${singleClassName}_${randomString(7)}`;
+    targetElt.className = `${singleClassName}${
+        options?.class ? `_${options.class}` : ""
+    }`;
     // style element used for transfering pseudo styles
     const styleElt = document.createElement("style");
     styleElt.type = "text/css";
@@ -62,31 +61,24 @@ export function copyStyles(
     styleElt.innerHTML && targetElt.appendChild(styleElt);
 }
 
-function toSpinalCase(camelCase: string): string {
-    return camelCase.replace(/([A-Z])/g, "-$1").toLocaleLowerCase();
-}
-
-function cloneNodeWithStyles(node: Node, xStyles: React.CSSProperties): Node {
+export function cloneNodeWithStyles(node: Node, options: CloneOptions): Node {
     const clone = node.cloneNode(false);
     // check that node is html element before cloning styles
     const cloneElt = clone as HTMLElement;
     const nodeElt = node as HTMLElement;
     if (nodeElt.style && cloneElt.style) {
-        copyStyles(nodeElt, cloneElt);
-        for (const [prop, value] of Object.entries(xStyles)) {
-            cloneElt.style.setProperty(toSpinalCase(prop), value);
+        copyStyles(nodeElt, cloneElt, options);
+        for (const [prop, value] of Object.entries(options.styles || {})) {
+            cloneElt.style.setProperty(camelToSpinalCase(prop), value);
         }
     }
     return clone;
 }
 
-export function deepCloneWithStyles(
-    node: Node,
-    xStyles: React.CSSProperties,
-): Node {
-    const clone = cloneNodeWithStyles(node, xStyles);
+export function deepCloneWithStyles(node: Node, options: CloneOptions): Node {
+    const clone = cloneNodeWithStyles(node, options);
     for (const child of node.childNodes) {
-        clone.appendChild(deepCloneWithStyles(child, xStyles));
+        clone.appendChild(deepCloneWithStyles(child, options));
     }
     return clone;
 }

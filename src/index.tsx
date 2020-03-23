@@ -1,7 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { deepCloneWithStyles, copyStyles } from "./clone";
+import { randomString } from "./utils";
+import { CloneOptions, deepCloneWithStyles, copyStyles } from "./clone";
 
 type MirrorPropsType = {
     className?: string;
@@ -9,6 +10,8 @@ type MirrorPropsType = {
 };
 
 export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
+    // unique identifier of this mirror
+    const instanceId = React.useMemo(() => randomString(7), [reflect]);
     // ref to element in which reflection will be framed
     const [frame, ref] = React.useState<HTMLDivElement | null>(null);
     // real dom node of react element being reflected
@@ -17,9 +20,11 @@ export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
     // update the reflection to match the real node
     const update = React.useCallback(() => {
         if (!frame || !real) return;
-        const reflection = deepCloneWithStyles(real as Element, {
-            pointerEvents: "none",
-        });
+        const cloneOptions: CloneOptions = {
+            class: instanceId,
+            styles: { pointerEvents: "none" },
+        };
+        const reflection = deepCloneWithStyles(real as Element, cloneOptions);
         if (frame.firstChild) {
             frame.replaceChild(reflection, frame.firstChild);
         } else {
@@ -28,8 +33,9 @@ export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
         while (frame.firstChild !== frame.lastChild) {
             frame.removeChild(frame.lastChild);
         }
-        copyStyles(frame, frame);
-    }, [frame, real]);
+        frame.className = className;
+        copyStyles(frame, frame, cloneOptions);
+    }, [frame, real, className]);
     // start of the reflection
     React.useEffect(update, [update]);
     // mutation observer single instance
