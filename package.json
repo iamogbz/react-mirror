@@ -133,7 +133,7 @@
         "husky": "^4.2.3",
         "jest": "^25.1.0",
         "lint-staged": "^10.0.8",
-        "prettier": "^1.19.1",
+        "prettier": "^2.0.3",
         "prettier-eslint": "^9.0.1",
         "prop-types": "^15.7.2",
         "react": "^16.13.1",
