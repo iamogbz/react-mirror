@@ -24,7 +24,7 @@ export function copyStyles(
             // https://github.com/keeganstreet/specificity/issues/4
             for (const selectorText of rule.selectorText
                 .split(",")
-                .map(s => s.trim())) {
+                .map((s: string) => s.trim())) {
                 // also match pseudo selectors
                 const selector = selectorText?.replace(pseudoRegex, "");
                 if (sourceElt?.matches(selector)) {
