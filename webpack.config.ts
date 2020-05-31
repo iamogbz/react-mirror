@@ -38,8 +38,13 @@ const configuration: Configuration = {
                 compileStart: (): void => void execSync("npm run build-types"),
             },
         }),
-        new CopyPlugin([{ from: "built/index.d.ts", to: "main.d.ts" }]),
-        new CopyPlugin(["package.json", "README.md"]),
+        new CopyPlugin({
+            patterns: [
+                { from: "built/index.d.ts", to: "main.d.ts" },
+                "package.json",
+                "README.md",
+            ],
+        }),
     ],
     resolve: {
         extensions: [".js", ".ts", ".jsx", ".tsx"],
