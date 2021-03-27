@@ -46,7 +46,7 @@ jobs:
       run: |
         npm run build
     - name: Deploy
-      if: matrix.node-version == '12.x' && github.ref == 'refs/heads/master'
+      if: matrix.node-version == '12.x' && github.ref == 'refs/heads/master' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
