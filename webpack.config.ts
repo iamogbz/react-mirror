@@ -3,7 +3,6 @@ import { execSync } from "child_process";
 import { Configuration } from "webpack";
 import * as nodeExternals from "webpack-node-externals";
 import { WebpackCompilerPlugin } from "webpack-compiler-plugin";
-import * as CopyPlugin from "copy-webpack-plugin";
 
 const configuration: Configuration = {
     devtool: "source-map",
@@ -38,22 +37,15 @@ const configuration: Configuration = {
                 compileStart: (): void => void execSync("npm run build-types"),
             },
         }),
-        new CopyPlugin({
-            patterns: [
-                { from: "built/index.d.ts", to: "main.d.ts" },
-                "package.json",
-                "README.md",
-            ],
-        }),
     ],
     resolve: {
         extensions: [".js", ".ts", ".jsx", ".tsx"],
         modules: [path.resolve("./src"), path.resolve("./node_modules")],
     },
     watchOptions: {
-        ignored: /node_modules|built/,
+        ignored: /node_modules|built|lib/,
     },
-    externals: [nodeExternals()],
+    externals: [nodeExternals() as any],
 };
 
 export default configuration;

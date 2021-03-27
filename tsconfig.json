@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": "./src",
         "moduleResolution": "node",
-        "outDir": "./built",
+        "outDir": "./lib",
         "target": "es6",
         "jsx": "react",
         "allowSyntheticDefaultImports": true,
