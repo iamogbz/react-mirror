@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import * as React from "react";
 import { render, cleanup } from "@testing-library/react";
 import { renderHook, act } from "@testing-library/react-hooks";
@@ -93,7 +96,7 @@ describe("Component", (): void => {
         domNode.appendChild(node3);
         node3.innerHTML = "Mock text node";
         node3.className = "class3 three";
-        await new Promise(resolve => setTimeout(resolve));
+        await new Promise((resolve) => setTimeout(resolve));
         expect(spyReplace).toHaveBeenCalledTimes(1);
         /** mirror nodes and check results */
         const result = render(<Mirror {...renderProps} />);

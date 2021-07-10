@@ -20,7 +20,12 @@ const configuration: Configuration = {
                             presets: ["@babel/preset-typescript"],
                         },
                     },
-                    { loader: "ts-loader" },
+                    {
+                        loader: "ts-loader",
+                        options: {
+                            configFile: "tsconfig.prod.json",
+                        },
+                    },
                 ],
             },
         ],
@@ -34,7 +39,7 @@ const configuration: Configuration = {
         new WebpackCompilerPlugin({
             name: "script-build-types",
             listeners: {
-                compileStart: (): void => void execSync("npm run build-types"),
+                compileStart: (): void => void execSync("pnpm build-types"),
             },
         }),
     ],
@@ -45,7 +50,7 @@ const configuration: Configuration = {
     watchOptions: {
         ignored: /node_modules|built|lib/,
     },
-    externals: [nodeExternals() as any],
+    externals: [nodeExternals()] as Configuration["externals"],
 };
 
 export default configuration;

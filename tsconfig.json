@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": "./src",
+        "baseUrl": ".",
         "moduleResolution": "node",
         "outDir": "./lib",
         "target": "es6",
@@ -10,6 +10,5 @@
         "noFallthroughCasesInSwitch": true,
         "noImplicitAny": true
     },
-    "include": ["./src"],
-    "exclude": ["node_modules"]
+    "exclude": ["lib", "node_modules"]
 }
