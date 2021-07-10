@@ -45,7 +45,7 @@ const configuration: Configuration = {
     watchOptions: {
         ignored: /node_modules|built|lib/,
     },
-    externals: [nodeExternals() as any],
+    externals: [nodeExternals()],
 };
 
 export default configuration;
