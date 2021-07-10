@@ -81,12 +81,6 @@
             "npm test -- --bail --findRelatedTests"
         ]
     },
-    "husky": {
-        "hooks": {
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-            "pre-commit": "lint-staged"
-        }
-    },
     "peerDependencies": {
         "react": "^16.0.0 || ^17.0.0",
         "react-dom": "^16.0.0 || ^17.0.0"
