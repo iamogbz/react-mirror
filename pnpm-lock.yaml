@@ -6,7 +6,7 @@ specifiers:
   '@babel/eslint-parser': ^7.15.0
   '@babel/preset-typescript': ^7.14.5
   '@commitlint/cli': ^13.1.0
-  '@commitlint/config-conventional': ^12.1.4
+  '@commitlint/config-conventional': ^13.1.0
   '@testing-library/react': ^12.0.0
   '@testing-library/react-hooks': ^7.0.1
   '@types/jest': ^26.0.24
@@ -63,7 +63,7 @@ devDependencies:
   '@babel/eslint-parser': 7.15.0_@babel+core@7.14.6+eslint@7.30.0
   '@babel/preset-typescript': 7.14.5_@babel+core@7.14.6
   '@commitlint/cli': 13.1.0
-  '@commitlint/config-conventional': 12.1.4
+  '@commitlint/config-conventional': 13.1.0
   '@testing-library/react': 12.0.0_react-dom@17.0.2+react@17.0.2
   '@testing-library/react-hooks': 7.0.1_fc2bb8a5b006d3f25c5f84ea777e678d
   '@types/jest': 26.0.24
@@ -2408,9 +2408,9 @@ packages:
       yargs: 17.1.0
     dev: true
 
-  /@commitlint/config-conventional/12.1.4:
-    resolution: {integrity: sha512-ZIdzmdy4o4WyqywMEpprRCrehjCSQrHkaRTVZV411GyLigFQHlEBSJITAihLAWe88Qy/8SyoIe5uKvAsV5vRqQ==}
-    engines: {node: '>=v10'}
+  /@commitlint/config-conventional/13.1.0:
+    resolution: {integrity: sha512-zukJXqdr6jtMiVRy3tTHmwgKcUMGfqKDEskRigc5W3k2aYF4gBAtCEjMAJGZgSQE4DMcHeok0pEV2ANmTpb0cw==}
+    engines: {node: '>=v12'}
     dependencies:
       conventional-changelog-conventionalcommits: 4.6.0
     dev: true
