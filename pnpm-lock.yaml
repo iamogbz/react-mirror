@@ -9,7 +9,7 @@ specifiers:
   '@commitlint/config-conventional': ^13.1.0
   '@testing-library/react': ^12.0.0
   '@testing-library/react-hooks': ^7.0.1
-  '@types/jest': ^26.0.24
+  '@types/jest': ^27.0.0
   '@types/node': ^16.3.1
   '@types/react': ^17.0.14
   '@types/react-dom': ^17.0.9
@@ -66,7 +66,7 @@ devDependencies:
   '@commitlint/config-conventional': 13.1.0
   '@testing-library/react': 12.0.0_react-dom@17.0.2+react@17.0.2
   '@testing-library/react-hooks': 7.0.1_fc2bb8a5b006d3f25c5f84ea777e678d
-  '@types/jest': 26.0.24
+  '@types/jest': 27.0.1
   '@types/node': 16.3.1
   '@types/react': 17.0.14
   '@types/react-dom': 17.0.9
@@ -3650,11 +3650,11 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest/26.0.24:
-    resolution: {integrity: sha512-E/X5Vib8BWqZNRlDxj9vYXhsDwPYbPINqKF9BsnSoon4RQ0D9moEuLD8txgyypFLH7J4+Lho9Nr/c8H0Fi+17w==}
+  /@types/jest/27.0.1:
+    resolution: {integrity: sha512-HTLpVXHrY69556ozYkcq47TtQJXpcWAWfkoqz+ZGz2JnmZhzlRjprCIyFnetSy8gpDWwTTGBcRVv1J1I1vBrHw==}
     dependencies:
-      jest-diff: 26.6.2
-      pretty-format: 26.6.2
+      jest-diff: 27.0.6
+      pretty-format: 27.0.6
     dev: true
 
   /@types/json-schema/7.0.8:
