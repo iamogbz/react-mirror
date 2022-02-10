@@ -14,7 +14,7 @@ export function Window({
             "React Mirror Portal Test",
             "width=400,height=400",
         );
-        _window.onbeforeunload = onClose;
+        _window?.addEventListener("beforeunload", onClose);
         return _window;
     }, [onClose]);
     const portal = React.useMemo(() => {
