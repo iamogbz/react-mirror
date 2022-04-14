@@ -8,7 +8,7 @@ specifiers:
   '@commitlint/cli': ^16.0.0
   '@commitlint/config-conventional': ^16.0.0
   '@testing-library/react': ^12.1.2
-  '@testing-library/react-hooks': ^7.0.2
+  '@testing-library/react-hooks': ^8.0.0
   '@types/jest': ^27.0.2
   '@types/node': ^17.0.17
   '@types/react': ^18.0.3
@@ -65,7 +65,7 @@ devDependencies:
   '@commitlint/cli': 16.1.0_@types+node@17.0.17
   '@commitlint/config-conventional': 16.0.0
   '@testing-library/react': 12.1.2_react-dom@17.0.2+react@17.0.2
-  '@testing-library/react-hooks': 7.0.2_fc2bb8a5b006d3f25c5f84ea777e678d
+  '@testing-library/react-hooks': 8.0.0_c59b4ab5e67c524ca8a449fd26311bc2
   '@types/jest': 27.0.2
   '@types/node': 17.0.17
   '@types/react': 18.0.4
@@ -2417,7 +2417,7 @@ packages:
     resolution: {integrity: sha512-/PCB2uJ7oM44tz8YhC4Z/6PeOKXp4K588f+5M3clr1M4zbqztlo0XEfJ2LEzj/FgwfgGcIdl8n7YYjTCI0BYwg==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      regenerator-runtime: 0.13.7
+      regenerator-runtime: 0.13.9
     dev: true
 
   /@babel/runtime/7.17.2:
@@ -3549,7 +3549,7 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@babel/code-frame': 7.15.8
-      '@babel/runtime': 7.14.6
+      '@babel/runtime': 7.17.2
       '@types/aria-query': 4.2.2
       aria-query: 4.2.2
       chalk: 4.1.1
@@ -3558,23 +3558,24 @@ packages:
       pretty-format: 27.0.6
     dev: true
 
-  /@testing-library/react-hooks/7.0.2_fc2bb8a5b006d3f25c5f84ea777e678d:
-    resolution: {integrity: sha512-dYxpz8u9m4q1TuzfcUApqi8iFfR6R0FaMbr2hjZJy1uC8z+bO/K4v8Gs9eogGKYQop7QsrBTFkv/BCF7MzD2Cg==}
+  /@testing-library/react-hooks/8.0.0_c59b4ab5e67c524ca8a449fd26311bc2:
+    resolution: {integrity: sha512-uZqcgtcUUtw7Z9N32W13qQhVAD+Xki2hxbTR461MKax8T6Jr8nsUvZB+vcBTkzY2nFvsUet434CsgF0ncW2yFw==}
     engines: {node: '>=12'}
     peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-      react-test-renderer: '>=16.9.0'
+      '@types/react': ^16.9.0 || ^17.0.0
+      react: ^16.9.0 || ^17.0.0
+      react-dom: ^16.9.0 || ^17.0.0
+      react-test-renderer: ^16.9.0 || ^17.0.0
     peerDependenciesMeta:
+      '@types/react':
+        optional: true
       react-dom:
         optional: true
       react-test-renderer:
         optional: true
     dependencies:
-      '@babel/runtime': 7.14.6
+      '@babel/runtime': 7.17.2
       '@types/react': 18.0.4
-      '@types/react-dom': 18.0.0
-      '@types/react-test-renderer': 17.0.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-error-boundary: 3.1.3_react@17.0.2
@@ -11781,7 +11782,7 @@ packages:
     peerDependencies:
       react: '>=16.13.1'
     dependencies:
-      '@babel/runtime': 7.14.6
+      '@babel/runtime': 7.17.2
       react: 17.0.2
     dev: true
 
@@ -12022,10 +12023,6 @@ packages:
 
   /regenerator-runtime/0.11.1:
     resolution: {integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==}
-    dev: true
-
-  /regenerator-runtime/0.13.7:
-    resolution: {integrity: sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==}
     dev: true
 
   /regenerator-runtime/0.13.9:
