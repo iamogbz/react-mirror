@@ -35,14 +35,33 @@ exports[`Component renders reflection with styles 1`] = `
         class="_4fzzzxj"
         style="pointer-events: none;"
       >
+        <style
+          type="text/css"
+        >
+          ._4fzzzxj::after { content: ''; position: absolute; }
+
+        </style>
         <div
           class="class1-one_4fzzzxj"
           style="height: 10px; pointer-events: none;"
         >
+          <style
+            type="text/css"
+          >
+            .class1-one_4fzzzxj::after { content: ''; position: absolute; }
+
+          </style>
           <span
             class="class2-two_4fzzzxj"
             style="font-size: 1.3em; display: block; width: 20px; margin: 0px auto; pointer-events: none;"
-          />
+          >
+            <style
+              type="text/css"
+            >
+              .class2-two_4fzzzxj::after { content: ''; position: absolute; }
+
+            </style>
+          </span>
         </div>
         <p
           class="class3-three_4fzzzxj"
@@ -51,7 +70,8 @@ exports[`Component renders reflection with styles 1`] = `
           <style
             type="text/css"
           >
-            .class3-three_4fzzzxj::after { content: ''; background: red; width: 5px; height: 5px; }
+            .class3-three_4fzzzxj::after { content: ''; position: absolute; }
+.class3-three_4fzzzxj::after { content: ''; background: red; width: 5px; height: 5px; }
 
           </style>
           Mock text node
@@ -60,7 +80,8 @@ exports[`Component renders reflection with styles 1`] = `
       <style
         type="text/css"
       >
-        .mirrorFrame_4fzzzxj::before { content: 'mock text'; position: absolute; }
+        .mirrorFrame_4fzzzxj::after { content: ''; position: absolute; }
+.mirrorFrame_4fzzzxj::before { content: 'mock text'; position: absolute; }
 
       </style>
     </div>

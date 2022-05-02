@@ -48,6 +48,10 @@ describe("Component", (): void => {
         const domStyle = document.createElement("style");
         document.head.appendChild(domStyle);
         domStyle.innerHTML = `
+            ::after {
+                content: '';
+                position: absolute;
+            }
             body, .mirrorFrame {
                 font-family: "san-serif";
                 font-size: 1.2em;
