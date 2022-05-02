@@ -12,7 +12,7 @@ export function copyStyles(
     options?: CloneOptions,
 ): void {
     const styleDecls: { [key: string]: CSSStyleDeclaration } = {};
-    const pseudoRegex = /:(:?)[a-z-]+/g;
+    const pseudoElementRegex = /::[a-z-]+/g;
     for (let i = 0; i < document.styleSheets.length; i++) {
         const styleSheet = document.styleSheets[i] as CSSStyleSheet;
         const rules = styleSheet.rules || styleSheet.cssRules;
@@ -24,10 +24,12 @@ export function copyStyles(
             // https://github.com/keeganstreet/specificity/issues/4
             for (const selectorText of rule.selectorText
                 .split(",")
-                .map((s: string) => s.trim())) {
-                // also match pseudo selectors
-                const selector = selectorText?.replace(pseudoRegex, "");
-                if (sourceElt?.matches(selector)) {
+                .map((s) => s.trim())
+                .filter(Boolean)) {
+                const selector = selectorText.replace(pseudoElementRegex, "");
+                // if selector is empty then selectorText was all pseudo element
+                // selector which means that it should be applied to all elements
+                if (sourceElt?.matches(selector || "*")) {
                     styleDecls[selectorText] = rule.style;
                 }
             }
@@ -41,8 +43,8 @@ export function copyStyles(
     styleElt.type = "text/css";
     for (const selector of Object.keys(styleDecls).sort(compare)) {
         const styleDecl = styleDecls[selector];
-        const pseudos = selector.match(pseudoRegex);
-        // store pseudo styles in style element
+        const pseudos = selector.match(pseudoElementRegex);
+        // store pseudo element styles in style element
         if (pseudos?.length) {
             for (const p of new Set(pseudos)) {
                 styleElt.innerHTML += `.${targetElt.className}${p} { ${styleDecl.cssText} }\n`;

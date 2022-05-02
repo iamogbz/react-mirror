@@ -39,9 +39,9 @@ export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
     // start of the reflection
     React.useEffect(update, [update]);
     // mutation observer single instance
-    const observer = React.useMemo(() => new MutationObserver(update), [
-        update,
-    ]);
+    const observer = React.useMemo(() => {
+        return new MutationObserver(update);
+    }, [update]);
     // observe or disconnect when real node is set or unmounted
     React.useEffect(() => {
         if (!real || !observer) return undefined;
