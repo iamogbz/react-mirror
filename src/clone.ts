@@ -27,8 +27,8 @@ export function copyStyles(
                 .map((s) => s.trim())
                 .filter(Boolean)) {
                 const selector = selectorText.replace(pseudoElementRegex, "");
-                // if selector is empty then selectorText was all pseudo element
-                // selector which means that it should be applied to all elements
+                // if {selector} is empty then {selectorText} was only pseudo element
+                // selectors which means it should be applied to all elements i.e. *
                 if (sourceElt?.matches(selector || "*")) {
                     styleDecls[selectorText] = rule.style;
                 }
