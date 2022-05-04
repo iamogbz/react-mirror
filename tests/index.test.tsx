@@ -48,13 +48,25 @@ describe("Component", (): void => {
         const domStyle = document.createElement("style");
         document.head.appendChild(domStyle);
         domStyle.innerHTML = `
-            body, .mirrorFrame {
+            @charset "utf-8";
+            @font-face {
+                font-family: "Open Sans";
+            }
+            body, .mirrorFrame:not(*) {
                 font-family: "san-serif";
                 font-size: 1.2em;
             }
+            :is(::after), ::before {
+                position: absolute;
+            }
+            :where(::slotted(span)) {
+                border: none;
+            }
+            ::after {
+                content: '';
+            }
             .mirrorFrame::before {
                 content: 'mock text';
-                position: absolute;
             }
             .class1.one, .class2.two {
                 height: 10px;
@@ -66,12 +78,11 @@ describe("Component", (): void => {
                 margin: 0 auto;
             }
             .class3.three::after {
-                content: '';
                 background: red;
                 width: 5px;
                 height: 5px;
             }
-            .class1.one .class2.two {
+            .class1.one[attr^="[val"] .class2.two {
                 width: 20px;
             }
         `;
@@ -81,6 +92,7 @@ describe("Component", (): void => {
         const node1 = document.createElement("div");
         domNode.appendChild(node1);
         node1.className = "class1 one";
+        node1.setAttribute("attr", "[value");
         const node2 = document.createElement("span");
         node1.appendChild(node2);
         node2.className = "class2 two";

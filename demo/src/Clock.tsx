@@ -17,7 +17,7 @@ export function Clock(): JSX.Element {
         Hour: (date.getHours() % 12) / 12,
     };
     return (
-        <div className="Clock Face">
+        <div className="Clock Face" data-name="MyClock">
             {Object.entries(ratios).map(([cls, ratio]) => (
                 <span
                     key={cls}
