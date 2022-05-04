@@ -26,12 +26,11 @@ export function copyStyles(
             // `.classA, .classB` fails when compared with `.classB`
             // https://github.com/keeganstreet/specificity/issues/4
             for (const selectorText of splitSelectors(rule.selectorText)) {
+                // also match pseudo selectors
                 const selector = selectorText.replace(
                     getPseudoElementSelector(selectorText),
                     "",
                 );
-                // If selector has a pseudo element pattern then just include it since
-                // Pseudo elements match the parent and safely extracting it is complicated
                 try {
                     if (sourceElt?.matches(selector || "*")) {
                         styleDecls[selectorText] = rule.style;
