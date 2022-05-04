@@ -14,6 +14,7 @@ exports[`Component renders reflection with styles 1`] = `
 <body>
   <div>
     <div
+      attr="[value"
       class="class1 one"
     >
       <span
@@ -29,7 +30,6 @@ exports[`Component renders reflection with styles 1`] = `
   <div>
     <div
       class="mirrorFrame_4fzzzxj"
-      style="font-family: \\"san-serif\\"; font-size: 1.2em;"
     >
       <div
         class="_4fzzzxj"
@@ -38,17 +38,20 @@ exports[`Component renders reflection with styles 1`] = `
         <style
           type="text/css"
         >
-          ._4fzzzxj::after { content: ''; position: absolute; }
+          ._4fzzzxj::before { position: absolute; }
+._4fzzzxj::after { content: ''; }
 
         </style>
         <div
+          attr="[value"
           class="class1-one_4fzzzxj"
           style="height: 10px; pointer-events: none;"
         >
           <style
             type="text/css"
           >
-            .class1-one_4fzzzxj::after { content: ''; position: absolute; }
+            .class1-one_4fzzzxj::before { position: absolute; }
+.class1-one_4fzzzxj::after { content: ''; }
 
           </style>
           <span
@@ -58,7 +61,8 @@ exports[`Component renders reflection with styles 1`] = `
             <style
               type="text/css"
             >
-              .class2-two_4fzzzxj::after { content: ''; position: absolute; }
+              .class2-two_4fzzzxj::before { position: absolute; }
+.class2-two_4fzzzxj::after { content: ''; }
 
             </style>
           </span>
@@ -70,8 +74,9 @@ exports[`Component renders reflection with styles 1`] = `
           <style
             type="text/css"
           >
-            .class3-three_4fzzzxj::after { content: ''; position: absolute; }
-.class3-three_4fzzzxj::after { content: ''; background: red; width: 5px; height: 5px; }
+            .class3-three_4fzzzxj::before { position: absolute; }
+.class3-three_4fzzzxj::after { content: ''; }
+.class3-three_4fzzzxj::after { background: red; width: 5px; height: 5px; }
 
           </style>
           Mock text node
@@ -80,8 +85,9 @@ exports[`Component renders reflection with styles 1`] = `
       <style
         type="text/css"
       >
-        .mirrorFrame_4fzzzxj::after { content: ''; position: absolute; }
-.mirrorFrame_4fzzzxj::before { content: 'mock text'; position: absolute; }
+        .mirrorFrame_4fzzzxj::before { position: absolute; }
+.mirrorFrame_4fzzzxj::after { content: ''; }
+.mirrorFrame_4fzzzxj::before { content: 'mock text'; }
 
       </style>
     </div>

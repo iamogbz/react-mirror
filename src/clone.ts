@@ -1,5 +1,9 @@
 import { compare } from "specificity";
-import { camelToSpinalCase } from "./utils";
+import {
+    camelToSpinalCase,
+    getPseudoElementSelector,
+    splitSelectors,
+} from "./utils";
 
 export type CloneOptions = {
     styles?: React.CSSProperties;
@@ -12,7 +16,6 @@ export function copyStyles(
     options?: CloneOptions,
 ): void {
     const styleDecls: { [key: string]: CSSStyleDeclaration } = {};
-    const pseudoElementRegex = /::[a-z-]+/g;
     for (let i = 0; i < document.styleSheets.length; i++) {
         const styleSheet = document.styleSheets[i] as CSSStyleSheet;
         const rules = styleSheet.rules || styleSheet.cssRules;
@@ -22,15 +25,20 @@ export function copyStyles(
             // accounts for bug with specificity library where
             // `.classA, .classB` fails when compared with `.classB`
             // https://github.com/keeganstreet/specificity/issues/4
-            for (const selectorText of rule.selectorText
-                .split(",")
-                .map((s) => s.trim())
-                .filter(Boolean)) {
-                const selector = selectorText.replace(pseudoElementRegex, "");
-                // if {selector} is empty then {selectorText} was only pseudo element
-                // selectors which means it should be applied to all elements i.e. *
-                if (sourceElt?.matches(selector || "*")) {
-                    styleDecls[selectorText] = rule.style;
+            for (const selectorText of splitSelectors(rule.selectorText)) {
+                const selector = selectorText.replace(
+                    getPseudoElementSelector(selectorText),
+                    "",
+                );
+                // If selector has a pseudo element pattern then just include it since
+                // Pseudo elements match the parent and safely extracting it is complicated
+                try {
+                    if (sourceElt?.matches(selector || "*")) {
+                        styleDecls[selectorText] = rule.style;
+                    }
+                } catch (e) {
+                    // eslint-disable-next-line no-console
+                    console.error(e.message, { selectorText });
                 }
             }
         }
@@ -43,12 +51,10 @@ export function copyStyles(
     styleElt.type = "text/css";
     for (const selector of Object.keys(styleDecls).sort(compare)) {
         const styleDecl = styleDecls[selector];
-        const pseudos = selector.match(pseudoElementRegex);
         // store pseudo element styles in style element
-        if (pseudos?.length) {
-            for (const p of new Set(pseudos)) {
-                styleElt.innerHTML += `.${targetElt.className}${p} { ${styleDecl.cssText} }\n`;
-            }
+        const pseudoElementSelector = getPseudoElementSelector(selector);
+        if (pseudoElementSelector) {
+            styleElt.innerHTML += `.${targetElt.className}${pseudoElementSelector} { ${styleDecl.cssText} }\n`;
         } else {
             for (let i = 0; i < styleDecl.length; i++) {
                 const propName = styleDecl[i];
