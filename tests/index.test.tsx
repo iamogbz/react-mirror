@@ -15,7 +15,7 @@ describe("Hook", (): void => {
 
     it("starts reflecting node", (): void => {
         const { result } = renderHook(() =>
-            useMirror({ className: "test-mirror", reflect: null }),
+            useMirror({ className: "test-mirror" }),
         );
         const [ref] = result.current;
         act(() => void ref(document.createElement("div")));
@@ -36,9 +36,7 @@ describe("Component", (): void => {
     afterAll(jest.restoreAllMocks);
 
     it("frames an empty reflection", (): void => {
-        const result = render(
-            <Mirror className="test-mirror-frame" reflect={null} />,
-        );
+        const result = render(<Mirror className="test-mirror-frame" />);
         expect(result.baseElement).toMatchSnapshot();
     });
 
@@ -86,7 +84,7 @@ describe("Component", (): void => {
                 width: 20px;
             }
         `;
-        /** add nodes that will be mirrored mirror */
+        /** add nodes that will be mirrored */
         const domNode = document.createElement("div");
         document.body.appendChild(domNode);
         const node1 = document.createElement("div");
@@ -97,22 +95,9 @@ describe("Component", (): void => {
         node1.appendChild(node2);
         node2.className = "class2 two";
         /** render mirror into detached node */
-        const spyReplace = jest.spyOn(HTMLElement.prototype, "replaceChild");
         const baseElement = document.createElement("div");
         const renderProps = { className: "mirrorFrame", reflect: domNode };
-        render(<Mirror {...renderProps} />, { baseElement });
-        expect(spyMathRandom).toHaveBeenCalledTimes(1);
-        /** add more nodes and check that they are inserted */
-        expect(spyReplace).toHaveBeenCalledTimes(0);
-        const node3 = document.createElement("p");
-        domNode.appendChild(node3);
-        node3.innerHTML = "Mock text node";
-        node3.className = "class3 three";
-        await new Promise((resolve) => setTimeout(resolve));
-        expect(spyReplace).toHaveBeenCalledTimes(1);
-        /** mirror nodes and check results */
-        const result = render(<Mirror {...renderProps} />);
-        expect(spyMathRandom).toHaveBeenCalledTimes(2);
+        const result = render(<Mirror {...renderProps} />, { baseElement });
         expect(result.baseElement).toMatchSnapshot();
         /** clean up */
         domStyle.remove();
