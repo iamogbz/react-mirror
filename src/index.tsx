@@ -65,6 +65,10 @@ export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
 export function useMirror<T extends React.ReactInstance>(
     props?: MirrorPropsType,
 ) {
+<<<<<<< HEAD
     const [node, ref] = React.useState<T | null>(null);
+=======
+    const [node, ref] = React.useState<T>();
+>>>>>>> 2c99911 (chore: update package deps)
     return [ref, <Mirror key="mirror" {...props} reflect={node} />] as const;
 }
