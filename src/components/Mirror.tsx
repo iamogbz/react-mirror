@@ -25,8 +25,13 @@ export function Mirror({ className, reflect }: MirrorProps) {
         [reflect],
     );
 
-    const { height, width } = useDimensions(real);
-    const frameProps = { className, height, id, width };
+    const { top, bottom, left, right } = useDimensions(real);
+    const frameProps = {
+        className,
+        height: bottom - top,
+        id,
+        width: right - left,
+    };
     return (
         <Frame {...frameProps}>
             <Reflection real={real} style={{ pointerEvents: "none" }} />
