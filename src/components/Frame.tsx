@@ -1,6 +1,6 @@
 import * as React from "react";
 import { usePortal } from "../hooks/usePortal";
-import { useRef } from "../hooks/useRef";
+import { useCallbackRef } from "../hooks/useRef";
 import { ElementProps } from "./Element";
 import { Styles } from "./Styles";
 
@@ -38,7 +38,7 @@ export function IFrame({
     getMountNode = (window) => window?.document?.body,
     ...props
 }: IFrameProps) {
-    const [iframe, ref] = useRef<HTMLIFrameElement>();
+    const [iframe, ref] = useCallbackRef<HTMLIFrameElement>();
     const mountNode = getMountNode(iframe?.contentWindow ?? undefined);
     const portal = usePortal({ source: children, target: mountNode });
 
