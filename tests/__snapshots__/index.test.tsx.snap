@@ -95,11 +95,7 @@ exports[`Component renders reflection with styles 1`] = `
 </body>
 `;
 
-exports[`Hook returns an empty reflection 1`] = `
-<Mirror
-  reflect={null}
-/>
-`;
+exports[`Hook returns an empty reflection 1`] = `<Mirror />`;
 
 exports[`Hook starts reflecting node 1`] = `
 <Mirror
