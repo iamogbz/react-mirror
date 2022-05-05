@@ -11,3 +11,7 @@ export function randomString(length: number) {
 export function spinalToCamelCase(spinalCase: string): string {
     return spinalCase.replace(/-[a-z]/g, (m) => m.substring(1).toUpperCase());
 }
+
+export function flatten<T>(...items: (T | T[])[]) {
+    return ([] as T[]).concat(...items);
+}

@@ -1,3 +1,5 @@
+import { flatten } from ".";
+
 export function getChildren(element?: Element | Text) {
     const children: (Element | Text)[] = [];
     if (isElement(element)) {
@@ -43,4 +45,17 @@ export function isElement(node?: Node): node is Element {
 
 export function isText(node?: Node): node is Text {
     return node?.nodeType === Node.TEXT_NODE;
+}
+
+/**
+ * Get all style rules from window document sorted by selector text
+ */
+export function getAllStyleRules() {
+    return flatten(
+        ...Array.from(document.styleSheets).map((sheet) => {
+            return Array.from(sheet.cssRules).map((rule) => {
+                return rule.cssText;
+            });
+        }),
+    ).sort();
 }

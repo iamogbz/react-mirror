@@ -14,10 +14,10 @@ export interface MirrorProps extends Pick<FrameProps, "className"> {
  * Create reflection wrapped in frame element
  */
 export function Mirror({ className, reflect }: MirrorProps) {
-    const { real, instanceId } = React.useMemo(
+    const { id, real } = React.useMemo(
         () => ({
             /** Unique identifier of this mirror */
-            instanceId: randomString(7),
+            id: randomString(7),
             /** Actual DOM node of react element being reflected */
             // eslint-disable-next-line react/no-find-dom-node
             real: ReactDOM.findDOMNode(reflect) ?? undefined,
@@ -26,7 +26,7 @@ export function Mirror({ className, reflect }: MirrorProps) {
     );
 
     const { height, width } = useDimensions(real);
-    const frameProps = { className, height, width, id: instanceId };
+    const frameProps = { className, height, id, width };
     return (
         <Frame {...frameProps}>
             <Reflection real={real} style={{ pointerEvents: "none" }} />

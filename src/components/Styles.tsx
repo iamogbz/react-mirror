@@ -1,10 +1,11 @@
 import * as React from "react";
+import { ElementProps } from "./Element";
 
-interface StylesProp {
+interface StylesProps {
     sheetList: StyleSheetList;
 }
 
-export function Styles({ sheetList }: StylesProp) {
+export function Styles({ sheetList }: StylesProps) {
     const sheets = React.useMemo(() => {
         return Array.from(sheetList).map((sheet, i) => {
             return <StyleSheet key={i} sheet={sheet} />;
@@ -14,23 +15,30 @@ export function Styles({ sheetList }: StylesProp) {
     return <>{sheets}</>;
 }
 
-interface StyleSheetProp {
+interface StyleSheetProps {
     sheet: CSSStyleSheet;
 }
 
-function StyleSheet({ sheet }: StyleSheetProp) {
+function StyleSheet({ sheet }: StyleSheetProps) {
     const rules = React.useMemo(
         () => Array.from(sheet.cssRules).map((rule) => rule.cssText),
         [sheet],
     );
 
     return (
-        <style
+        <Style
             media={sheet.media.mediaText}
             title={sheet.title ?? undefined}
             type={sheet.type}
-        >
-            {rules}
-        </style>
+            rules={rules}
+        />
     );
+}
+
+interface StyleProps extends ElementProps<"style"> {
+    rules: string[];
+}
+
+export function Style({ rules, ...styleProps }: StyleProps) {
+    return <style {...styleProps}>{rules}</style>;
 }

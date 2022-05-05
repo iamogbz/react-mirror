@@ -1,6 +1,8 @@
 import * as React from "react";
+import { getAllStyleRules } from "../utils/dom";
+import { useObserver } from "../hooks/useObserver";
 import { IFrame, IFrameProps } from "./IFrame";
-import { Styles } from "./Styles";
+import { Style } from "./Styles";
 
 export type FrameProps = Omit<IFrameProps, "getMountNode">;
 
@@ -21,7 +23,31 @@ export function Frame({ children, ...frameProps }: FrameProps) {
  * Copy of the current document style sheets to be used in framing
  */
 function DocumentStyle() {
-    return <Styles sheetList={document.styleSheets} />;
+    const [rules, setRules] = React.useState(getAllStyleRules);
+
+    const onUpdate = React.useCallback(
+        function updateRules() {
+            const newRules = getAllStyleRules();
+            if (JSON.stringify(rules) === JSON.stringify(newRules)) return;
+            setRules(newRules);
+        },
+        [rules],
+    );
+
+    useObserver({
+        ObserverClass: MutationObserver,
+        onUpdate,
+        initOptions: {
+            attributeFilter: ["class"],
+            attributes: true,
+            characterData: true,
+            childList: true,
+            subtree: true,
+        },
+        target: window.document,
+    });
+
+    return <Style rules={rules} />;
 }
 
 /**
