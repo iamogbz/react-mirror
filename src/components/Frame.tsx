@@ -1,10 +1,8 @@
 import * as React from "react";
-import { usePortal } from "../hooks/usePortal";
-import { useCallbackRef } from "../hooks/useRef";
-import { ElementProps } from "./Element";
+import { IFrame, IFrameProps } from "./IFrame";
 import { Styles } from "./Styles";
 
-export type FrameProps = ElementProps<"iframe">;
+export type FrameProps = Omit<IFrameProps, "getMountNode">;
 
 /**
  * Used to wrap and isolate reflection from rest of document
@@ -13,31 +11,17 @@ export function Frame({ children, ...frameProps }: FrameProps) {
     return (
         <IFrame {...frameProps}>
             <ResetStyle />
-            <Styles sheetList={document.styleSheets} />
+            <DocumentStyle />
             {children}
         </IFrame>
     );
 }
 
-interface IFrameProps extends FrameProps {
-    /** Get the iframe content node the react children will be rendered into */
-    getMountNode?: (_?: Window) => Element | undefined;
-}
-
-export function IFrame({
-    children,
-    getMountNode = (window) => window?.document?.body,
-    ...props
-}: IFrameProps) {
-    const [iframe, ref] = useCallbackRef<HTMLIFrameElement>();
-    const mountNode = getMountNode(iframe?.contentWindow ?? undefined);
-    const portal = usePortal({ source: children, target: mountNode });
-
-    return (
-        <iframe {...props} ref={ref}>
-            {portal}
-        </iframe>
-    );
+/**
+ * Copy of the current document style sheets to be used in framing
+ */
+function DocumentStyle() {
+    return <Styles sheetList={document.styleSheets} />;
 }
 
 /**
