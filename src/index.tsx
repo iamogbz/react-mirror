@@ -11,6 +11,7 @@ type MirrorPropsType = {
 
 export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
     // unique identifier of this mirror
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const instanceId = React.useMemo(() => randomString(7), [reflect]);
     // ref to element in which reflection will be framed
     const [frame, ref] = React.useState<HTMLDivElement | null>(null);
@@ -30,12 +31,14 @@ export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
         } else {
             frame.appendChild(reflection);
         }
-        while (frame.firstChild !== frame.lastChild) {
+        while (frame.firstChild !== frame.lastChild && frame.lastChild) {
             frame.removeChild(frame.lastChild);
         }
-        frame.className = className;
+        if (className) {
+            frame.className = className;
+        }
         copyStyles(frame, frame, cloneOptions);
-    }, [frame, real, className]);
+    }, [frame, real, instanceId, className]);
     // start of the reflection
     React.useEffect(update, [update]);
     // mutation observer single instance
@@ -54,14 +57,14 @@ export function Mirror({ className, reflect }: MirrorPropsType): JSX.Element {
         // also listen for input changes since those are not observable
         real.addEventListener("input", update);
         return (): void => observer.disconnect();
-    }, [real, observer]);
+    }, [real, observer, update]);
     // return frame element
     return <div className={className} ref={ref} />;
 }
 
-export function useMirror(
+export function useMirror<T extends React.ReactInstance>(
     props?: MirrorPropsType,
-): [React.Dispatch<unknown>, JSX.Element | undefined] {
-    const [node, ref] = React.useState(null);
-    return [ref, <Mirror key="mirror" {...props} reflect={node} />];
+) {
+    const [node, ref] = React.useState<T | null>(null);
+    return [ref, <Mirror key="mirror" {...props} reflect={node} />] as const;
 }

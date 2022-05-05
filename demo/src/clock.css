@@ -1,0 +1,45 @@
+.Clock.Face {
+  margin: 10px auto;
+  position: relative;
+  width: 144px;
+  height: 144px;
+  border: solid 4px black;
+  border-radius: 100%;
+}
+
+.Clock[data-name="MyClock"]::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+}
+
+.Clock.Hand {
+  position: absolute;
+  width: 6%;
+  left: 47%;
+  transform-origin: bottom;
+  border-radius: 100%;
+}
+
+.Clock.Hand.Hour {
+  background-color: red;
+  height: 25%;
+  top: 25%;
+}
+
+.Clock.Hand.Minute {
+  background-color: violet;
+  height: 35%;
+  top: 15%;
+}
+
+.Clock.Hand.Second {
+  background-color: orange;
+  height: 45%;
+  top: 5%;
+}

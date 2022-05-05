@@ -7,7 +7,7 @@ export function Window({
 }: {
     onClose: () => void;
     children: React.ReactNode;
-}): JSX.Element | null {
+}): JSX.Element {
     const portalWindow = React.useMemo(() => {
         const _window = window.open(
             "",
@@ -18,8 +18,8 @@ export function Window({
         return _window;
     }, [onClose]);
     const portal = React.useMemo(() => {
-        if (!portalWindow?.document?.body) return null;
+        if (!portalWindow?.document?.body) return;
         return ReactDOM.createPortal(children, portalWindow.document.body);
     }, [children, portalWindow]);
-    return portal;
+    return <>{portal}</>;
 }

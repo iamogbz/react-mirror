@@ -55,7 +55,5 @@ function isAtRule(selector: string): boolean {
 
 export function getPseudoElementSelector(selector: string): string {
     const pseudoElementSelector = /::\w+(\(\w+\))?/g;
-    return pseudoElementSelector.test(selector)
-        ? selector.match(pseudoElementSelector)[0]
-        : "";
+    return selector.match(pseudoElementSelector)?.[0] ?? "";
 }

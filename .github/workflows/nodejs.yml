@@ -21,15 +21,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - uses: pnpm/action-setup@v2.0.1
+    - uses: pnpm/action-setup@v2.2.1
       with:
-        version: 6.0.2
+        version: 7
         run_install: |
             args: [--frozen-lockfile]
     - name: Typecheck
       run: |
         pnpm build-types
-        pnpm link
+        pnpm link .
         pnpm typecheck
     - name: Lint
       run: |

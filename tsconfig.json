@@ -6,9 +6,7 @@
         "target": "es6",
         "jsx": "react",
         "allowSyntheticDefaultImports": true,
-        "noImplicitReturns": true,
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitAny": true
+        "strict": true
     },
     "exclude": ["lib", "node_modules"]
 }

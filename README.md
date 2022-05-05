@@ -20,12 +20,12 @@ See equivalent uses of the hook and component below.
 import { useMirror } from 'react-mirror';
 
 function App() {
-  const [ref, reflection] = useMirror({ className: 'mirror-frame' });
+  const [ref, mirror] = useMirror({ className: 'mirror-frame' });
   return (
     <>
       <div ref={ref} />
-      {reflection}
-    <>
+      {mirror}
+    </>
   );
 }
 ```
@@ -42,7 +42,7 @@ function App() {
     <>
       <div ref={setReflect} />
       <Mirror reflect={reflect} className='mirror-frame'/>
-    <>
+    </>
   );
 }
 ```

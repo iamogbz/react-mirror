@@ -39,7 +39,14 @@ const configuration: Configuration = {
         new WebpackCompilerPlugin({
             name: "script-build-types",
             listeners: {
-                compileStart: (): void => void execSync("pnpm build-types"),
+                compileStart: (): void => {
+                    try {
+                        execSync("pnpm build-types");
+                    } catch (e) {
+                        // eslint-disable-next-line no-console
+                        console.error(e);
+                    }
+                },
             },
         }),
     ],

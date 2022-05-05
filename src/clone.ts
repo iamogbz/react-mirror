@@ -37,7 +37,7 @@ export function copyStyles(
                     }
                 } catch (e) {
                     // eslint-disable-next-line no-console
-                    console.error(e.message, { selectorText });
+                    console.error((e as Error).message || e, { selectorText });
                 }
             }
         }
