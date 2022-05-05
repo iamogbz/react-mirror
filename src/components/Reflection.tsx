@@ -9,7 +9,7 @@ import { Element } from "./Element";
  * User action events to track and update style
  * https://developer.mozilla.org/en-US/docs/Web/Events#event_listing
  */
-const TRACK_EVENTS = [
+const TRACK_EVENTS = new Set([
     "click",
     "input",
     "keypress",
@@ -18,7 +18,7 @@ const TRACK_EVENTS = [
     "mousemove",
     "mousedown",
     "mouseup",
-] as const;
+] as const);
 const OBSERVER_INIT = {
     attributes: true,
     childList: true,
@@ -45,25 +45,13 @@ export function Reflection({ className, real, style }: ReflectionProps) {
     // Trigger a rerender
     const { rerender: onUpdate } = useRerender();
     // Observe changes on real element
-    const observer = useObserver({ onUpdate });
-    React.useEffect(
-        function observeRealElement() {
-            if (!real || !observer) return;
-            observer.observe(real, OBSERVER_INIT);
-            // also listen for other changes that are not observable
-            TRACK_EVENTS.forEach((event) => {
-                real.addEventListener(event, onUpdate, false);
-            });
-            // disconnect and remove event listeners on unmount
-            return function destroy() {
-                observer.disconnect();
-                TRACK_EVENTS.forEach((event) => {
-                    real.removeEventListener(event, onUpdate, false);
-                });
-            };
-        },
-        [real, observer, onUpdate],
-    );
+    useObserver({
+        initOptions: OBSERVER_INIT,
+        ObserverClass: MutationObserver,
+        onEvents: TRACK_EVENTS,
+        onUpdate,
+        target: real,
+    });
 
     if (!real) return null;
     if (isText(real)) return <>{real.textContent}</>;

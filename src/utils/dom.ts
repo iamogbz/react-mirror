@@ -37,7 +37,7 @@ export function getBounds(node?: Node) {
     return new DOMRect();
 }
 
-function isElement(node?: Node): node is Element {
+export function isElement(node?: Node): node is Element {
     return node ? !isText(node) : false;
 }
 

@@ -5,7 +5,9 @@ exports[`Component frames an empty reflection 1`] = `
   <div>
     <iframe
       class="test-mirror-frame"
+      height="0"
       id="4fzzzxj"
+      width="0"
     />
   </div>
 </body>
@@ -16,7 +18,9 @@ exports[`Component renders reflection with styles 1`] = `
   <div>
     <iframe
       class="mirrorFrame"
+      height="0"
       id="4fzzzxj"
+      width="0"
     />
   </div>
 </div>
