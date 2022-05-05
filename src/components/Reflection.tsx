@@ -1,5 +1,6 @@
 import * as React from "react";
 import { spinalToCamelCase } from "../utils";
+import { getAttributes, getChildren, isText } from "../utils/dom";
 import { useObserver } from "../hooks/useObserver";
 import { useRerender } from "../hooks/useRerender";
 import { Element } from "./Element";
@@ -78,41 +79,6 @@ export function Reflection({ className, real, style }: ReflectionProps) {
             {children}
         </Element>
     );
-}
-
-function getChildren(element?: Element | Text) {
-    const children: (Element | Text)[] = [];
-    if (isElement(element)) {
-        element.childNodes.forEach((childNode) => {
-            if (isElement(childNode) || isText(childNode)) {
-                children.push(childNode);
-            }
-        });
-    }
-    return children;
-}
-
-function getAttributes(element?: Element | Text) {
-    const attributes: Record<string, string> = {};
-    if (isElement(element)) {
-        Array.from(element.attributes).forEach((attr) => {
-            attributes[attr.name] = attr.value;
-        });
-    }
-    attributes.value = getValue(element);
-    return attributes;
-}
-
-function getValue(node?: Node) {
-    return (node as HTMLInputElement)?.value;
-}
-
-function isElement(node?: Node): node is Element {
-    return node ? !isText(node) : false;
-}
-
-function isText(node?: Node): node is Text {
-    return node?.nodeType === Node.TEXT_NODE;
 }
 
 function mergeClassList(className?: string, classList?: string) {

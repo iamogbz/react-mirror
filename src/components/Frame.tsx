@@ -4,23 +4,14 @@ import { useCallbackRef } from "../hooks/useRef";
 import { ElementProps } from "./Element";
 import { Styles } from "./Styles";
 
-export interface FrameProps {
-    /** Enables class styling of class iframe element */
-    className?: string;
-    /** ID of iframe element */
-    id?: string;
-}
+export type FrameProps = ElementProps<"iframe">;
 
 /**
  * Used to wrap and isolate reflection from rest of document
  */
-export function Frame({
-    children,
-    className,
-    id,
-}: React.PropsWithChildren<FrameProps>) {
+export function Frame({ children, ...frameProps }: FrameProps) {
     return (
-        <IFrame id={id} className={className}>
+        <IFrame {...frameProps}>
             <ResetStyle />
             <Styles sheetList={document.styleSheets} />
             {children}
@@ -28,10 +19,10 @@ export function Frame({
     );
 }
 
-type IFrameProps = ElementProps<"iframe"> & {
+interface IFrameProps extends FrameProps {
     /** Get the iframe content node the react children will be rendered into */
     getMountNode?: (_?: Window) => Element | undefined;
-};
+}
 
 export function IFrame({
     children,
