@@ -9,6 +9,9 @@ export interface MirrorProps extends Pick<FrameProps, "className"> {
     reflect?: React.ReactInstance;
 }
 
+/**
+ * Create reflection wrapped in frame element
+ */
 export function Mirror({ className, reflect }: MirrorProps) {
     const { real, instanceId } = React.useMemo(
         () => ({
@@ -20,7 +23,6 @@ export function Mirror({ className, reflect }: MirrorProps) {
         }),
         [reflect],
     );
-    // return reflection wrapped in frame element
     return (
         <Frame id={instanceId} className={className}>
             <Reflection real={real} style={{ pointerEvents: "none" }} />
