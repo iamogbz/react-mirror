@@ -6,7 +6,6 @@ describe("Entry", () => {
               "Frame": [Function],
               "Mirror": [Function],
               "Reflection": [Function],
-              "Style": [Function],
               "useMirror": [Function],
             }
         `);

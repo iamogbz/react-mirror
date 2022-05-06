@@ -20,8 +20,7 @@ export function Mirror({ className, frameProps, reflect }: MirrorProps) {
             /** Unique identifier of this mirror */
             instanceId: randomString(7),
             /** Actual DOM node of react element being reflected */
-            // eslint-disable-next-line react/no-find-dom-node
-            real: ReactDOM.findDOMNode(reflect) ?? undefined,
+            real: getRealNode(reflect),
         }),
         [reflect],
     );
@@ -38,4 +37,15 @@ export function Mirror({ className, frameProps, reflect }: MirrorProps) {
             <Reflection real={real} style={{ pointerEvents: "none" }} />
         </Frame>
     );
+}
+
+function getRealNode(instance?: React.ReactInstance) {
+    try {
+        // eslint-disable-next-line react/no-find-dom-node
+        return ReactDOM.findDOMNode(instance) ?? undefined;
+    } catch (e) {
+        // eslint-disable-next-line no-console
+        console.warn(e);
+        return;
+    }
 }

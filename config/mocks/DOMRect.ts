@@ -18,14 +18,6 @@ export default class DOMRect {
         this.right = x + width;
         this.bottom = y + height;
     }
-
-    static fromRect(other?: DOMRectInit): DOMRect {
-        return new DOMRect(other?.x, other?.y, other?.width, other?.height);
-    }
-
-    toJSON() {
-        return JSON.stringify(this);
-    }
 }
 
 Object.assign(window, { DOMRect });

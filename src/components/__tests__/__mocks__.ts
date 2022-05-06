@@ -1,6 +1,8 @@
 export function addDomNode() {
     const domNode = document.createElement("div");
     document.body.appendChild(domNode);
+    const node0 = document.createComment("comment node");
+    document.appendChild(node0);
     const node1 = document.createElement("div");
     domNode.appendChild(node1);
     node1.className = "class1 one";
@@ -8,6 +10,8 @@ export function addDomNode() {
     const node2 = document.createElement("span");
     node1.appendChild(node2);
     node2.className = "class2 two";
+    const node3 = document.createTextNode("text content");
+    domNode.appendChild(node3);
     return domNode;
 }
 

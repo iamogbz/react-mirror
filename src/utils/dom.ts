@@ -19,7 +19,8 @@ export function getAttributes(element?: Element | Text) {
             attributes[attr.name] = attr.value;
         });
     }
-    attributes.value = getValue(element);
+    const fieldValue = getValue(element);
+    if (fieldValue) attributes.value = fieldValue;
     return attributes;
 }
 

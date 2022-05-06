@@ -62,6 +62,7 @@ describe("Mirror", () => {
                     class="class2 two"
                   />
                 </div>
+                text content
               </div>
               <div>
                 <iframe
@@ -103,6 +104,7 @@ describe("Mirror", () => {
                       style="pointer-events: none;"
                     />
                   </div>
+                  text content
                 </div>
               </body>
             </html>
