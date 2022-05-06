@@ -64,6 +64,7 @@
             "./artifacts/",
             "./node_modules/"
         ],
+        "testRegex": "(/__tests__/.+(\\.|/)(test|spec))\\.[jt]sx?$",
         "coverageDirectory": "./artifacts/coverage"
     },
     "commitlint": {

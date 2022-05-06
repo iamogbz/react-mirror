@@ -3,7 +3,6 @@
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
         "jsx": "react",
-        "module": "es2020",
         "moduleResolution": "node",
         "outDir": "./lib",
         "strict": true,

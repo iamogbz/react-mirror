@@ -12,7 +12,12 @@ export default class DOMRect {
         public width = 0,
         // eslint-disable-next-line no-unused-vars
         public height = 0,
-    ) {}
+    ) {
+        this.left = x;
+        this.top = y;
+        this.right = x + width;
+        this.bottom = y + height;
+    }
 
     static fromRect(other?: DOMRectInit): DOMRect {
         return new DOMRect(other?.x, other?.y, other?.width, other?.height);
