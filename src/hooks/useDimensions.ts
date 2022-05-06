@@ -1,15 +1,27 @@
 import * as React from "react";
-import { isElement, getBounds } from "../utils/dom";
+import { getBounds, isElement } from "../utils/dom";
 import { useObserver } from "./useObserver";
 
-export function useDimensions(node?: Node) {
-    const [dimensions, setDimensions] = React.useState(new DOMRect());
-    const target = React.useMemo(() => {
-        return isElement(node) ? node : undefined;
-    }, [node]);
-    const onUpdate = React.useCallback(() => {
-        setDimensions(getBounds(target));
+export function useDimensions(target?: Node) {
+    // get the dimensions of the current target
+    const getDimensions = React.useCallback(() => {
+        return getBounds(target);
     }, [target]);
-    useObserver({ ObserverClass: ResizeObserver, onUpdate, target });
+    // track dimensions and trigger rerender on set
+    const [dimensions, setDimensions] = React.useState(getDimensions);
+    // update dimensions when triggered
+    const onUpdate = React.useCallback(() => {
+        setDimensions(getDimensions());
+    }, [getDimensions]);
+    // track resizes and trigger update
+    useObserver({
+        ObserverClass: isElement(target) ? ResizeObserver : MutationObserver,
+        onUpdate,
+        target,
+        initOptions: {
+            characterData: true,
+        },
+    });
+
     return dimensions;
 }

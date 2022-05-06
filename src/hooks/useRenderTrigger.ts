@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export function useRerender() {
+export function useRenderTrigger() {
     const [count, setCount] = React.useState(0);
     const rerender = React.useCallback(
         () => setCount((count) => count + 1),

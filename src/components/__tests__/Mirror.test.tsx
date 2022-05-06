@@ -1,8 +1,8 @@
 import * as React from "react";
 import { act, render } from "@testing-library/react";
+import { addDomNode } from "../../__mocks__";
 import * as useDimensions from "../../hooks/useDimensions";
 import { Mirror } from "../Mirror";
-import { addDomNode } from "./__mocks__";
 
 describe("Mirror", () => {
     const mathRandomSpy = jest.spyOn(Math, "random");

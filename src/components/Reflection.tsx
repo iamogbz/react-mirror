@@ -2,7 +2,7 @@ import * as React from "react";
 import { spinalToCamelCase } from "../utils";
 import { getAttributes, getChildren, isText } from "../utils/dom";
 import { useObserver } from "../hooks/useObserver";
-import { useRerender } from "../hooks/useRerender";
+import { useRenderTrigger } from "../hooks/useRenderTrigger";
 import { Element } from "./Element";
 
 /**
@@ -43,7 +43,7 @@ export function Reflection({ className, real, style }: ReflectionProps) {
     });
 
     // Trigger a rerender
-    const { rerender: onUpdate } = useRerender();
+    const { rerender: onUpdate } = useRenderTrigger();
     // Observe changes on real element
     useObserver({
         initOptions: OBSERVER_INIT,

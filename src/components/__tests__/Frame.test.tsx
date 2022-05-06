@@ -1,7 +1,7 @@
 import * as React from "react";
 import { act, render } from "@testing-library/react";
+import { addDomStyles } from "../../__mocks__";
 import { Frame } from "../Frame";
-import { addDomStyles } from "./__mocks__";
 
 describe("Frame", () => {
     it("creates frame element with styles and children", async () => {
