@@ -1,25 +1,25 @@
 export function addDomNode() {
-    const domNode = document.createElement("div");
-    document.body.appendChild(domNode);
-    const node0 = document.createComment("comment node");
-    document.appendChild(node0);
-    const node1 = document.createElement("div");
-    domNode.appendChild(node1);
-    node1.className = "class1 one";
-    node1.setAttribute("attr", "[value");
-    const node2 = document.createElement("input");
-    node1.appendChild(node2);
-    node2.className = "class2 two";
-    node2.value = "input-value";
-    const node3 = document.createTextNode("text content");
-    domNode.appendChild(node3);
-    return domNode;
+  const domNode = document.createElement("div");
+  document.body.appendChild(domNode);
+  const node0 = document.createComment("comment node");
+  document.appendChild(node0);
+  const node1 = document.createElement("div");
+  domNode.appendChild(node1);
+  node1.className = "class1 one";
+  node1.setAttribute("attr", "[value");
+  const node2 = document.createElement("input");
+  node1.appendChild(node2);
+  node2.className = "class2 two";
+  node2.value = "input-value";
+  const node3 = document.createTextNode("text content");
+  domNode.appendChild(node3);
+  return domNode;
 }
 
 export function addDomStyles() {
-    const domStyle = document.createElement("style");
-    document.head.appendChild(domStyle);
-    domStyle.innerHTML = `
+  const domStyle = document.createElement("style");
+  document.head.appendChild(domStyle);
+  domStyle.innerHTML = `
         @charset "utf-8";
         @font-face {
             font-family: "Open Sans";
@@ -58,5 +58,5 @@ export function addDomStyles() {
             width: 20px;
         }
     `;
-    return domStyle;
+  return domStyle;
 }

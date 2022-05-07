@@ -4,25 +4,24 @@ import { addDomStyles } from "../../__mocks__";
 import { Frame } from "../Frame";
 
 describe("Frame", () => {
-    it("creates frame element with styles and children", async () => {
-        // add document styles to be cloned
-        const domStyle = addDomStyles();
+  it("creates frame element with styles and children", async () => {
+    // add document styles to be cloned
+    const domStyle = addDomStyles();
 
-        const subject = render(
-            <Frame data-test-id="testId">
-                <div>{"child text"}</div>
-            </Frame>,
-        );
-        const iframe = subject.getByTestId("testId") as HTMLIFrameElement;
+    const subject = render(
+      <Frame data-test-id="testId">
+        <div>{"child text"}</div>
+      </Frame>,
+    );
+    const iframe = subject.getByTestId("testId") as HTMLIFrameElement;
 
-        expect(iframe).toMatchInlineSnapshot(`
+    expect(iframe).toMatchInlineSnapshot(`
             <iframe
               data-test-id="testId"
             />
         `);
 
-        expect(iframe.contentDocument?.firstElementChild)
-            .toMatchInlineSnapshot(`
+    expect(iframe.contentDocument?.firstElementChild).toMatchInlineSnapshot(`
             <html>
               <head />
               <body>
@@ -51,12 +50,11 @@ describe("Frame", () => {
             </html>
         `);
 
-        await act(async () => {
-            domStyle.remove();
-        });
+    await act(async () => {
+      domStyle.remove();
+    });
 
-        expect(iframe.contentDocument?.firstElementChild)
-            .toMatchInlineSnapshot(`
+    expect(iframe.contentDocument?.firstElementChild).toMatchInlineSnapshot(`
             <html>
               <head />
               <body>
@@ -73,5 +71,5 @@ describe("Frame", () => {
               </body>
             </html>
         `);
-    });
+  });
 });

@@ -6,28 +6,28 @@ import * as useDimensions from "../../hooks/useDimensions";
 import { Mirror } from "../Mirror";
 
 describe("Mirror", () => {
-    const mathRandomSpy = jest.spyOn(Math, "random");
-    const useDimensionsSpy = jest.spyOn(useDimensions, "useDimensions");
+  const mathRandomSpy = jest.spyOn(Math, "random");
+  const useDimensionsSpy = jest.spyOn(useDimensions, "useDimensions");
 
-    beforeEach(() => {
-        mathRandomSpy.mockReturnValue(0.123456789);
-        useDimensionsSpy.mockReturnValue(new DOMRect());
-    });
+  beforeEach(() => {
+    mathRandomSpy.mockReturnValue(0.123456789);
+    useDimensionsSpy.mockReturnValue(new DOMRect());
+  });
 
-    afterEach(() => {
-        jest.resetAllMocks();
-    });
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
 
-    it("frames an empty reflection", () => {
-        const subject = render(
-            <Mirror
-                frameProps={{
-                    className: "mirror-frame-cls",
-                    id: "mirror-frame-id",
-                }}
-            />,
-        );
-        expect(subject.baseElement).toMatchInlineSnapshot(`
+  it("frames an empty reflection", () => {
+    const subject = render(
+      <Mirror
+        frameProps={{
+          className: "mirror-frame-cls",
+          id: "mirror-frame-id",
+        }}
+      />,
+    );
+    expect(subject.baseElement).toMatchInlineSnapshot(`
             <body>
               <div>
                 <iframe
@@ -39,24 +39,24 @@ describe("Mirror", () => {
               </div>
             </body>
         `);
-    });
+  });
 
-    it("frames an empty reflection when find node errors", () => {
-        const expectedError = Error("Expected test error");
-        const findDOMNodeSpy = jest
-            .spyOn(ReactDOM, "findDOMNode")
-            .mockImplementation(() => {
-                throw expectedError;
-            });
-        const consoleWarnSpy = jest
-            .spyOn(console, "warn")
-            .mockImplementation(() => undefined);
+  it("frames an empty reflection when find node errors", () => {
+    const expectedError = Error("Expected test error");
+    const findDOMNodeSpy = jest
+      .spyOn(ReactDOM, "findDOMNode")
+      .mockImplementation(() => {
+        throw expectedError;
+      });
+    const consoleWarnSpy = jest
+      .spyOn(console, "warn")
+      .mockImplementation(() => undefined);
 
-        const subject = render(<Mirror />);
+    const subject = render(<Mirror />);
 
-        expect(consoleWarnSpy).toHaveBeenCalledTimes(1);
-        expect(consoleWarnSpy).toHaveBeenLastCalledWith(expectedError);
-        expect(subject.baseElement).toMatchInlineSnapshot(`
+    expect(consoleWarnSpy).toHaveBeenCalledTimes(1);
+    expect(consoleWarnSpy).toHaveBeenLastCalledWith(expectedError);
+    expect(subject.baseElement).toMatchInlineSnapshot(`
             <body>
               <div>
                 <iframe
@@ -68,21 +68,21 @@ describe("Mirror", () => {
             </body>
         `);
 
-        findDOMNodeSpy.mockRestore();
-    });
+    findDOMNodeSpy.mockRestore();
+  });
 
-    it("renders reflection with styles", async () => {
-        /** add nodes that will be mirrored */
-        const domNode = addDomNode();
-        /** test reflection */
-        const frameId = "mirrorFrame";
-        const renderProps = {
-            frameProps: { className: frameId, "data-test-id": frameId },
-            reflect: domNode,
-        };
+  it("renders reflection with styles", async () => {
+    /** add nodes that will be mirrored */
+    const domNode = addDomNode();
+    /** test reflection */
+    const frameId = "mirrorFrame";
+    const renderProps = {
+      frameProps: { className: frameId, "data-test-id": frameId },
+      reflect: domNode,
+    };
 
-        const subject = render(<Mirror {...renderProps} />);
-        expect(subject.baseElement).toMatchInlineSnapshot(`
+    const subject = render(<Mirror {...renderProps} />);
+    expect(subject.baseElement).toMatchInlineSnapshot(`
             <body>
               <div>
                 <div
@@ -107,9 +107,8 @@ describe("Mirror", () => {
             </body>
         `);
 
-        const iframe = subject.getByTestId(frameId) as HTMLIFrameElement;
-        expect(iframe.contentDocument?.firstElementChild)
-            .toMatchInlineSnapshot(`
+    const iframe = subject.getByTestId(frameId) as HTMLIFrameElement;
+    expect(iframe.contentDocument?.firstElementChild).toMatchInlineSnapshot(`
             <html>
               <head />
               <body>
@@ -143,9 +142,9 @@ describe("Mirror", () => {
               </body>
             </html>
         `);
-        /** clean up */
-        await act(async () => {
-            domNode.remove();
-        });
+    /** clean up */
+    await act(async () => {
+      domNode.remove();
     });
+  });
 });

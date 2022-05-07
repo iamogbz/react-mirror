@@ -30,7 +30,7 @@
         "lib"
     ],
     "scripts": {
-        "lint": "eslint . --ext .js,.ts",
+        "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
         "build": "webpack --mode=production",
         "build-watch": "webpack --mode=development --watch",
         "build-types": "tsc --declaration --emitDeclarationOnly --project tsconfig.prod.json",
