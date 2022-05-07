@@ -12,10 +12,21 @@ export type FrameProps = Omit<IFrameProps, "getMountNode">;
 export function Frame({ children, ...frameProps }: FrameProps) {
   return (
     <IFrame {...frameProps}>
-      <ResetStyle />
-      <DocumentStyle />
+      <FrameStyles />
       {children}
     </IFrame>
+  );
+}
+
+/**
+ * Styling used to keep the mirror frame in-sync with document
+ */
+export function FrameStyles() {
+  return (
+    <>
+      <ResetStyle />
+      <DocumentStyle />
+    </>
   );
 }
 

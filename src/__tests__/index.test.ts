@@ -4,8 +4,10 @@ describe("Entry", () => {
     expect(require("../")).toMatchInlineSnapshot(`
             Object {
               "Frame": [Function],
+              "FrameStyles": [Function],
               "Mirror": [Function],
               "Reflection": [Function],
+              "Window": [Function],
               "useMirror": [Function],
             }
         `);
