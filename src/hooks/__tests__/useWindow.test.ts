@@ -10,7 +10,7 @@ describe("useWindow", () => {
 
   beforeEach(() => {
     window.open = windowOpenMock;
-    windowOpenMock.mockReturnValue(windowMock);
+    windowOpenMock.mockImplementation(() => ({ ...windowMock }));
   });
 
   afterEach(() => {
@@ -37,7 +37,9 @@ describe("useWindow", () => {
       }),
     );
 
-    expect(hook.result.current).toEqual(windowMock);
+    expect(hook.result.current).toEqual(expect.objectContaining(windowMock));
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    hook.result.current!.onbeforeunload!(new Event("beforeunload"));
     expect(windowOpenMock).toHaveBeenCalledTimes(1);
     expect(windowOpenMock).toHaveBeenCalledWith(
       url,

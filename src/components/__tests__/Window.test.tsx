@@ -25,13 +25,34 @@ describe("Window", () => {
     jest.resetAllMocks();
   });
 
+  it("handles window failing to open successfully", () => {
+    useWindowSpy.mockReturnValue(null);
+    const childRef = React.createRef<HTMLDivElement>();
+    const children = <div ref={childRef}>{"children"}</div>;
+    render(<Window>{children}</Window>);
+
+    expect(useWindowSpy).toHaveBeenCalledTimes(1);
+    expect(useWindowSpy).toHaveBeenCalledWith({});
+    expect(usePortalSpy).toHaveBeenCalledTimes(1);
+    expect(usePortalSpy).toHaveBeenCalledWith({
+      source: children,
+    });
+  });
+
   it("renders children in window via portal", () => {
     const childRef = React.createRef<HTMLDivElement>();
-    const subject = render(
-      <Window>
-        <div ref={childRef}>{"children"}</div>
-      </Window>,
-    );
+    const children = <div ref={childRef}>{"children"}</div>;
+    const windowProps = { url: "https://example.com" };
+    const subject = render(<Window {...windowProps}>{children}</Window>);
+
+    expect(useWindowSpy).toHaveBeenCalledTimes(1);
+    expect(useWindowSpy).toHaveBeenCalledWith(windowProps);
+    expect(usePortalSpy).toHaveBeenCalledTimes(1);
+    expect(usePortalSpy).toHaveBeenCalledWith({
+      source: children,
+      target: documentBodyMock,
+    });
+
     expect(subject.baseElement).toMatchInlineSnapshot(`
       <body>
         <div>
