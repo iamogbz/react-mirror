@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-interface UsePortalProps {
+export interface UsePortalProps {
     key?: string;
     source: React.ReactNode;
     target?: Element;

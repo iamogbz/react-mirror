@@ -1,6 +1,6 @@
 import * as React from "react";
 
-interface UseObserverProps<
+export interface UseObserverProps<
     T extends typeof MutationObserver | typeof ResizeObserver,
 > {
     initOptions?: Parameters<InstanceType<T>["observe"]>[1];

@@ -1,4 +1,5 @@
 Range.prototype.getBoundingClientRect = () => new DOMRect();
+/*
 Range.prototype.getClientRects = function () {
     const clientRects = [this.getBoundingClientRect()];
     return {
@@ -7,3 +8,4 @@ Range.prototype.getClientRects = function () {
         [Symbol.iterator]: () => clientRects.values(),
     };
 };
+*/

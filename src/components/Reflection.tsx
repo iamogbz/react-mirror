@@ -26,7 +26,7 @@ const OBSERVER_INIT = {
     characterData: true,
 } as const;
 
-type ReflectionProps = {
+export type ReflectionProps = {
     className?: string;
     real?: Element | Text;
     style?: React.CSSProperties;

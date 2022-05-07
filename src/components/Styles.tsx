@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ElementProps } from "./Element";
 
-interface StyleProps extends ElementProps<"style"> {
+export interface StyleProps extends ElementProps<"style"> {
     rules: string[];
 }
 
