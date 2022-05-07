@@ -31,7 +31,7 @@ describe("Frame", () => {
                   rel="stylesheet"
                 />
                 <style
-                  id="parent-document-stylesheets"
+                  id="parent-document-mirror-stylesheets"
                 >
                   .class1.one, .class2.two {height: 10px;}
                   .class1.one[attr^="[val"] .class2.two {width: 20px;}
@@ -65,7 +65,7 @@ describe("Frame", () => {
                   rel="stylesheet"
                 />
                 <style
-                  id="parent-document-stylesheets"
+                  id="parent-document-mirror-stylesheets"
                 />
                 <div>
                   child text

@@ -118,7 +118,7 @@ describe("Mirror", () => {
                   rel="stylesheet"
                 />
                 <style
-                  id="parent-document-stylesheets"
+                  id="parent-document-mirror-stylesheets"
                 />
                 <div
                   class=""

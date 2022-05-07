@@ -91,7 +91,7 @@ export function mergeStyleProps(
             ([, value]) => value?.trim(),
         ),
         ...cssProps,
-    };
+    } as React.CSSProperties;
 }
 
 function asCSSProperties<T>(
