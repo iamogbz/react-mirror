@@ -1,12 +1,12 @@
 {
     "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
+        "jsx": "react",
         "moduleResolution": "node",
         "outDir": "./lib",
+        "strict": true,
         "target": "es6",
-        "jsx": "react",
-        "allowSyntheticDefaultImports": true,
-        "strict": true
     },
     "exclude": ["lib", "node_modules"]
 }

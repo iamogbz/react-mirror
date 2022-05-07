@@ -51,6 +51,7 @@
     },
     "jest": {
         "preset": "ts-jest",
+        "testEnvironment": "jsdom",
         "setupFilesAfterEnv": [
             "./config/setupTests.ts"
         ],
@@ -63,6 +64,7 @@
             "./artifacts/",
             "./node_modules/"
         ],
+        "testRegex": "(/__tests__/.+(\\.|/)(test|spec))\\.[jt]sx?$",
         "coverageDirectory": "./artifacts/coverage"
     },
     "commitlint": {

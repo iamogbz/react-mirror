@@ -19,7 +19,7 @@ export default function App(): JSX.Element {
             </button>
 
             <div className="Demo">
-                <div ref={ref}>
+                <div className="Frame" ref={ref}>
                     <input className="Input" placeholder="type something..." />
                     <div style={{ padding: 10 }}>Mirror mirror in my dom</div>
                     <Clock />
