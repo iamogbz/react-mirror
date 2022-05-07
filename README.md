@@ -41,7 +41,29 @@ function App() {
   return (
     <>
       <div ref={setReflect} />
-      <Mirror reflect={reflect} className='mirror-frame'/>
+      <Mirror reflect={reflect} className='mirror-frame' />
+    </>
+  );
+}
+```
+
+### `<Window />` component
+
+You can also render a reflection, with all the styles needed, in a separate window using the magic of [`Portals`](https://reactjs.org/docs/portals.html) 🌀
+
+```jsx
+import React from 'react';
+import { FrameStyles, Reflection, Window } from 'react-mirror';
+
+function App() {
+  const [reflect, setReflect] = React.useState(null);
+  return (
+    <>
+      <div ref={setReflect} />
+      <Window>
+        <FrameStyles />
+        <Reflection real={reflect} style={{ pointerEvents: "none" }} />
+      </Window>
     </>
   );
 }
