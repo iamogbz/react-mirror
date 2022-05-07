@@ -73,7 +73,7 @@ function mergeClassList(className?: string, classList?: string) {
     return [className, classList].filter(Boolean).join(" ");
 }
 
-function mergeStyleProps(
+export function mergeStyleProps(
     cssProps: React.CSSProperties = {},
     inlineCSS = "",
     styleDecl?: CSSStyleDeclaration,
@@ -86,11 +86,9 @@ function mergeStyleProps(
                 (prop) => styleDecl.getPropertyValue(prop),
             )),
         ...asCSSProperties(
-            inlineCSS
-                .split(";")
-                .map((propValue) => propValue.trim().split(":")),
-            ([prop]) => prop,
-            ([, value]) => value,
+            inlineCSS.split(";").map((propValue) => propValue.split(":")),
+            ([prop]) => prop.trim(),
+            ([, value]) => value?.trim(),
         ),
         ...cssProps,
     };
@@ -99,7 +97,7 @@ function mergeStyleProps(
 function asCSSProperties<T>(
     items: T[],
     getProp: (_: T) => string,
-    getValue: (_: T) => string,
+    getValue: (_: T) => string | undefined,
 ) {
     return Object.fromEntries(
         items

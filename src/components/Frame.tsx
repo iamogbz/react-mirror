@@ -47,7 +47,7 @@ function DocumentStyle() {
         target: window.document,
     });
 
-    return <Style rules={rules} />;
+    return <Style id="parent-document-stylesheets" rules={rules} />;
 }
 
 /**

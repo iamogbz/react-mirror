@@ -27,25 +27,6 @@ describe("useDimension", () => {
         `);
     });
 
-    it("returns dimension for rendered text node when range is null", () => {
-        const textNode = document.createTextNode("text content");
-        document.body.appendChild(textNode);
-
-        const { result } = renderHook(() => useDimensions(textNode));
-        expect(result.current).toMatchInlineSnapshot(`
-            DOMRect {
-              "bottom": 0,
-              "height": 0,
-              "left": 0,
-              "right": 0,
-              "top": 0,
-              "width": 0,
-              "x": 0,
-              "y": 0,
-            }
-        `);
-    });
-
     it("returns dimension for rendered text node", async () => {
         document.body.style.fontSize = "18px";
         const textNode = document.createTextNode("text content");
@@ -105,5 +86,7 @@ describe("useDimension", () => {
             useObserverSpy.mock.calls[0][0].onUpdate();
         });
         expect(result.current).toEqual(rectMockB);
+
+        await act(async () => void domNode.remove());
     });
 });

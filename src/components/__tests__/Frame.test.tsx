@@ -30,7 +30,9 @@ describe("Frame", () => {
                   href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
                   rel="stylesheet"
                 />
-                <style>
+                <style
+                  id="parent-document-stylesheets"
+                >
                   .class1.one, .class2.two {height: 10px;}
                   .class1.one[attr^="[val"] .class2.two {width: 20px;}
                   .class2.two {font-size: 1.3em; display: block; width: 40px; margin: 0 auto;}
@@ -62,7 +64,9 @@ describe("Frame", () => {
                   href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
                   rel="stylesheet"
                 />
-                <style />
+                <style
+                  id="parent-document-stylesheets"
+                />
                 <div>
                   child text
                 </div>

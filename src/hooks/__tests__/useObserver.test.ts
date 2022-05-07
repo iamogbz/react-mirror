@@ -33,8 +33,11 @@ describe("useObserver", () => {
     };
 
     beforeEach(() => {
-        jest.resetAllMocks();
         ObserverMock.mockImplementation(newObserverMock);
+    });
+
+    afterEach(() => {
+        jest.resetAllMocks();
     });
 
     it("successfully does nothing if target is null", async () => {

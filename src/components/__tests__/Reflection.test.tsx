@@ -2,7 +2,7 @@ import { act, render } from "@testing-library/react";
 import * as React from "react";
 import { addDomNode } from "../../__mocks__";
 import { getAttributes } from "../../utils/dom";
-import { Reflection } from "../Reflection";
+import { Reflection, mergeStyleProps } from "../Reflection";
 
 describe("Reflection", () => {
     it("reflects nothing", () => {
@@ -26,7 +26,7 @@ describe("Reflection", () => {
         `);
     });
 
-    it("reflect html element", () => {
+    it("reflect html element", async () => {
         const domNode = addDomNode();
         const subject = render(<Reflection real={domNode} />);
         expect(subject.baseElement).toMatchInlineSnapshot(`
@@ -36,7 +36,7 @@ describe("Reflection", () => {
                   attr="[value"
                   class="class1 one"
                 >
-                  <span
+                  <input
                     class="class2 two"
                   />
                 </div>
@@ -52,9 +52,10 @@ describe("Reflection", () => {
                     class="class1 one"
                     readonly=""
                   >
-                    <span
+                    <input
                       class="class2 two"
                       readonly=""
+                      value="input-value"
                     />
                   </div>
                   text content
@@ -62,6 +63,7 @@ describe("Reflection", () => {
               </div>
             </body>
         `);
+        await act(async () => void domNode.remove());
     });
 
     it("perseves style prop over element inline style", async () => {
@@ -74,7 +76,7 @@ describe("Reflection", () => {
         };
         domNode.style.color = "blue";
         domNode.style.backgroundColor = "blue";
-        domNode.style.border = "solid 1px yellow";
+        domNode.style.border = "solid 1px green";
 
         const baseElement = document.createElement("div");
         const subject = render(<Reflection real={domNode} style={style} />, {
@@ -86,7 +88,7 @@ describe("Reflection", () => {
 
         expect(reflection?.style.color).toEqual("red");
         expect(reflection?.style.backgroundColor).toEqual("blue");
-        expect(reflection?.style.borderColor).toEqual("yellow");
+        expect(reflection?.style.borderColor).toEqual("green");
         expect(reflection?.style.borderWidth).toEqual("2px");
         expect(reflection?.style.borderStyle).toEqual("solid");
 
@@ -144,5 +146,27 @@ describe("Reflection", () => {
         });
 
         await act(async () => void domNode.remove());
+    });
+
+    describe("mergeStyleProps", () => {
+        const CSS_STYLE_NONE = document.createElement("span").style;
+        const CSS_STYLE_DECL = document.createElement("span").style;
+        CSS_STYLE_DECL.borderColor = "red";
+
+        it.each`
+            cssProps                   | inlineStyle              | styleDecl         | expectedStyle
+            ${{}}                      | ${""}                    | ${CSS_STYLE_NONE} | ${{}}
+            ${{}}                      | ${""}                    | ${CSS_STYLE_DECL} | ${{ borderColor: "red" }}
+            ${{}}                      | ${"borderColor: green"}  | ${CSS_STYLE_DECL} | ${{ borderColor: "green" }}
+            ${{ borderColor: "blue" }} | ${"borderColor: green"}  | ${CSS_STYLE_DECL} | ${{ borderColor: "blue" }}
+            ${{ borderWidth: "1px" }}  | ${"border-style: solid"} | ${CSS_STYLE_DECL} | ${{ borderColor: "red", borderStyle: "solid", borderWidth: "1px" }}
+        `(
+            "creates css style with expected props",
+            ({ cssProps, expectedStyle, inlineStyle, styleDecl }) => {
+                expect(
+                    mergeStyleProps(cssProps, inlineStyle, styleDecl),
+                ).toEqual(expectedStyle);
+            },
+        );
     });
 });

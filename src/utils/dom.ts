@@ -33,9 +33,9 @@ export function getBounds(node?: Node) {
         return node.getBoundingClientRect();
     }
     if (isText(node)) {
-        const range = document.createRange?.();
-        range?.selectNodeContents(node);
-        return range?.getBoundingClientRect() ?? new DOMRect();
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        return range.getBoundingClientRect();
     }
     return new DOMRect();
 }

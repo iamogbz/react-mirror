@@ -1,4 +1,4 @@
-export * from "./components/Frame";
-export * from "./components/Mirror";
-export * from "./components/Reflection";
-export * from "./hooks/useMirror";
+export { Frame, FrameProps } from "./components/Frame";
+export { Mirror, MirrorProps } from "./components/Mirror";
+export { Reflection, ReflectionProps } from "./components/Reflection";
+export { useMirror } from "./hooks/useMirror";

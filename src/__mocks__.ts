@@ -7,9 +7,10 @@ export function addDomNode() {
     domNode.appendChild(node1);
     node1.className = "class1 one";
     node1.setAttribute("attr", "[value");
-    const node2 = document.createElement("span");
+    const node2 = document.createElement("input");
     node1.appendChild(node2);
     node2.className = "class2 two";
+    node2.value = "input-value";
     const node3 = document.createTextNode("text content");
     domNode.appendChild(node3);
     return domNode;

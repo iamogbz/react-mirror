@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as ReactDOM from "react-dom";
 import { act, render } from "@testing-library/react";
 import { addDomNode } from "../../__mocks__";
 import * as useDimensions from "../../hooks/useDimensions";
@@ -9,7 +10,8 @@ describe("Mirror", () => {
     const useDimensionsSpy = jest.spyOn(useDimensions, "useDimensions");
 
     beforeEach(() => {
-        mathRandomSpy.mockReturnValueOnce(0.123456789);
+        mathRandomSpy.mockReturnValue(0.123456789);
+        useDimensionsSpy.mockReturnValue(new DOMRect());
     });
 
     afterEach(() => {
@@ -39,8 +41,37 @@ describe("Mirror", () => {
         `);
     });
 
+    it("frames an empty reflection when find node errors", () => {
+        const expectedError = Error("Expected test error");
+        const findDOMNodeSpy = jest
+            .spyOn(ReactDOM, "findDOMNode")
+            .mockImplementation(() => {
+                throw expectedError;
+            });
+        const consoleWarnSpy = jest
+            .spyOn(console, "warn")
+            .mockImplementation(() => undefined);
+
+        const subject = render(<Mirror />);
+
+        expect(consoleWarnSpy).toHaveBeenCalledTimes(1);
+        expect(consoleWarnSpy).toHaveBeenLastCalledWith(expectedError);
+        expect(subject.baseElement).toMatchInlineSnapshot(`
+            <body>
+              <div>
+                <iframe
+                  height="0"
+                  id="4fzzzxj"
+                  width="0"
+                />
+              </div>
+            </body>
+        `);
+
+        findDOMNodeSpy.mockRestore();
+    });
+
     it("renders reflection with styles", async () => {
-        useDimensionsSpy.mockReturnValue(new DOMRect(0, 0, 144, 48));
         /** add nodes that will be mirrored */
         const domNode = addDomNode();
         /** test reflection */
@@ -58,7 +89,7 @@ describe("Mirror", () => {
                   attr="[value"
                   class="class1 one"
                 >
-                  <span
+                  <input
                     class="class2 two"
                   />
                 </div>
@@ -68,9 +99,9 @@ describe("Mirror", () => {
                 <iframe
                   class="mirrorFrame"
                   data-test-id="mirrorFrame"
-                  height="48"
+                  height="0"
                   id="4fzzzxj"
-                  width="144"
+                  width="0"
                 />
               </div>
             </body>
@@ -86,7 +117,9 @@ describe("Mirror", () => {
                   href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
                   rel="stylesheet"
                 />
-                <style />
+                <style
+                  id="parent-document-stylesheets"
+                />
                 <div
                   class=""
                   readonly=""
@@ -98,10 +131,11 @@ describe("Mirror", () => {
                     readonly=""
                     style="pointer-events: none;"
                   >
-                    <span
+                    <input
                       class="class2 two"
                       readonly=""
                       style="pointer-events: none;"
+                      value="input-value"
                     />
                   </div>
                   text content
