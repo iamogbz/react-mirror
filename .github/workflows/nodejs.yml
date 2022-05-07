@@ -25,7 +25,7 @@ jobs:
       with:
         version: 7
         run_install: |
-            args: [--frozen-lockfile]
+            args: [--no-frozen-lockfile]
     - name: Typecheck
       run: |
         pnpm build-types
