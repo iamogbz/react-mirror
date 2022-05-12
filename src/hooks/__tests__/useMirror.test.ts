@@ -9,21 +9,21 @@ describe("useMirror", () => {
     };
     const { result } = renderHook(() => useMirror(props));
     expect(result.current[1]).toMatchInlineSnapshot(`
-            <Mirror
-              frameProps={Object {}}
-              mirrorProp=""
-            />
-        `);
+      <Mirror
+        frameProps={{}}
+        mirrorProp=""
+      />
+    `);
 
     const targetNode = document.createElement("div");
     await act(async () => result.current[0](targetNode));
 
     expect(result.current[1]).toMatchInlineSnapshot(`
-            <Mirror
-              frameProps={Object {}}
-              mirrorProp=""
-              reflect={<div />}
-            />
-        `);
+      <Mirror
+        frameProps={{}}
+        mirrorProp=""
+        reflect={<div />}
+      />
+    `);
   });
 });

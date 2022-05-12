@@ -1,6 +1,11 @@
 import * as React from "react";
 import { spinalToCamelCase } from "../utils";
-import { getAttributes, getChildren, isText } from "../utils/dom";
+import {
+  getAttributes,
+  getChildren,
+  getUserActionCustomPseudoClassList,
+  isText,
+} from "../utils/dom";
 import { useObserver } from "../hooks/useObserver";
 import { useRenderTrigger } from "../hooks/useRenderTrigger";
 import { Element } from "./Element";
@@ -41,6 +46,7 @@ export function Reflection({ className, real, style }: ReflectionProps) {
   const children = getChildren(real).map((childNode, i) => {
     return <Reflection key={i} real={childNode} style={style} />;
   });
+  const pseudoClassList = getUserActionCustomPseudoClassList(real);
 
   // Trigger a rerender
   const { rerender: onUpdate } = useRenderTrigger();
@@ -55,10 +61,9 @@ export function Reflection({ className, real, style }: ReflectionProps) {
 
   if (!real) return null;
   if (isText(real)) return <>{real.textContent}</>;
-  // TODO: copy over missing computed styles from real to reflection
   return (
     <Element
-      className={mergeClassList(className, classList)}
+      className={mergeClassList(className, classList, ...pseudoClassList)}
       readOnly
       style={mergeStyleProps(style, styleList)}
       tagName={real.nodeName}
@@ -69,8 +74,8 @@ export function Reflection({ className, real, style }: ReflectionProps) {
   );
 }
 
-function mergeClassList(className?: string, classList?: string) {
-  return [className, classList].filter(Boolean).join(" ");
+function mergeClassList(...cls: (string | undefined)[]) {
+  return cls.filter(Boolean).join(" ");
 }
 
 export function mergeStyleProps(
