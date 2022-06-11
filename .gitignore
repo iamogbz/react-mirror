@@ -1,4 +1,5 @@
-node_modules
-lib
-artifacts
-built
+.vscode/
+artifacts/
+built/
+lib/
+node_modules/
