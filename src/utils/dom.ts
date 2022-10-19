@@ -55,7 +55,7 @@ export function getAllStyleRules() {
   return flatten(
     ...Array.from(document.styleSheets).map((sheet) => {
       return Array.from(sheet.cssRules).map((rule) => {
-        return asCustomerUserActionPseudoClassSelector(rule.cssText);
+        return withCustomerUserActionPseudoClassSelector(rule.cssText);
       });
     }),
   ).sort();
@@ -72,23 +72,7 @@ const USER_ACTION_PSEUDO_CLASS_LIST = [
 ] as const;
 type UserActionPseudoClass = typeof USER_ACTION_PSEUDO_CLASS_LIST[number];
 
-export function getUserActionCustomPseudoClassList(el?: Element | Text) {
-  return getUserActionPseudoClassList(el).map(asCustomPseudoClass);
-}
-
-function getUserActionPseudoClassList(el?: Element | Text) {
-  if (!isElement(el)) return [];
-  return USER_ACTION_PSEUDO_CLASS_LIST.filter((cls) =>
-    el.matches(`*${userActionAsPseudoClassSelector(cls)}`),
-  );
-}
-
-const CUSTOM_CLASS_PREFIX = "_refl_" as const;
-function asCustomPseudoClass(cls: unknown) {
-  return `${CUSTOM_CLASS_PREFIX}${cls}`;
-}
-
-function asCustomerUserActionPseudoClassSelector(cssSelector: string) {
+function withCustomerUserActionPseudoClassSelector(cssSelector: string) {
   const userActionPseudoClassesRegex = new RegExp(
     USER_ACTION_PSEUDO_CLASS_LIST.map(userActionAsPseudoClassSelector).join(
       "|",
@@ -103,4 +87,20 @@ function asCustomerUserActionPseudoClassSelector(cssSelector: string) {
 
 function userActionAsPseudoClassSelector(cls: UserActionPseudoClass) {
   return `:${cls}`;
+}
+
+const CUSTOM_CLASS_PREFIX = "_refl_" as const;
+function asCustomPseudoClass(cls: unknown) {
+  return `${CUSTOM_CLASS_PREFIX}${cls}`;
+}
+
+export function getUserActionCustomPseudoClassList(el?: Element | Text) {
+  return getUserActionPseudoClassList(el).map(asCustomPseudoClass);
+}
+
+function getUserActionPseudoClassList(el?: Element | Text) {
+  if (!isElement(el)) return [];
+  return USER_ACTION_PSEUDO_CLASS_LIST.filter((cls) =>
+    el.matches(`*${userActionAsPseudoClassSelector(cls)}`),
+  );
 }
