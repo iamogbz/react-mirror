@@ -24,7 +24,7 @@ export function addDomStyles() {
         @font-face {
             font-family: "Open Sans";
         }
-        body, .mirrorFrame:not(*) {
+        body, .mirrorFrame:not(:focus) {
             font-family: "san-serif";
             font-size: 1.2em;
         }

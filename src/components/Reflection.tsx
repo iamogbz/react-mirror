@@ -82,7 +82,7 @@ export function mergeStyleProps(
   cssProps: React.CSSProperties = {},
   inlineCSS = "",
   styleDecl?: CSSStyleDeclaration,
-) {
+): React.CSSProperties {
   return {
     ...(styleDecl &&
       asCSSProperties(
@@ -96,17 +96,17 @@ export function mergeStyleProps(
       ([, value]) => value?.trim(),
     ),
     ...cssProps,
-  } as React.CSSProperties;
+  };
 }
 
 function asCSSProperties<T>(
   items: T[],
   getProp: (_: T) => string,
   getValue: (_: T) => string | undefined,
-) {
+): React.CSSProperties {
   return Object.fromEntries(
     items
       .map((item) => [spinalToCamelCase(getProp(item)), getValue(item)])
       .filter(([, value]) => Boolean(value)),
-  ) as React.CSSProperties;
+  );
 }
