@@ -6,7 +6,7 @@
 [![Dependabot badge](https://badgen.net/github/dependabot/iamogbz/react-mirror/?icon=dependabot)](https://app.dependabot.com)
 [![Dependencies](https://img.shields.io/librariesio/github/iamogbz/react-mirror)](https://libraries.io/github/iamogbz/react-mirror)
 [![Build Status](https://github.com/iamogbz/react-mirror/workflows/Build/badge.svg)](https://github.com/iamogbz/react-mirror/actions)
-[![Coverage Status](https://coveralls.io/repos/github/iamogbz/react-mirror/badge.svg?branch=refs/heads/master)](https://coveralls.io/github/iamogbz/react-mirror)
+[![Coverage Status](https://coveralls.io/repos/github/iamogbz/react-mirror/badge.svg?branch=refs/heads/main)](https://coveralls.io/github/iamogbz/react-mirror)
 
 Create synchronized replicas of a React DOM element
 

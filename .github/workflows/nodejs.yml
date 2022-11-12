@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 jobs:
@@ -50,7 +50,7 @@ jobs:
       run: |
         pnpm build
     - name: Deploy
-      if: matrix.node-version == '14.x' && github.ref == 'refs/heads/master' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
+      if: matrix.node-version == '14.x' && github.ref == 'refs/heads/main' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
