@@ -6,6 +6,7 @@ describe("useWindow", () => {
   const windowOpen = window.open;
   const windowOpenMock = jest.fn();
   const windowMock = {
+    document: {},
     addEventListener: jest.fn(),
   } as unknown as Window;
 
@@ -39,6 +40,7 @@ describe("useWindow", () => {
     );
 
     expect(hook.result.current).toEqual(expect.objectContaining(windowMock));
+    expect(hook.result.current?.document.title).toBeUndefined();
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     hook.result.current!.onbeforeunload!(new Event("beforeunload"));
     expect(windowOpenMock).toHaveBeenCalledTimes(1);
@@ -47,6 +49,28 @@ describe("useWindow", () => {
       target,
       "height=400,left=0,noopener,noreferrer,popup,top=12,width=400",
     );
+  });
+
+  it("uses target as window title when url is not given", () => {
+    const target = "Window Title";
+    const hook = renderHook(() =>
+      useWindow({
+        features: {
+          popup: "yes",
+          height: 400,
+          left: 0,
+          noopener: true,
+          noreferrer: true,
+          width: 400,
+          top: 12,
+        },
+        target,
+        url: "",
+      }),
+    );
+
+    expect(hook.result.current).toEqual(expect.objectContaining(windowMock));
+    expect(hook.result.current?.document.title).toEqual(target);
   });
 
   it("calls onClose before window is unloaded", () => {

@@ -16,6 +16,7 @@ export interface UseWindowProps {
     innerWidth?: number;
   };
   onClose?: () => void;
+  /** Also used as the window title when URL is blank */
   target?: string;
   url?: string;
 }
@@ -35,7 +36,10 @@ export function useWindow({
       .sort()
       .join(",");
     const wndo = window.open(url, target, featureList);
-    if (wndo) wndo.onbeforeunload = onClose;
+    if (wndo) {
+      wndo.onbeforeunload = onClose;
+      if (target && !url) wndo.document.title = target;
+    }
     return wndo;
   }, [features, onClose, target, url]);
 }

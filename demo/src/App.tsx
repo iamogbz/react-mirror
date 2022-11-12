@@ -4,6 +4,7 @@ import * as React from "react";
 import {
   FrameStyles,
   Reflection,
+  useDimensions,
   useMirror,
   useRefs,
   Window,
@@ -16,6 +17,7 @@ export default function App(): JSX.Element {
   const [usingPortal, setUsingPortal] = React.useState(false);
   const [ref, mirror] = useMirror({ className: "Frame" });
   const [target, setTarget] = useRefs<HTMLDivElement | null>(ref);
+  const dimensions = useDimensions(target ?? undefined);
 
   return (
     <div className="App">
@@ -39,7 +41,10 @@ export default function App(): JSX.Element {
         {usingPortal ? (
           <Window
             target="React Mirror Portal Test"
-            features={{ width: 400, height: 400 }}
+            features={{
+              innerWidth: dimensions?.width ?? 400,
+              innerHeight: dimensions?.height ?? 400,
+            }}
             onClose={(): void => setUsingPortal(false)}
           >
             <FrameStyles />
