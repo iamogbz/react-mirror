@@ -16,8 +16,8 @@ import { ScrollList } from "./ScrollList";
 export default function App(): JSX.Element {
   const [usingPortal, setUsingPortal] = React.useState(false);
   const [ref, mirror] = useMirror({ className: "Frame" });
-  const [target, setTarget] = useRefs<HTMLDivElement | null>(ref);
-  const dimensions = useDimensions(target ?? undefined);
+  const [target, setTarget] = useRefs<HTMLDivElement>(ref);
+  const dimensions = useDimensions(target);
 
   return (
     <div className="App">
@@ -48,10 +48,7 @@ export default function App(): JSX.Element {
             onClose={(): void => setUsingPortal(false)}
           >
             <FrameStyles />
-            <Reflection
-              real={target ?? undefined}
-              style={{ pointerEvents: "none" }}
-            />
+            <Reflection real={target} style={{ pointerEvents: "none" }} />
           </Window>
         ) : (
           mirror

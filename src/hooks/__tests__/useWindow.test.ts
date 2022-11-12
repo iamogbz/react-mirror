@@ -53,21 +53,7 @@ describe("useWindow", () => {
 
   it("uses target as window title when url is not given", () => {
     const target = "Window Title";
-    const hook = renderHook(() =>
-      useWindow({
-        features: {
-          popup: "yes",
-          height: 400,
-          left: 0,
-          noopener: true,
-          noreferrer: true,
-          width: 400,
-          top: 12,
-        },
-        target,
-        url: "",
-      }),
-    );
+    const hook = renderHook(() => useWindow({ target, url: "" }));
 
     expect(hook.result.current).toEqual(expect.objectContaining(windowMock));
     expect(hook.result.current?.document.title).toEqual(target);

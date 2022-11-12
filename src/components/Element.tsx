@@ -28,7 +28,7 @@ export function Element<T extends string>({
   const [ref, setRef] = useRefs(domRef);
 
   React.useEffect(
-    () => syncScroll({ scrollTop, scrollLeft }, ref ?? undefined),
+    () => syncScroll({ scrollTop, scrollLeft }, ref),
     [ref, scrollLeft, scrollTop],
   );
 
