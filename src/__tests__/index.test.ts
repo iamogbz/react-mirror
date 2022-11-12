@@ -8,7 +8,9 @@ describe("Entry", () => {
         "Mirror": [Function],
         "Reflection": [Function],
         "Window": [Function],
+        "useDimensions": [Function],
         "useMirror": [Function],
+        "useRefs": [Function],
       }
     `);
   });

@@ -1,12 +1,18 @@
 import * as React from "react";
 
+import { useEventHandlers } from "./useEventHandlers";
+
 export interface UseObserverProps<
   T extends typeof MutationObserver | typeof ResizeObserver,
 > {
   initOptions?: Parameters<InstanceType<T>["observe"]>[1];
   target?: Parameters<InstanceType<T>["observe"]>[0];
   ObserverClass: T;
-  /** Also listen for other changes that are not observable */
+  /**
+   * Also listen for other changes that are not observable.
+   *
+   * NOTE: Events will trigger `onUpdate` with no parameters unlike the mutation/resize triggered with records and reference to observer.
+   */
   onEvents?: Set<keyof GlobalEventHandlersEventMap>;
   onUpdate: ConstructorParameters<T>[0];
 }
@@ -22,6 +28,7 @@ export function useObserver<
   const observer = React.useMemo(() => {
     return new ObserverClass(onUpdate);
   }, [ObserverClass, onUpdate]);
+
   React.useEffect(
     function observeRealElement() {
       if (!target || !observer) return;
@@ -34,19 +41,11 @@ export function useObserver<
     [initOptions, observer, onUpdate, target],
   );
 
-  React.useEffect(
-    function onEventHandlers() {
-      if (!target || !onEvents) return;
-      onEvents.forEach((event) => {
-        target.addEventListener(event, onUpdate, false);
-      });
+  const handlers = React.useMemo(() => {
+    return Array.from(onEvents ?? []).map(
+      (eventType) => [eventType, onUpdate] as const,
+    );
+  }, [onEvents, onUpdate]);
 
-      return function destroy() {
-        onEvents.forEach((event) => {
-          target.removeEventListener(event, onUpdate, false);
-        });
-      };
-    },
-    [onEvents, onUpdate, target],
-  );
+  useEventHandlers(target, handlers);
 }
