@@ -1,59 +1,92 @@
 {
-    "parser": "@typescript-eslint/parser",
-    "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended",
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended"
-    ],
-    "env": {
-        "browser": true,
-        "node": true,
-        "jest": true,
-        "es6": true
-    },
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "globals": {
-        "browser": false
-    },
-    "rules": {
-        "class-methods-use-this": 0,
-        "no-console": 1,
-        "no-param-reassign": ["error", { "props": false }],
-        "@typescript-eslint/no-unused-vars": ["warn", {
-            "argsIgnorePattern": "^_"
-        }],
-        "no-trailing-spaces": 2,
-        "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": [2, {
-            "functions": false
-        }],
-        "object-curly-newline": [2, {
-            "multiline": true,
-            "consistent": true
-        }],
-        "object-property-newline": [2, {
-            "allowAllPropertiesOnSameLine": true
-        }],
-        "react/jsx-first-prop-new-line": [2, "multiline"],
-        "react/jsx-indent": [2, 2],
-        "react/jsx-indent-props": [2, 2],
-        "prettier/prettier": 2
-    },
-    "settings": {
-        "react": {
-            "version": "detect"
-        },
-        "import/resolver": {
-            "node": {
-                "paths": ["src"]
-            }
-        }
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "simple-import-sort"
+  ],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "globals": {
+    "browser": false
+  },
+  "rules": {
+    "class-methods-use-this": "off",
+    "no-console": "warn",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-trailing-spaces": "error",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": false
+      }
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "multiline": true,
+        "consistent": true
+      }
+    ],
+    "object-property-newline": [
+      "error",
+      {
+        "allowAllPropertiesOnSameLine": true
+      }
+    ],
+    "react/jsx-first-prop-new-line": [
+      "error",
+      "multiline"
+    ],
+    "react/jsx-indent": [
+      "error",
+      2
+    ],
+    "react/jsx-indent-props": [
+      "error",
+      2
+    ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "prettier/prettier": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src"
+        ]
+      }
+    }
+  }
 }

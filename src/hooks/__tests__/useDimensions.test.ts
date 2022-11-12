@@ -1,8 +1,9 @@
 import { renderHook } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
+
 import { addDomNode } from "../../__mocks__";
-import * as useObserver from "../useObserver";
 import { useDimensions } from "../useDimensions";
+import * as useObserver from "../useObserver";
 
 const useObserverSpy = jest.spyOn(useObserver, "useObserver");
 

@@ -1,5 +1,6 @@
-import * as React from "react";
 import "./clock.css";
+
+import * as React from "react";
 
 function useCurrent(): Date {
   const [date, setDate] = React.useState(new Date());

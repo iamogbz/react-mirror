@@ -1,6 +1,7 @@
 import * as React from "react";
-import { getAllStyleRules } from "../utils/dom";
+
 import { useObserver } from "../hooks/useObserver";
+import { getAllStyleRules } from "../utils/dom";
 import { IFrame, IFrameProps } from "./IFrame";
 import { Style } from "./Styles";
 

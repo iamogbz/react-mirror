@@ -1,7 +1,9 @@
-import * as React from "react";
-import { useMirror, FrameStyles, Reflection, Window } from "react-mirror";
-import { Clock } from "./Clock";
 import "./styles.css";
+
+import * as React from "react";
+import { FrameStyles, Reflection, useMirror, Window } from "react-mirror";
+
+import { Clock } from "./Clock";
 
 export default function App(): JSX.Element {
   const [usingPortal, setUsingPortal] = React.useState(false);

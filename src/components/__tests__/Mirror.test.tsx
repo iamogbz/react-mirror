@@ -1,6 +1,7 @@
+import { act, render } from "@testing-library/react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { act, render } from "@testing-library/react";
+
 import { addDomNode } from "../../__mocks__";
 import * as useDimensions from "../../hooks/useDimensions";
 import { Mirror } from "../Mirror";

@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { ElementProps } from "./Element";
 
 export interface StyleProps extends ElementProps<"style"> {

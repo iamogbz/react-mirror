@@ -1,5 +1,6 @@
-import * as React from "react";
 import { act, render } from "@testing-library/react";
+import * as React from "react";
+
 import { addDomStyles } from "../../__mocks__";
 import { Frame } from "../Frame";
 

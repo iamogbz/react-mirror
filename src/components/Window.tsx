@@ -1,6 +1,7 @@
 import * as React from "react";
-import { UseWindowProps, useWindow } from "../hooks/useWindow";
+
 import { usePortal } from "../hooks/usePortal";
+import { useWindow, UseWindowProps } from "../hooks/useWindow";
 
 export type WindowProps = React.PropsWithChildren<UseWindowProps>;
 

@@ -1,7 +1,8 @@
-import * as React from "react";
 import { render } from "@testing-library/react";
-import * as useWindow from "../../hooks/useWindow";
+import * as React from "react";
+
 import * as usePortal from "../../hooks/usePortal";
+import * as useWindow from "../../hooks/useWindow";
 import { Window } from "../Window";
 
 const useWindowSpy = jest.spyOn(useWindow, "useWindow");

@@ -1,8 +1,9 @@
 import { act, render } from "@testing-library/react";
 import * as React from "react";
+
 import { addDomNode } from "../../__mocks__";
 import { getAttributes } from "../../utils/dom";
-import { Reflection, mergeStyleProps } from "../Reflection";
+import { mergeStyleProps, Reflection } from "../Reflection";
 
 describe("Reflection", () => {
   it("reflects nothing", () => {

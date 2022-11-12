@@ -1,8 +1,8 @@
-import * as path from "path";
 import { execSync } from "child_process";
+import * as path from "path";
 import { Configuration } from "webpack";
-import * as nodeExternals from "webpack-node-externals";
 import { WebpackCompilerPlugin } from "webpack-compiler-plugin";
+import * as nodeExternals from "webpack-node-externals";
 
 const configuration: Configuration = {
   devtool: "source-map",

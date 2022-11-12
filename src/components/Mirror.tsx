@@ -1,7 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { randomString } from "../utils";
+
 import { useDimensions } from "../hooks/useDimensions";
+import { randomString } from "../utils";
 import { Frame, FrameProps } from "./Frame";
 import { Reflection } from "./Reflection";
 

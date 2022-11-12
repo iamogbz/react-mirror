@@ -1,4 +1,7 @@
 import * as React from "react";
+
+import { useObserver } from "../hooks/useObserver";
+import { useRenderTrigger } from "../hooks/useRenderTrigger";
 import { spinalToCamelCase } from "../utils";
 import {
   getAttributes,
@@ -6,8 +9,6 @@ import {
   getUserActionCustomPseudoClassList,
   isText,
 } from "../utils/dom";
-import { useObserver } from "../hooks/useObserver";
-import { useRenderTrigger } from "../hooks/useRenderTrigger";
 import { Element } from "./Element";
 
 /**
