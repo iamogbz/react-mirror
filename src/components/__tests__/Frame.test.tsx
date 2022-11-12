@@ -17,10 +17,12 @@ describe("Frame", () => {
     const iframe = subject.getByTestId("testId") as HTMLIFrameElement;
 
     expect(iframe).toMatchInlineSnapshot(`
-            <iframe
-              data-test-id="testId"
-            />
-        `);
+      <iframe
+        data-test-id="testId"
+        frameborder="none"
+        scrolling="no"
+      />
+    `);
 
     expect(iframe.contentDocument?.firstElementChild).toMatchInlineSnapshot(`
       <html>
@@ -30,6 +32,11 @@ describe("Frame", () => {
             href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
             rel="stylesheet"
           />
+          <style
+            id="reset-frame"
+          >
+            html { overflow: hidden }
+          </style>
           <style
             id="parent-document-mirror-stylesheets"
           >
@@ -56,21 +63,26 @@ describe("Frame", () => {
     });
 
     expect(iframe.contentDocument?.firstElementChild).toMatchInlineSnapshot(`
-            <html>
-              <head />
-              <body>
-                <link
-                  href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-                  rel="stylesheet"
-                />
-                <style
-                  id="parent-document-mirror-stylesheets"
-                />
-                <div>
-                  child text
-                </div>
-              </body>
-            </html>
-        `);
+      <html>
+        <head />
+        <body>
+          <link
+            href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+            rel="stylesheet"
+          />
+          <style
+            id="reset-frame"
+          >
+            html { overflow: hidden }
+          </style>
+          <style
+            id="parent-document-mirror-stylesheets"
+          />
+          <div>
+            child text
+          </div>
+        </body>
+      </html>
+    `);
   });
 });

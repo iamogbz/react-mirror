@@ -10,9 +10,14 @@ export type FrameProps = Omit<IFrameProps, "getMountNode">;
 /**
  * Used to wrap and isolate reflection from rest of document
  */
-export function Frame({ children, ...frameProps }: FrameProps) {
+export function Frame({ children, style, ...frameProps }: FrameProps) {
   return (
-    <IFrame {...frameProps}>
+    <IFrame
+      frameBorder="none"
+      scrolling="no"
+      style={{ border: "none", ...style }}
+      {...frameProps}
+    >
       <FrameStyles />
       {children}
     </IFrame>
@@ -67,9 +72,12 @@ function DocumentStyle() {
  */
 function ResetStyle() {
   return (
-    <link
-      rel="stylesheet"
-      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-    />
+    <>
+      <link
+        rel="stylesheet"
+        href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+      />
+      <Style id="reset-frame" rules={["html { overflow: hidden }"]} />
+    </>
   );
 }
