@@ -5,6 +5,7 @@ import { addDomNode } from "../../__mocks__";
 import { useDimensions } from "../useDimensions";
 import * as useObserver from "../useObserver";
 
+const observerMock = {} as MutationObserver & ResizeObserver;
 const useObserverSpy = jest.spyOn(useObserver, "useObserver");
 
 describe("useDimension", () => {
@@ -55,8 +56,7 @@ describe("useDimension", () => {
     const rectMockB = new DOMRect(0, 0, 132, 36);
     getBoundingClientRectSpy.mockReturnValueOnce(rectMockB);
     await act(async () => {
-      //@ts-expect-error observer callback arguments
-      useObserverSpy.mock.calls[0][0].onUpdate();
+      useObserverSpy.mock.calls[0][0].onUpdate([], observerMock);
     });
     expect(result.current).toEqual(rectMockB);
   });
@@ -83,8 +83,7 @@ describe("useDimension", () => {
     const rectMockB = new DOMRect(12, 12, 48, 144);
     getBoundingClientRectSpy.mockReturnValueOnce(rectMockB);
     await act(async () => {
-      //@ts-expect-error observer callback arguments
-      useObserverSpy.mock.calls[0][0].onUpdate();
+      useObserverSpy.mock.calls[0][0].onUpdate([], observerMock);
     });
     expect(result.current).toEqual(rectMockB);
 

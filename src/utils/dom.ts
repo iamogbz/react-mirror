@@ -104,3 +104,14 @@ function getUserActionPseudoClassList(el?: Element | Text) {
     el.matches(`*${userActionAsPseudoClassSelector(cls)}`),
   );
 }
+
+type ScrollableElement = Pick<HTMLElement, "scrollTop" | "scrollLeft">;
+
+export function syncScroll(
+  source?: ScrollableElement,
+  target?: ScrollableElement,
+) {
+  if (!source || !target) return;
+  target.scrollTop = source.scrollTop;
+  target.scrollLeft = source.scrollLeft;
+}

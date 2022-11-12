@@ -24,6 +24,7 @@ const TRACK_EVENTS = new Set([
   "mousemove",
   "mousedown",
   "mouseup",
+  "scroll",
 ] as const);
 const OBSERVER_INIT = {
   attributes: true,
@@ -66,6 +67,7 @@ export function Reflection({ className, real, style }: ReflectionProps) {
     <Element
       className={mergeClassList(className, classList, ...pseudoClassList)}
       readOnly
+      scroll={{ x: real.scrollLeft, y: real.scrollTop }}
       style={mergeStyleProps(style, styleList)}
       tagName={real.nodeName}
       {...attributes}

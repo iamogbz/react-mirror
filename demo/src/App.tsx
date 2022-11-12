@@ -4,6 +4,7 @@ import * as React from "react";
 import { FrameStyles, Reflection, useMirror, Window } from "react-mirror";
 
 import { Clock } from "./Clock";
+import { ScrollList } from "./ScrollList";
 
 export default function App(): JSX.Element {
   const [usingPortal, setUsingPortal] = React.useState(false);
@@ -27,6 +28,7 @@ export default function App(): JSX.Element {
           <input className="Input" placeholder="type something..." />
           <div style={{ padding: 10 }}>Mirror mirror in my dom</div>
           <Clock />
+          <ScrollList />
         </div>
 
         {usingPortal ? (
