@@ -14,7 +14,7 @@ devDependencies:
     version: 7.19.3
   '@babel/eslint-parser':
     specifier: ^7.19.1
-    version: 7.19.1(@babel/core@7.19.3)(eslint@8.25.0)
+    version: 7.22.5(@babel/core@7.19.3)(eslint@8.25.0)
   '@babel/plugin-syntax-flow':
     specifier: ^7.18.6
     version: 7.18.6(@babel/core@7.19.3)
@@ -264,8 +264,8 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/eslint-parser@7.19.1(@babel/core@7.19.3)(eslint@8.25.0):
-    resolution: {integrity: sha512-AqNf2QWt1rtu2/1rLswy6CDP7H9Oh3mMhk177Y67Rg8d7RD9WfOLLv8CGn6tisFvS2htm86yIe1yLF6I1UDaGQ==}
+  /@babel/eslint-parser@7.22.5(@babel/core@7.19.3)(eslint@8.25.0):
+    resolution: {integrity: sha512-C69RWYNYtrgIRE5CmTd77ZiLDXqgBipahJc/jHP3sLcAGj6AJzxNIuKNpVnICqbyK7X3pFUfEvL++rvtbQpZkQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': '>=7.11.0'
@@ -6049,7 +6049,7 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.19.3
-      '@babel/eslint-parser': 7.19.1(@babel/core@7.19.3)(eslint@8.25.0)
+      '@babel/eslint-parser': 7.22.5(@babel/core@7.19.3)(eslint@8.25.0)
       '@rushstack/eslint-patch': 1.1.0
       '@typescript-eslint/eslint-plugin': 5.40.1(@typescript-eslint/parser@5.40.1)(eslint@8.25.0)(typescript@4.9.5)
       '@typescript-eslint/parser': 5.40.1(eslint@8.25.0)(typescript@4.9.5)
