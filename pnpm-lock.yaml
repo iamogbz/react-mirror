@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -33,7 +33,7 @@ devDependencies:
     version: 17.6.6
   '@commitlint/config-conventional':
     specifier: ^17.1.0
-    version: 17.1.0
+    version: 17.6.6
   '@testing-library/react':
     specifier: ^13.4.0
     version: 13.4.0(react-dom@18.2.0)(react@18.2.0)
@@ -1628,8 +1628,8 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /@commitlint/config-conventional@17.1.0:
-    resolution: {integrity: sha512-WU2p0c9/jLi8k2q2YrDV96Y8XVswQOceIQ/wyJvQxawJSCasLdRB3kUIYdNjOCJsxkpoUlV/b90ZPxp1MYZDiA==}
+  /@commitlint/config-conventional@17.6.6:
+    resolution: {integrity: sha512-phqPz3BDhfj49FUYuuZIuDiw+7T6gNAEy7Yew1IBHqSohVUCWOK2FXMSAExzS2/9X+ET93g0Uz83KjiHDOOFag==}
     engines: {node: '>=v14'}
     dependencies:
       conventional-changelog-conventionalcommits: 5.0.0
