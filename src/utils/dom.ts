@@ -70,7 +70,7 @@ const USER_ACTION_PSEUDO_CLASS_LIST = [
   // FIX: https://github.com/jsdom/jsdom/issues/3055
   // "focus-within",
 ] as const;
-type UserActionPseudoClass = typeof USER_ACTION_PSEUDO_CLASS_LIST[number];
+type UserActionPseudoClass = (typeof USER_ACTION_PSEUDO_CLASS_LIST)[number];
 
 function withCustomerUserActionPseudoClassSelector(cssSelector: string) {
   const userActionPseudoClassesRegex = new RegExp(
