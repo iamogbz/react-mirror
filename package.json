@@ -102,7 +102,7 @@
         "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
     },
     "dependencies": {
-        "specificity": "^0.4.1"
+        "specificity": "^1.0.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.19.3",
