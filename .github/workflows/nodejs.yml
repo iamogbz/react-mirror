@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [14.x, 16.x, 18.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -50,7 +50,7 @@ jobs:
       run: |
         pnpm build
     - name: Deploy
-      if: matrix.node-version == '14.x' && github.ref == 'refs/heads/main' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
+      if: matrix.node-version == '18.x' && github.ref == 'refs/heads/main' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
