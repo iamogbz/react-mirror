@@ -86,7 +86,7 @@ After validating your [changes](#validating) and adding [tests](#testing), push 
 
 ## Styleguides
 
-### Git Commit Messages
+### Commit Messages
 
 Package using semantic [commits convention][conventional-commits].
 
