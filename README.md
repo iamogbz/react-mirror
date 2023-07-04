@@ -73,4 +73,5 @@ function App() {
 
 ### Using Portals
 
-- [Live Preview](https://uwh7f.codesandbox.io/) ([codesandbox](https://codesandbox.io/s/react-mirror-uwh7f))([source](demo))
+- [Live Preview](https://ogbizi.com/react-mirror/) ([source](demo))
+- [Code Sandbox](https://uwh7f.codesandbox.io) ([source](https://codesandbox.io/s/react-mirror-uwh7f))
