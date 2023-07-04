@@ -32,12 +32,13 @@ export function Element<T extends string>({
     [ref, scrollLeft, scrollTop],
   );
 
+  // For attributes that are not always updated when the prop is removed
   React.useEffect(
-    /** Manually copy over attributes inorder to reset now removed values */ () => {
-      const copyAttrPropList = ["value"];
-      copyAttrPropList.forEach((name) => {
+    /** Manually reset missing values */ () => {
+      const valueResetMap = { value: "" };
+      Object.entries(valueResetMap).forEach(([name, resetValue]) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if (ref) (ref as any)[name] = (props as any)[name] ?? "";
+        if (ref) (ref as any)[name] = (props as any)[name] ?? resetValue;
       });
     },
     [ref, props],
