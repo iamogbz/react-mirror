@@ -49,7 +49,17 @@ jobs:
     - name: Build
       run: |
         pnpm build
+        cd ./demo
+        make build
+        cd ../
     - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      if: matrix.node-version == '18.x' && github.ref == 'refs/heads/main' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
+      with:
+        github_token: ${{ secrets.GH_TOKEN }}
+        publish_dir: ./build
+        publish_branch: demo
+    - name: Release
       if: matrix.node-version == '18.x' && github.ref == 'refs/heads/main' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}

@@ -3,3 +3,5 @@ artifacts/
 built/
 lib/
 node_modules/
+demo/build/
+demo/pnpm-lock.yaml
