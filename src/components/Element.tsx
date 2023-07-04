@@ -32,6 +32,17 @@ export function Element<T extends string>({
     [ref, scrollLeft, scrollTop],
   );
 
+  React.useEffect(
+    /** Manually copy over attributes inorder to reset now removed values */ () => {
+      const copyAttrPropList = ["value"];
+      copyAttrPropList.forEach((name) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if (ref) (ref as any)[name] = (props as any)[name] ?? "";
+      });
+    },
+    [ref, props],
+  );
+
   return React.createElement(
     tagName.toLowerCase(),
     { ...props, ref: setRef },
