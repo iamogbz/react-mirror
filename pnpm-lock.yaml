@@ -12,7 +12,7 @@ dependencies:
 devDependencies:
   '@babel/cli':
     specifier: ^7.19.3
-    version: 7.22.6(@babel/core@7.22.8)
+    version: 7.22.9(@babel/core@7.22.8)
   '@babel/core':
     specifier: ^7.19.3
     version: 7.22.8
@@ -212,15 +212,15 @@ packages:
       leven: 3.1.0
     dev: true
 
-  /@babel/cli@7.22.6(@babel/core@7.22.8):
-    resolution: {integrity: sha512-Be3/RfEDmkMRGT1+ru5nTkfcvWz5jDOYg1V9rXqTz2u9Qt96O1ryboGvxVBp7wOnYWDB8DNHIWb6DThrpudfOw==}
+  /@babel/cli@7.22.9(@babel/core@7.22.8):
+    resolution: {integrity: sha512-nb2O7AThqRo7/E53EGiuAkMaRbb7J5Qp3RvN+dmua1U+kydm0oznkhqbTEG15yk26G/C3yL6OdZjzgl+DMXVVA==}
     engines: {node: '>=6.9.0'}
     hasBin: true
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.22.8
-      '@jridgewell/trace-mapping': 0.3.17
+      '@jridgewell/trace-mapping': 0.3.18
       commander: 4.1.1
       convert-source-map: 1.8.0
       fs-readdir-recursive: 1.1.0
@@ -2316,13 +2316,6 @@ packages:
 
   /@jridgewell/sourcemap-codec@1.4.14:
     resolution: {integrity: sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==}
-    dev: true
-
-  /@jridgewell/trace-mapping@0.3.17:
-    resolution: {integrity: sha512-MCNzAp77qzKca9+W/+I0+sEpaUnZoeasnghNeVc41VZCEKaCH73Vq3BZZ/SzWIgrqE4H4ceI+p+b6C0mHf9T4g==}
-    dependencies:
-      '@jridgewell/resolve-uri': 3.1.0
-      '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
   /@jridgewell/trace-mapping@0.3.18:
