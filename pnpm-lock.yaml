@@ -5140,7 +5140,7 @@ packages:
       js-yaml: 3.14.1
       lcov-parse: 1.0.0
       log-driver: 1.2.7
-      minimist: 1.2.5
+      minimist: 1.2.7
       request: 2.88.2
     dev: true
 
@@ -9759,10 +9759,6 @@ packages:
       arrify: 1.0.1
       is-plain-obj: 1.1.0
       kind-of: 6.0.3
-    dev: true
-
-  /minimist@1.2.5:
-    resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
     dev: true
 
   /minimist@1.2.7:
