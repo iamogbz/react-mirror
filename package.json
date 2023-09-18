@@ -154,7 +154,7 @@
         "react-scripts": "^5.0.1",
         "react-test-renderer": "^18.2.0",
         "rxjs": "^7.8.1",
-        "semantic-release": "^21.0.7",
+        "semantic-release": "^22.0.0",
         "ts-jest": "^29.1.1",
         "ts-loader": "^9.4.4",
         "ts-node": "^10.9.1",
