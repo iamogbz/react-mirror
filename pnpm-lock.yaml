@@ -12,7 +12,7 @@ dependencies:
 devDependencies:
   '@babel/cli':
     specifier: ^7.22.10
-    version: 7.22.15(@babel/core@7.22.20)
+    version: 7.23.0(@babel/core@7.22.20)
   '@babel/core':
     specifier: ^7.22.10
     version: 7.22.20
@@ -212,8 +212,8 @@ packages:
       leven: 3.1.0
     dev: true
 
-  /@babel/cli@7.22.15(@babel/core@7.22.20):
-    resolution: {integrity: sha512-prtg5f6zCERIaECeTZzd2fMtVjlfjhUcO+fBLQ6DXXdq5FljN+excVitJ2nogsusdf31LeqkjAfXZ7Xq+HmN8g==}
+  /@babel/cli@7.23.0(@babel/core@7.22.20):
+    resolution: {integrity: sha512-17E1oSkGk2IwNILM4jtfAvgjt+ohmpfBky8aLerUfYZhiPNg7ca+CRCxZn8QDxwNhV/upsc2VHBCqGFIR+iBfA==}
     engines: {node: '>=6.9.0'}
     hasBin: true
     peerDependencies:
@@ -222,7 +222,7 @@ packages:
       '@babel/core': 7.22.20
       '@jridgewell/trace-mapping': 0.3.18
       commander: 4.1.1
-      convert-source-map: 1.8.0
+      convert-source-map: 2.0.0
       fs-readdir-recursive: 1.1.0
       glob: 7.2.3
       make-dir: 2.1.0
