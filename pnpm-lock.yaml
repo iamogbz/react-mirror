@@ -51,7 +51,7 @@ devDependencies:
     version: 20.8.7
   '@types/react':
     specifier: ^18.2.20
-    version: 18.2.29
+    version: 18.2.30
   '@types/react-dom':
     specifier: ^18.2.7
     version: 18.2.14
@@ -3116,17 +3116,17 @@ packages:
   /@types/react-dom@18.2.14:
     resolution: {integrity: sha512-V835xgdSVmyQmI1KLV2BEIUgqEuinxp9O4G6g3FqO/SqLac049E53aysv0oEFD2kHfejeKU+ZqL2bcFWj9gLAQ==}
     dependencies:
-      '@types/react': 18.2.29
+      '@types/react': 18.2.30
     dev: true
 
   /@types/react-test-renderer@18.0.5:
     resolution: {integrity: sha512-PsnmF4Hpi61PTRX+dTxkjgDdtZ09kFFgPXczoF+yBfOVxn7xBLPvKP1BUrSasYHmerj33rhoJuvpIMsJuyRqHw==}
     dependencies:
-      '@types/react': 18.2.29
+      '@types/react': 18.2.30
     dev: true
 
-  /@types/react@18.2.29:
-    resolution: {integrity: sha512-Z+ZrIRocWtdD70j45izShRwDuiB4JZqDegqMFW/I8aG5DxxLKOzVNoq62UIO82v9bdgi+DO1jvsb9sTEZUSm+Q==}
+  /@types/react@18.2.30:
+    resolution: {integrity: sha512-OfqdJnDsSo4UNw0bqAjFCuBpLYQM7wvZidz0hVxHRjrEkzRlvZL1pJVyOSY55HMiKvRNEo9DUBRuEl7FNlJ/Vg==}
     dependencies:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
