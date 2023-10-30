@@ -138,7 +138,7 @@ devDependencies:
     version: 3.0.3
   prettier-eslint:
     specifier: ^16.1.1
-    version: 16.1.1
+    version: 16.1.2
   prop-types:
     specifier: ^15.8.1
     version: 15.8.1
@@ -11803,8 +11803,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-eslint@16.1.1:
-    resolution: {integrity: sha512-SbtugbH80njB9QOPqb8C+W40Rvhr6iD0wrJTxk1Zx10rkY7KdjtSwHpf/WfiI3REboaXbvIOJXGiua3maIt0Sw==}
+  /prettier-eslint@16.1.2:
+    resolution: {integrity: sha512-mGFGZQbAh11FSnwW3H1zngzQYR2QMmHO8vdfgnAuzOFhnDeUZHYtwpqQvOMOMT0k818Dr1X+J4a/sVE0r34RKQ==}
     engines: {node: '>=16.10.0'}
     dependencies:
       '@typescript-eslint/parser': 6.9.0(eslint@8.52.0)(typescript@5.2.2)
