@@ -42,7 +42,7 @@ devDependencies:
     version: 8.44.6
   '@types/eslint-scope':
     specifier: ^3.7.4
-    version: 3.7.6
+    version: 3.7.7
   '@types/jest':
     specifier: ^29.5.3
     version: 29.5.7
@@ -2972,8 +2972,8 @@ packages:
       '@types/node': 20.8.10
     dev: true
 
-  /@types/eslint-scope@3.7.6:
-    resolution: {integrity: sha512-zfM4ipmxVKWdxtDaJ3MP3pBurDXOCoyjvlpE3u6Qzrmw4BPbfm4/ambIeTk/r/J0iq/+2/xp0Fmt+gFvXJY2PQ==}
+  /@types/eslint-scope@3.7.7:
+    resolution: {integrity: sha512-MzMFlSLBqNF2gcHWO0G1vP/YQyfvrxZ0bF+u7mzUdZ1/xK4A4sru+nraZz5i3iEIk1l1uyicaDVTB4QbbEkAYg==}
     dependencies:
       '@types/eslint': 8.44.6
       '@types/estree': 1.0.1
@@ -14575,7 +14575,7 @@ packages:
       webpack-cli:
         optional: true
     dependencies:
-      '@types/eslint-scope': 3.7.6
+      '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.1
       '@webassemblyjs/ast': 1.11.6
       '@webassemblyjs/wasm-edit': 1.11.6
