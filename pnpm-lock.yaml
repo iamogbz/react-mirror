@@ -36,7 +36,7 @@ devDependencies:
     version: 18.1.0
   '@testing-library/react':
     specifier: ^14.0.0
-    version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+    version: 14.1.0(react-dom@18.2.0)(react@18.2.0)
   '@types/eslint':
     specifier: ^8.44.2
     version: 8.44.7
@@ -1499,13 +1499,6 @@ packages:
       '@babel/plugin-transform-typescript': 7.22.15(@babel/core@7.23.2)
     dev: true
 
-  /@babel/runtime@7.22.5:
-    resolution: {integrity: sha512-ecjvYlnAaZ/KVneE/OdKYBYfgXV3Ptu6zQWmgEF7vwKhQnvVS6bjMD2XYgj+SNvQ1GfK/pjgokfPkC/2CO8CuA==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: 0.13.11
-    dev: true
-
   /@babel/runtime@7.23.2:
     resolution: {integrity: sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==}
     engines: {node: '>=6.9.0'}
@@ -2868,14 +2861,14 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/react@14.0.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-S04gSNJbYE30TlIMLTzv6QCTzt9AqIF5y6s6SzVFILNcNvbV/jU96GeiTPillGQo+Ny64M/5PV7klNYYgv5Dfg==}
+  /@testing-library/react@14.1.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-hcvfZEEyO0xQoZeHmUbuMs7APJCGELpilL7bY+BaJaMP57aWc6q1etFwScnoZDheYjk4ESdlzPdQ33IbsKAK/A==}
     engines: {node: '>=14'}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
     dependencies:
-      '@babel/runtime': 7.22.5
+      '@babel/runtime': 7.23.2
       '@testing-library/dom': 9.3.1
       '@types/react-dom': 18.2.15
       react: 18.2.0
@@ -5754,7 +5747,7 @@ packages:
   /deep-equal@1.1.1:
     resolution: {integrity: sha512-yd9c5AdiqVcR+JjcwUQb9DkhJc8ngNr0MahEBGvDiJw8puWab2yZlh+nkasOnZP+EGTAP6rRp2JzJhJZzvNF8g==}
     dependencies:
-      is-arguments: 1.1.0
+      is-arguments: 1.1.1
       is-date-object: 1.0.5
       is-regex: 1.1.4
       object-is: 1.1.5
@@ -8165,13 +8158,6 @@ packages:
   /ipaddr.js@2.0.1:
     resolution: {integrity: sha512-1qTgH9NG+IIJ4yfKs2e6Pp1bZg8wbDbKHT21HrLIeYBTRLgMYKnMTPAuI3Lcs61nfx5h1xlXnbJtH1kX5/d/ng==}
     engines: {node: '>= 10'}
-    dev: true
-
-  /is-arguments@1.1.0:
-    resolution: {integrity: sha512-1Ij4lOMPl/xB5kBDn7I+b2ttPMKa8szhEIrXDuXQD/oe3HJLTLhqhgGspwgyGd6MOywBUqVvYicF72lkgDnIHg==}
-    engines: {node: '>= 0.4'}
-    dependencies:
-      call-bind: 1.0.2
     dev: true
 
   /is-arguments@1.1.1:
