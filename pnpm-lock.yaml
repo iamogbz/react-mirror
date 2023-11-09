@@ -57,7 +57,7 @@ devDependencies:
     version: 18.2.15
   '@types/react-test-renderer':
     specifier: ^18.0.0
-    version: 18.0.5
+    version: 18.0.6
   '@types/webpack':
     specifier: ^5.28.1
     version: 5.28.4(webpack-cli@5.1.4)
@@ -3129,8 +3129,8 @@ packages:
       '@types/react': 18.2.37
     dev: true
 
-  /@types/react-test-renderer@18.0.5:
-    resolution: {integrity: sha512-PsnmF4Hpi61PTRX+dTxkjgDdtZ09kFFgPXczoF+yBfOVxn7xBLPvKP1BUrSasYHmerj33rhoJuvpIMsJuyRqHw==}
+  /@types/react-test-renderer@18.0.6:
+    resolution: {integrity: sha512-O2JT1J3/v/NaYHYmPf2DXBSqUGmp6iwhFPicES6Pc1Y90B9Qgu99mmaBGqfZFpVuXLzF/pNJB4K9ySL3iqFeXA==}
     dependencies:
       '@types/react': 18.2.37
     dev: true
