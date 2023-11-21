@@ -12,7 +12,7 @@ dependencies:
 devDependencies:
   '@babel/cli':
     specifier: ^7.22.10
-    version: 7.23.0(@babel/core@7.23.3)
+    version: 7.23.4(@babel/core@7.23.3)
   '@babel/core':
     specifier: ^7.22.10
     version: 7.23.3
@@ -212,8 +212,8 @@ packages:
       leven: 3.1.0
     dev: true
 
-  /@babel/cli@7.23.0(@babel/core@7.23.3):
-    resolution: {integrity: sha512-17E1oSkGk2IwNILM4jtfAvgjt+ohmpfBky8aLerUfYZhiPNg7ca+CRCxZn8QDxwNhV/upsc2VHBCqGFIR+iBfA==}
+  /@babel/cli@7.23.4(@babel/core@7.23.3):
+    resolution: {integrity: sha512-j3luA9xGKCXVyCa5R7lJvOMM+Kc2JEnAEIgz2ggtjQ/j5YUVgfsg/WsG95bbsgq7YLHuiCOzMnoSasuY16qiCw==}
     engines: {node: '>=6.9.0'}
     hasBin: true
     peerDependencies:
