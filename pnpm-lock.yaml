@@ -120,7 +120,7 @@ devDependencies:
     version: 10.0.0(eslint@8.56.0)
   husky:
     specifier: ^9.0.2
-    version: 9.0.2
+    version: 9.0.6
   jest:
     specifier: ^29.6.2
     version: 29.7.0(@types/node@20.11.6)(ts-node@10.9.2)
@@ -8029,8 +8029,8 @@ packages:
     engines: {node: '>=16.17.0'}
     dev: true
 
-  /husky@9.0.2:
-    resolution: {integrity: sha512-0yR5R3OPjl8bYApi6T4QMOAwhtLhBjdYIVg5S6zSzIO8DIvQMh/b7Q8jW3WLbHLHtzpwiyMLBNB4R0Eb6x5+AA==}
+  /husky@9.0.6:
+    resolution: {integrity: sha512-EEuw/rfTiMjOfuL7pGO/i9otg1u36TXxqjIA6D9qxVjd/UXoDOsLor/BSFf5hTK50shwzCU3aVVwdXDp/lp7RA==}
     engines: {node: '>=18'}
     hasBin: true
     dev: true
