@@ -33,7 +33,7 @@ devDependencies:
     version: 17.8.0
   '@commitlint/config-conventional':
     specifier: ^18.0.0
-    version: 18.5.0
+    version: 18.6.0
   '@testing-library/react':
     specifier: ^14.0.0
     version: 14.1.2(react-dom@18.2.0)(react@18.2.0)
@@ -1596,8 +1596,8 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /@commitlint/config-conventional@18.5.0:
-    resolution: {integrity: sha512-XGmU4u3Z7bCn0H0nTEG9LUn6hMDUIPP4P6dun7PKFhtnt/wwiKAqmPj+QRmFiqWjkOWcmrh7w7xRiDL32cWS5g==}
+  /@commitlint/config-conventional@18.6.0:
+    resolution: {integrity: sha512-CDCOf2eJz9D/TL44IBks0stM9TmdLCNE2B48owIU3YCadwzts/bobXPScagIgPQF6hhKYMEdj5zpUDlmbwuqwQ==}
     engines: {node: '>=v18'}
     dependencies:
       conventional-changelog-conventionalcommits: 7.0.2
