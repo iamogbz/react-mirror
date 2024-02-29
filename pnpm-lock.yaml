@@ -33,7 +33,7 @@ devDependencies:
     version: 17.8.0
   '@commitlint/config-conventional':
     specifier: ^19.0.0
-    version: 19.0.0
+    version: 19.0.3
   '@testing-library/react':
     specifier: ^14.0.0
     version: 14.2.1(react-dom@18.2.0)(react@18.2.0)
@@ -1596,11 +1596,11 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /@commitlint/config-conventional@19.0.0:
-    resolution: {integrity: sha512-d8lPm+slPUdA8Zof2Y36RqAm/MmAYx/QQIEd2gKbpfLThQK1oYLs+0C3sMPD+4LIq2kh4cnbV9WnPA0P5sN8Ig==}
+  /@commitlint/config-conventional@19.0.3:
+    resolution: {integrity: sha512-vh0L8XeLaEzTe8VCxSd0gAFvfTK0RFolrzw4o431bIuWJfi/yRCHJlsDwus7wW2eJaFFDR0VFXJyjGyDQhi4vA==}
     engines: {node: '>=v18'}
     dependencies:
-      '@commitlint/types': 19.0.0
+      '@commitlint/types': 19.0.3
       conventional-changelog-conventionalcommits: 7.0.2
     dev: true
 
@@ -1748,10 +1748,11 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@commitlint/types@19.0.0:
-    resolution: {integrity: sha512-qLjLUdYXKi0TIavONrjBkxrElp7KguqDbvzIRbqTdJBV/cAAr8QEhHe1qUq8OcCM3gFWTlUrDz3ISZbkRoGsAg==}
+  /@commitlint/types@19.0.3:
+    resolution: {integrity: sha512-tpyc+7i6bPG9mvaBbtKUeghfyZSDgWquIDfMgqYtTbmZ9Y9VzEm2je9EYcQ0aoz5o7NvGS+rcDec93yO08MHYA==}
     engines: {node: '>=v18'}
     dependencies:
+      '@types/conventional-commits-parser': 5.0.0
       chalk: 5.3.0
     dev: true
 
@@ -2983,6 +2984,12 @@ packages:
 
   /@types/connect@3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
+    dependencies:
+      '@types/node': 20.11.21
+    dev: true
+
+  /@types/conventional-commits-parser@5.0.0:
+    resolution: {integrity: sha512-loB369iXNmAZglwWATL+WRe+CRMmmBPtpolYzIebFaX4YA3x+BEfLqhUAV9WanycKI3TG1IMr5bMJDajDKLlUQ==}
     dependencies:
       '@types/node': 20.11.21
     dev: true
