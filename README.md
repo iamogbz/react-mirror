@@ -10,6 +10,8 @@
 
 Create synchronized replicas of a React DOM element
 
+> Suggested alternative for non react usage [mirror-element](https://github.com/iamogbz/oh-my-wcs/blob/main/components/el-mirror.md)
+
 ## Usage
 
 See equivalent uses of the hook and component below.
