@@ -7461,6 +7461,10 @@ packages:
     resolution: {integrity: sha512-cybjIfiiE+pTWicSCLFHSrXZ6EilF30oh91FDP9S2B051prEa7QWfrVTQm10/dDpswBDXZugPa1Ogu8Yh+HV0Q==}
     dev: true
 
+  /fs-monkey@1.0.5:
+    resolution: {integrity: sha512-8uMbBjrhzW76TYgEV27Y5E//W2f/lTFmx78P2w19FZSxarhI/798APGQyuGCwmkNxgwGRhrLfvWyLBvNtuOmew==}
+    dev: true
+
   /fs-readdir-recursive@1.1.0:
     resolution: {integrity: sha512-GNanXlVr2pf02+sPN40XN8HG+ePaNcvM0q5mZBd668Obwb0yD5GiUbZOFgwn8kGMY6I3mdyDJzieUy3PTYyTRA==}
     dev: true
@@ -10272,6 +10276,13 @@ packages:
     engines: {node: '>= 4.0.0'}
     dependencies:
       fs-monkey: 1.0.3
+    dev: true
+
+  /memfs@3.5.3:
+    resolution: {integrity: sha512-UERzLsxzllchadvbPs5aolHh65ISpKpM+ccLbOJ8/vvpBKmAWf+la7dXFy7Mr0ySHbdHrFv5kGFCUHHe6GFEmw==}
+    engines: {node: '>= 4.0.0'}
+    dependencies:
+      fs-monkey: 1.0.5
     dev: true
 
   /meow@12.1.1:
@@ -14597,14 +14608,14 @@ packages:
     engines: {node: '>=8', npm: '>=6'}
     dev: true
 
-  /webpack-dev-middleware@5.3.1(webpack@5.91.0):
-    resolution: {integrity: sha512-81EujCKkyles2wphtdrnPg/QqegC/AtqNH//mQkBYSMqwFVCQrxM6ktB2O/SPlZy7LqeEfTbV3cZARGQz6umhg==}
+  /webpack-dev-middleware@5.3.4(webpack@5.91.0):
+    resolution: {integrity: sha512-BVdTqhhs+0IfoeAf7EoH5WE+exCmqGerHfDM0IL096Px60Tq2Mn9MAbnaGUe6HiMa41KMCYF19gyzZmBcq/o4Q==}
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^4.0.0 || ^5.0.0
     dependencies:
       colorette: 2.0.20
-      memfs: 3.4.1
+      memfs: 3.5.3
       mime-types: 2.1.31
       range-parser: 1.2.1
       schema-utils: 4.0.0
@@ -14652,7 +14663,7 @@ packages:
       strip-ansi: 7.1.0
       webpack: 5.91.0(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack@5.91.0)
-      webpack-dev-middleware: 5.3.1(webpack@5.91.0)
+      webpack-dev-middleware: 5.3.4(webpack@5.91.0)
       ws: 8.9.0
     transitivePeerDependencies:
       - bufferutil
