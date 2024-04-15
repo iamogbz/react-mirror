@@ -36,7 +36,7 @@ devDependencies:
     version: 19.1.0
   '@testing-library/react':
     specifier: ^15.0.0
-    version: 15.0.1(react-dom@18.2.0)(react@18.2.0)
+    version: 15.0.2(react-dom@18.2.0)(react@18.2.0)
   '@types/eslint':
     specifier: ^8.44.2
     version: 8.56.2
@@ -2859,8 +2859,8 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/react@15.0.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-I8u4qqGAuBg7C1/kRB9n7Oz9Pc/UHEkmiQRbJziSG8B13eZfAcAUn8TSP26ZIvfSeb68CngmtZbKKcRqcQKa3g==}
+  /@testing-library/react@15.0.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-5mzIpuytB1ctpyywvyaY2TAAUQVCZIGqwiqFQf6u9lvj/SJQepGUzNV18Xpk+NLCaCE2j7CWrZE0tEf9xLZYiQ==}
     engines: {node: '>=18'}
     peerDependencies:
       react: ^18.0.0
