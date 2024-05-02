@@ -36,7 +36,7 @@ devDependencies:
     version: 19.2.2
   '@testing-library/react':
     specifier: ^15.0.0
-    version: 15.0.5(react-dom@18.3.1)(react@18.3.1)
+    version: 15.0.6(@types/react@18.3.1)(react-dom@18.3.1)(react@18.3.1)
   '@types/eslint':
     specifier: ^8.44.2
     version: 8.56.2
@@ -2906,15 +2906,20 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/react@15.0.5(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-ttodVWYA2i2w4hRa6krKrmS1vKxAEkwDz34y+CwbcrbZUxFzUYN3a5xZyFKo+K6LBseCRCUkwcjATpaNn/UsIA==}
+  /@testing-library/react@15.0.6(@types/react@18.3.1)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-UlbazRtEpQClFOiYp+1BapMT+xyqWMnE+hh9tn5DQ6gmlE7AIZWcGpzZukmDZuFk3By01oiqOf8lRedLS4k6xQ==}
     engines: {node: '>=18'}
     peerDependencies:
+      '@types/react': ^18.0.0
       react: ^18.0.0
       react-dom: ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
     dependencies:
       '@babel/runtime': 7.23.2
       '@testing-library/dom': 10.0.0
+      '@types/react': 18.3.1
       '@types/react-dom': 18.3.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
