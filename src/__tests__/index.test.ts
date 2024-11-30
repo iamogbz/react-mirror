@@ -1,6 +1,6 @@
 describe("Entry", () => {
   it("exports expected modules", async () => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     expect(require("../")).toMatchInlineSnapshot(`
       {
         "Frame": [Function],

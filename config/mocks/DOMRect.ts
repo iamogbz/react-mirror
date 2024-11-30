@@ -4,13 +4,12 @@ export default class DOMRect {
   right = 0;
   top = 0;
   constructor(
-    // eslint-disable-next-line no-unused-vars
     public x = 0,
-    // eslint-disable-next-line no-unused-vars
+
     public y = 0,
-    // eslint-disable-next-line no-unused-vars
+
     public width = 0,
-    // eslint-disable-next-line no-unused-vars
+
     public height = 0,
   ) {
     this.left = x;
