@@ -41,7 +41,7 @@ describe("useWindow", () => {
 
     expect(hook.result.current).toEqual(expect.objectContaining(windowMock));
     expect(hook.result.current?.document.title).toBeUndefined();
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
     hook.result.current!.onbeforeunload!(new Event("beforeunload"));
     expect(windowOpenMock).toHaveBeenCalledTimes(1);
     expect(windowOpenMock).toHaveBeenCalledWith(
