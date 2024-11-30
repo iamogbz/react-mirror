@@ -11,16 +11,12 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
-
     steps:
     - uses: actions/checkout@v4
     - name: Setup
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version-file: .nvmrc
     - uses: pnpm/action-setup@v4.0.0
       with:
         version: 9
@@ -54,13 +50,13 @@ jobs:
         cd ../
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
-      if: matrix.node-version == '20.x' && github.ref == 'refs/heads/main' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
+      if: github.ref == 'refs/heads/main' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
       with:
         github_token: ${{ secrets.GH_TOKEN }}
         publish_dir: ./demo/build
         publish_branch: demo
     - name: Release
-      if: matrix.node-version == '20.x' && github.ref == 'refs/heads/main' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
+      if: github.ref == 'refs/heads/main' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
