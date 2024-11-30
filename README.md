@@ -76,3 +76,8 @@ function App() {
 ### Using Portals
 
 - [Live Preview](https://ogbizi.com/react-mirror/) ([source](demo))
+
+## Alternatives
+
+- Simple HTML custom [mirror-element](https://github.com/iamogbz/oh-my-wcs/blob/main/components/el-mirror.md)
+- [Curious case of independent genesis](https://github.com/Theadd/react-mirror#readme)
