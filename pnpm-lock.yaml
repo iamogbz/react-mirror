@@ -23,7 +23,7 @@ importers:
         version: 7.27.0(@babel/core@7.26.10)(eslint@8.57.1)
       '@babel/plugin-syntax-flow':
         specifier: ^7.26.0
-        version: 7.26.0(@babel/core@7.26.10)
+        version: 7.27.1(@babel/core@7.26.10)
       '@babel/plugin-transform-react-jsx':
         specifier: ^7.25.9
         version: 7.27.1(@babel/core@7.26.10)
@@ -158,7 +158,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-scripts:
         specifier: ^5.0.1
-        version: 5.0.1(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(@types/babel__core@7.1.15)(@types/webpack@5.28.5(webpack-cli@6.0.1))(autoprefixer@10.4.21(postcss@8.5.3))(eslint@8.57.1)(react@18.3.1)(ts-node@10.9.2(@types/node@22.15.3)(typescript@5.8.3))(type-fest@2.19.0)(typescript@5.8.3)(webpack-cli@6.0.1)
+        version: 5.0.1(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(@types/babel__core@7.1.15)(@types/webpack@5.28.5(webpack-cli@6.0.1))(autoprefixer@10.4.21(postcss@8.5.3))(eslint@8.57.1)(react@18.3.1)(ts-node@10.9.2(@types/node@22.15.3)(typescript@5.8.3))(type-fest@2.19.0)(typescript@5.8.3)(webpack-cli@6.0.1)
       react-test-renderer:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
@@ -308,10 +308,6 @@ packages:
 
   '@babel/helper-optimise-call-expression@7.25.9':
     resolution: {integrity: sha512-FIpuNaz5ow8VyrYcnXQTDRGvV6tTjkNtCK/RYNDXGSLlUD6cBuQTSw43CShGxjvfBTfcUA/r6UhUCbtYqkhcuQ==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/helper-plugin-utils@7.25.9':
-    resolution: {integrity: sha512-kSMlyUVdWe25rEsRGviIgOWnoT/nfABVWlqt9N19/dIPWViAOW2s9wznP5tURbs/IDuNk4gPy3YdYRgH3uxhBw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-plugin-utils@7.26.5':
@@ -544,8 +540,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
-  '@babel/plugin-syntax-flow@7.26.0':
-    resolution: {integrity: sha512-B+O2DnPc0iG+YXFqOxv2WNuNU97ToWjOomUQ78DouOENWUaM5sVrmet9mcomUGQFwpJd//gvUagXBSdzO1fRKg==}
+  '@babel/plugin-syntax-flow@7.27.1':
+    resolution: {integrity: sha512-p9OkPbZ5G7UT1MofwYFigGebnrzGJacoBSQM0/6bi/PUMVE+qlWDD/OalvQKbwgQzU6dl0xAv6r4X7Jme0RYxA==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -8272,8 +8268,6 @@ snapshots:
     dependencies:
       '@babel/types': 7.27.1
 
-  '@babel/helper-plugin-utils@7.25.9': {}
-
   '@babel/helper-plugin-utils@7.26.5': {}
 
   '@babel/helper-plugin-utils@7.27.1': {}
@@ -8517,10 +8511,10 @@ snapshots:
       '@babel/core': 7.26.10
       '@babel/helper-plugin-utils': 7.27.1
 
-  '@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.10)':
+  '@babel/plugin-syntax-flow@7.27.1(@babel/core@7.26.10)':
     dependencies:
       '@babel/core': 7.26.10
-      '@babel/helper-plugin-utils': 7.25.9
+      '@babel/helper-plugin-utils': 7.27.1
 
   '@babel/plugin-syntax-import-meta@7.10.4(@babel/core@7.26.10)':
     dependencies:
@@ -8656,7 +8650,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.10
       '@babel/helper-plugin-utils': 7.27.1
-      '@babel/plugin-syntax-flow': 7.26.0(@babel/core@7.26.10)
+      '@babel/plugin-syntax-flow': 7.27.1(@babel/core@7.26.10)
 
   '@babel/plugin-transform-for-of@7.16.7(@babel/core@7.26.10)':
     dependencies:
@@ -12269,7 +12263,7 @@ snapshots:
     dependencies:
       eslint: 8.57.1
 
-  eslint-config-react-app@7.0.1(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(eslint@8.57.1)(jest@27.5.1(ts-node@10.9.2(@types/node@22.15.3)(typescript@5.8.3)))(typescript@5.8.3):
+  eslint-config-react-app@7.0.1(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(eslint@8.57.1)(jest@27.5.1(ts-node@10.9.2(@types/node@22.15.3)(typescript@5.8.3)))(typescript@5.8.3):
     dependencies:
       '@babel/core': 7.26.10
       '@babel/eslint-parser': 7.27.0(@babel/core@7.26.10)(eslint@8.57.1)
@@ -12279,7 +12273,7 @@ snapshots:
       babel-preset-react-app: 10.0.1
       confusing-browser-globals: 1.0.11
       eslint: 8.57.1
-      eslint-plugin-flowtype: 8.0.3(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(eslint@8.57.1)
+      eslint-plugin-flowtype: 8.0.3(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(eslint@8.57.1)
       eslint-plugin-import: 2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)
       eslint-plugin-jest: 25.7.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(jest@27.5.1(ts-node@10.9.2(@types/node@22.15.3)(typescript@5.8.3)))(typescript@5.8.3)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@8.57.1)
@@ -12324,9 +12318,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-flowtype@8.0.3(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(eslint@8.57.1):
+  eslint-plugin-flowtype@8.0.3(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(eslint@8.57.1):
     dependencies:
-      '@babel/plugin-syntax-flow': 7.26.0(@babel/core@7.26.10)
+      '@babel/plugin-syntax-flow': 7.27.1(@babel/core@7.26.10)
       '@babel/plugin-transform-react-jsx': 7.27.1(@babel/core@7.26.10)
       eslint: 8.57.1
       lodash: 4.17.21
@@ -15868,7 +15862,7 @@ snapshots:
 
   react-refresh@0.11.0: {}
 
-  react-scripts@5.0.1(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(@types/babel__core@7.1.15)(@types/webpack@5.28.5(webpack-cli@6.0.1))(autoprefixer@10.4.21(postcss@8.5.3))(eslint@8.57.1)(react@18.3.1)(ts-node@10.9.2(@types/node@22.15.3)(typescript@5.8.3))(type-fest@2.19.0)(typescript@5.8.3)(webpack-cli@6.0.1):
+  react-scripts@5.0.1(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(@types/babel__core@7.1.15)(@types/webpack@5.28.5(webpack-cli@6.0.1))(autoprefixer@10.4.21(postcss@8.5.3))(eslint@8.57.1)(react@18.3.1)(ts-node@10.9.2(@types/node@22.15.3)(typescript@5.8.3))(type-fest@2.19.0)(typescript@5.8.3)(webpack-cli@6.0.1):
     dependencies:
       '@babel/core': 7.26.10
       '@pmmmwh/react-refresh-webpack-plugin': 0.5.4(@types/webpack@5.28.5(webpack-cli@6.0.1))(react-refresh@0.11.0)(type-fest@2.19.0)(webpack-dev-server@4.7.4)(webpack@5.99.7)
@@ -15886,7 +15880,7 @@ snapshots:
       dotenv: 10.0.0
       dotenv-expand: 5.1.0
       eslint: 8.57.1
-      eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(eslint@8.57.1)(jest@27.5.1(ts-node@10.9.2(@types/node@22.15.3)(typescript@5.8.3)))(typescript@5.8.3)
+      eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.26.10))(eslint@8.57.1)(jest@27.5.1(ts-node@10.9.2(@types/node@22.15.3)(typescript@5.8.3)))(typescript@5.8.3)
       eslint-webpack-plugin: 3.1.1(eslint@8.57.1)(webpack@5.99.7)
       file-loader: 6.2.0(webpack@5.99.7)
       fs-extra: 10.0.0
