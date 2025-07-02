@@ -20,7 +20,7 @@ importers:
         version: 7.27.7
       '@babel/eslint-parser':
         specifier: ^7.25.9
-        version: 7.27.5(@babel/core@7.27.7)(eslint@8.57.1)
+        version: 7.28.0(@babel/core@7.27.7)(eslint@8.57.1)
       '@babel/plugin-syntax-flow':
         specifier: ^7.26.0
         version: 7.27.1(@babel/core@7.27.7)
@@ -231,8 +231,8 @@ packages:
     resolution: {integrity: sha512-BU2f9tlKQ5CAthiMIgpzAh4eDTLWo1mqi9jqE2OxMG0E/OM199VJt2q8BztTxpnSW0i1ymdwLXRJnYzvDM5r2w==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/eslint-parser@7.27.5':
-    resolution: {integrity: sha512-HLkYQfRICudzcOtjGwkPvGc5nF1b4ljLZh1IRDj50lRZ718NAKVgQpIAUX8bfg6u/yuSKY3L7E0YzIV+OxrB8Q==}
+  '@babel/eslint-parser@7.28.0':
+    resolution: {integrity: sha512-N4ntErOlKvcbTt01rr5wj3y55xnIdx1ymrfIr8C2WnM1Y9glFgWaGDEULJIazOX3XM9NRzhfJ6zZnQ1sBNWU+w==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': ^7.11.0
@@ -8535,7 +8535,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/eslint-parser@7.27.5(@babel/core@7.27.7)(eslint@8.57.1)':
+  '@babel/eslint-parser@7.28.0(@babel/core@7.27.7)(eslint@8.57.1)':
     dependencies:
       '@babel/core': 7.27.7
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
@@ -12962,7 +12962,7 @@ snapshots:
   eslint-config-react-app@7.0.1(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.27.7))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.27.7))(eslint@8.57.1)(jest@27.5.1(ts-node@10.9.2(@types/node@24.0.8)(typescript@5.8.3)))(typescript@5.8.3):
     dependencies:
       '@babel/core': 7.27.7
-      '@babel/eslint-parser': 7.27.5(@babel/core@7.27.7)(eslint@8.57.1)
+      '@babel/eslint-parser': 7.28.0(@babel/core@7.27.7)(eslint@8.57.1)
       '@rushstack/eslint-patch': 1.1.0
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)
       '@typescript-eslint/parser': 5.62.0(eslint@8.57.1)(typescript@5.8.3)
