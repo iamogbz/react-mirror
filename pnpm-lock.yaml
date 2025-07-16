@@ -46,8 +46,8 @@ importers:
         specifier: ^9.6.1
         version: 9.6.1
       '@types/eslint-scope':
-        specifier: ^3.7.7
-        version: 3.7.7
+        specifier: ^8.3.1
+        version: 8.3.1
       '@types/jest':
         specifier: ^30.0.0
         version: 30.0.0
@@ -1665,6 +1665,9 @@ packages:
 
   '@types/eslint-scope@3.7.7':
     resolution: {integrity: sha512-MzMFlSLBqNF2gcHWO0G1vP/YQyfvrxZ0bF+u7mzUdZ1/xK4A4sru+nraZz5i3iEIk1l1uyicaDVTB4QbbEkAYg==}
+
+  '@types/eslint-scope@8.3.1':
+    resolution: {integrity: sha512-TA1UHHt+kOdoEixpauJ+NKRkatun98fEz3qMecjLfahS4EzHcQFXxU2vIhWvygZmcTyEuoQf27Ld0LXfp04vkQ==}
 
   '@types/eslint@7.29.0':
     resolution: {integrity: sha512-VNcvioYDH8/FxaeTKkM4/TiTwt6pBV9E3OfGmvaw8tPl0rrHCJ4Ll15HRT+pMiFAf/MLQvAzC+6RzUMEL9Ceng==}
@@ -10448,7 +10451,12 @@ snapshots:
   '@types/eslint-scope@3.7.7':
     dependencies:
       '@types/eslint': 9.6.1
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.8
+
+  '@types/eslint-scope@8.3.1':
+    dependencies:
+      '@types/eslint': 9.6.1
+      '@types/estree': 1.0.8
 
   '@types/eslint@7.29.0':
     dependencies:
