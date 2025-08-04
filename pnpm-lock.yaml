@@ -170,7 +170,7 @@ importers:
         version: 24.2.7(typescript@5.8.3)
       ts-jest:
         specifier: ^29.2.5
-        version: 29.4.0(@babel/core@7.28.0)(@jest/transform@30.0.5)(@jest/types@30.0.5)(babel-jest@30.0.5(@babel/core@7.28.0))(jest-util@30.0.5)(jest@30.0.5(@types/node@24.1.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@24.1.0)(typescript@5.8.3)))(typescript@5.8.3)
+        version: 29.4.1(@babel/core@7.28.0)(@jest/transform@30.0.5)(@jest/types@30.0.5)(babel-jest@30.0.5(@babel/core@7.28.0))(jest-util@30.0.5)(jest@30.0.5(@types/node@24.1.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@24.1.0)(typescript@5.8.3)))(typescript@5.8.3)
       ts-loader:
         specifier: ^9.5.1
         version: 9.5.2(typescript@5.8.3)(webpack@5.101.0)
@@ -7353,6 +7353,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
@@ -7787,8 +7788,8 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
-  ts-jest@29.4.0:
-    resolution: {integrity: sha512-d423TJMnJGu80/eSgfQ5w/R+0zFJvdtTxwtF9KzFFunOpSeD+79lHJQIiAhluJoyGRbvj9NZJsl9WjCUo0ND7Q==}
+  ts-jest@29.4.1:
+    resolution: {integrity: sha512-SaeUtjfpg9Uqu8IbeDKtdaS0g8lS6FT6OzM3ezrDfErPJPHNDo/Ey+VFGP1bQIDfagYDLyRpd7O15XpG1Es2Uw==}
     engines: {node: ^14.15.0 || ^16.10.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -17744,11 +17745,11 @@ snapshots:
     dependencies:
       typescript: 5.8.3
 
-  ts-jest@29.4.0(@babel/core@7.28.0)(@jest/transform@30.0.5)(@jest/types@30.0.5)(babel-jest@30.0.5(@babel/core@7.28.0))(jest-util@30.0.5)(jest@30.0.5(@types/node@24.1.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@24.1.0)(typescript@5.8.3)))(typescript@5.8.3):
+  ts-jest@29.4.1(@babel/core@7.28.0)(@jest/transform@30.0.5)(@jest/types@30.0.5)(babel-jest@30.0.5(@babel/core@7.28.0))(jest-util@30.0.5)(jest@30.0.5(@types/node@24.1.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@24.1.0)(typescript@5.8.3)))(typescript@5.8.3):
     dependencies:
       bs-logger: 0.2.6
-      ejs: 3.1.10
       fast-json-stable-stringify: 2.1.0
+      handlebars: 4.7.8
       jest: 30.0.5(@types/node@24.1.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@24.1.0)(typescript@5.8.3))
       json5: 2.2.3
       lodash.memoize: 4.1.2
