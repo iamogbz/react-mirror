@@ -116,7 +116,7 @@
         "@eslint/compat": "^2.0.0",
         "@testing-library/react": "^16.0.1",
         "@types/eslint": "^9.6.1",
-        "@types/eslint-scope": "^3.7.7",
+        "@types/eslint-scope": "^8.4.0",
         "@types/jest": "^30.0.0",
         "@types/node": "^25.0.0",
         "@types/react": "^18.3.12",
