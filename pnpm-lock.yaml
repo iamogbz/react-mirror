@@ -35,7 +35,7 @@ importers:
         version: 20.3.1(@types/node@25.0.10)(typescript@5.9.3)
       '@commitlint/config-conventional':
         specifier: ^20.0.0
-        version: 20.3.1
+        version: 20.4.0
       '@eslint/compat':
         specifier: ^2.0.0
         version: 2.0.1(eslint@8.57.1)
@@ -229,6 +229,10 @@ packages:
 
   '@babel/code-frame@7.28.6':
     resolution: {integrity: sha512-JYgintcMjRiCvS8mMECzaEn+m3PfoQiyqukOMCCVQtoJGYJw8j/8LBJEiqkHLkfwCcs74E3pbAUFNg7d9VNJ+Q==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/code-frame@7.29.0':
+    resolution: {integrity: sha512-9NhCeYjq9+3uxgdtp20LSiJXJvN0FeCtNGpJxuMFZ1Kv3cWUNb6DOhJwUvcVCzKGR66cw4njwM6hrJLqgOwbcw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/compat-data@7.28.6':
@@ -912,8 +916,8 @@ packages:
     engines: {node: '>=v18'}
     hasBin: true
 
-  '@commitlint/config-conventional@20.3.1':
-    resolution: {integrity: sha512-NCzwvxepstBZbmVXsvg49s+shCxlJDJPWxXqONVcAtJH9wWrOlkMQw/zyl+dJmt8lyVopt5mwQ3mR5M2N2rUWg==}
+  '@commitlint/config-conventional@20.4.0':
+    resolution: {integrity: sha512-nolhFe2YKIix0D4+tPXAWnnIc9WB5fOCgmm4h2EcRyEShC64oH/DpM9n++85NRdItvIhKb+Szsaeuug7KcEeIA==}
     engines: {node: '>=v18'}
 
   '@commitlint/config-validator@17.6.7':
@@ -994,6 +998,10 @@ packages:
 
   '@commitlint/types@20.3.1':
     resolution: {integrity: sha512-VmIFV/JkBRhDRRv7N5B7zEUkNZIx9Mp+8Pe65erz0rKycXLsi8Epcw0XJ+btSeRXgTzE7DyOyA9bkJ9mn/yqVQ==}
+    engines: {node: '>=v18'}
+
+  '@commitlint/types@20.4.0':
+    resolution: {integrity: sha512-aO5l99BQJ0X34ft8b0h7QFkQlqxC6e7ZPVmBKz13xM9O8obDaM1Cld4sQlJDXXU/VFuUzQ30mVtHjVz74TuStw==}
     engines: {node: '>=v18'}
 
   '@cspotcode/source-map-support@0.8.1':
@@ -3024,9 +3032,9 @@ packages:
     resolution: {integrity: sha512-GGf2Nipn1RUCAktxuVauVr1e3r8QrLP/B0lEUsFktmGqc3ddbQkhoJZHJctVU829U1c6mTSWftrVOCHaL85Q3w==}
     engines: {node: '>=18'}
 
-  conventional-changelog-conventionalcommits@7.0.2:
-    resolution: {integrity: sha512-NKXYmMR/Hr1DevQegFB4MwfM5Vv0m4UIxKZTTYuD98lpTknaZlSRrDOG4X7wIXpGkfsYxZTghUN+Qq+T0YQI7w==}
-    engines: {node: '>=16'}
+  conventional-changelog-conventionalcommits@9.1.0:
+    resolution: {integrity: sha512-MnbEysR8wWa8dAEvbj5xcBgJKQlX/m0lhS8DsyAAWDHdfs2faDJxTgzRYlRYpXSe7UiKrIIlB4TrBKU9q9DgkA==}
+    engines: {node: '>=18'}
 
   conventional-changelog-writer@8.2.0:
     resolution: {integrity: sha512-Y2aW4596l9AEvFJRwFGJGiQjt2sBYTjPD18DdvxX9Vpz0Z7HQ+g1Z+6iYDAm1vR3QOJrDBkRHixHK/+FhkR6Pw==}
@@ -8610,6 +8618,12 @@ snapshots:
       js-tokens: 4.0.0
       picocolors: 1.1.1
 
+  '@babel/code-frame@7.29.0':
+    dependencies:
+      '@babel/helper-validator-identifier': 7.28.5
+      js-tokens: 4.0.0
+      picocolors: 1.1.1
+
   '@babel/compat-data@7.28.6': {}
 
   '@babel/core@7.28.6':
@@ -9476,10 +9490,10 @@ snapshots:
       - '@types/node'
       - typescript
 
-  '@commitlint/config-conventional@20.3.1':
+  '@commitlint/config-conventional@20.4.0':
     dependencies:
-      '@commitlint/types': 20.3.1
-      conventional-changelog-conventionalcommits: 7.0.2
+      '@commitlint/types': 20.4.0
+      conventional-changelog-conventionalcommits: 9.1.0
 
   '@commitlint/config-validator@17.6.7':
     dependencies:
@@ -9617,6 +9631,11 @@ snapshots:
     dependencies:
       '@types/conventional-commits-parser': 5.0.2
       chalk: 5.6.2
+
+  '@commitlint/types@20.4.0':
+    dependencies:
+      conventional-commits-parser: 6.2.1
+      picocolors: 1.1.1
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -10494,7 +10513,7 @@ snapshots:
 
   '@testing-library/dom@10.0.0':
     dependencies:
-      '@babel/code-frame': 7.28.6
+      '@babel/code-frame': 7.29.0
       '@babel/runtime': 7.28.6
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
@@ -12187,7 +12206,7 @@ snapshots:
     dependencies:
       compare-func: 2.0.0
 
-  conventional-changelog-conventionalcommits@7.0.2:
+  conventional-changelog-conventionalcommits@9.1.0:
     dependencies:
       compare-func: 2.0.0
 
